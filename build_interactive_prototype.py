@@ -25,22 +25,32 @@ def get_base64_image(file_path):
     
     try:
         im = Image.open(file_path)
-        if ext in ['.jpg', '.jpeg'] and im.mode in ('RGBA', 'P'):
-            im = im.convert('RGB')
         
-        max_size = 1200
+        # Check if it's a drive photo or background image to use aggressive optimization
+        is_drive_photo = 'drive-download-' in file_path or 'parceria/' in file_path
+        max_size = 600 if is_drive_photo else 900
+        
         if im.width > max_size or im.height > max_size:
             im.thumbnail((max_size, max_size), Image.Resampling.LANCZOS)
         
+        if im.mode in ('RGBA', 'P') and ext in ['.jpg', '.jpeg']:
+            im = im.convert('RGB')
+        
         buffer = BytesIO()
         if ext in ['.jpg', '.jpeg']:
-            im.save(buffer, format='JPEG', quality=80, optimize=True)
+            im.save(buffer, format='JPEG', quality=75, optimize=True)
             mime = "image/jpeg"
         elif ext == '.png':
-            im.save(buffer, format='PNG', optimize=True)
-            mime = "image/png"
+            # Convert non-transparent PNGs to JPEG for 10x smaller size, or optimize PNG
+            if im.mode == 'RGB' or (im.mode == 'RGBA' and not im.getextrema()[3][0] < 255):
+                im = im.convert('RGB')
+                im.save(buffer, format='JPEG', quality=75, optimize=True)
+                mime = "image/jpeg"
+            else:
+                im.save(buffer, format='PNG', optimize=True)
+                mime = "image/png"
         elif ext == '.webp':
-            im.save(buffer, format='WEBP', quality=80)
+            im.save(buffer, format='WEBP', quality=75)
             mime = "image/webp"
         else:
             mime = "application/octet-stream"
