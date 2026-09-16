@@ -19,7 +19,7 @@ CORPO = """
         <img src="drive-download-20260915T155644Z-1-001/17-DSC00774.jpg" alt="" style="object-position: center 30%;">
         <img src="drive-download-20260915T155644Z-1-001/20-DSC00792.jpg" alt="" style="object-position: center 30%;">
         <img src="drive-download-20260915T155644Z-1-001/21-DSC00801.jpg" alt="" style="object-position: center 30%;">
-        <img src="drive-download-20260915T155644Z-1-001/28-DSC00836.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/60-DSC01087.jpg" alt="" style="object-position: center 30%;">
         <img src="drive-download-20260915T155644Z-1-001/31-DSC00856.jpg" alt="" style="object-position: center 30%;">
         <img src="drive-download-20260915T155644Z-1-001/34-DSC00883.jpg" alt="" style="object-position: center 30%;">
         <img src="drive-download-20260915T155644Z-1-001/38-DSC00909.jpg" alt="" style="object-position: center 30%;">
