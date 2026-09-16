@@ -12,20 +12,20 @@ CORPO = """
     <!-- ABERTURA: O NÚCLEO E AS QUATRO RAMIFICAÇÕES -->
     <section class="grafo-secao" id="abertura-servicos">
 
-      <!-- MOSAICO OTIMIZADO COM 12 FOTOS DE ALTO IMPACTO (PARCERIA + PALESTRAS) -->
+      <!-- MOSAICO COM 12 FOTOS EXCLUSIVAS DA PALESTRA (SEM COMIDA/CAFÉ) -->
       <div class="servicos-page-mosaico-bg" aria-hidden="true" style="opacity:0.18;">
-        <img src="assets/images/parceria/foto_escada_equipe.png" alt="" style="object-position: center 30%;">
         <img src="drive-download-20260915T155644Z-1-001/8-DSC00701.jpg" alt="" style="object-position: center 30%;">
-        <img src="assets/images/parceria/campo_grupo_sala.jpg" alt="" style="object-position: center 30%;">
         <img src="drive-download-20260915T155644Z-1-001/14-DSC00762.jpg" alt="" style="object-position: center 30%;">
-        <img src="assets/images/parceria/presenca_industria.png" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/17-DSC00774.jpg" alt="" style="object-position: center 30%;">
         <img src="drive-download-20260915T155644Z-1-001/20-DSC00792.jpg" alt="" style="object-position: center 30%;">
-        <img src="assets/images/parceria/campo_acefb.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/21-DSC00801.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/28-DSC00836.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/31-DSC00856.jpg" alt="" style="object-position: center 30%;">
         <img src="drive-download-20260915T155644Z-1-001/34-DSC00883.jpg" alt="" style="object-position: center 30%;">
-        <img src="assets/images/parceria/presenca_comercio.png" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/38-DSC00909.jpg" alt="" style="object-position: center 30%;">
         <img src="drive-download-20260915T155644Z-1-001/46-DSC00995.jpg" alt="" style="object-position: center 30%;">
-        <img src="assets/images/parceria/foto_equipe_delta_blue.png" alt="" style="object-position: center 30%;">
         <img src="drive-download-20260915T155644Z-1-001/54-DSC01048.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/58-DSC01082.jpg" alt="" style="object-position: center 30%;">
       </div>
 
       <div class="u-wrap">
