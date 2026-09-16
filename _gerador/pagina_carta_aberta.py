@@ -31,7 +31,10 @@ HERO = """
       </div>
 
       <div class="hero-solidao__visual">
-        <img src="assets/images/parceria/foto_nova_palestra.jpg" alt="Equipe Evolve em treinamento e palestra corporativa" style="width:100%;height:100%;object-fit:cover;border-radius:1.25rem" loading="eager">
+        <div class="hero-solidao__visual--placeholder" style="width:100%;height:100%;min-height:100%;background:#cfd4dc;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#4a5568;font-family:var(--font-sans);font-weight:600;font-size:1.35rem;letter-spacing:0.06em;text-transform:uppercase;gap:0.75rem;">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Foto da Equipe</span>
+        </div>
       </div>
 
       <div class="scroll-cue" aria-hidden="true">
@@ -251,14 +254,6 @@ VOZES = """
         </div>
 
         <article class="voz">
-          <div class="voz__media">
-            <div class="pull-frame pull-frame--tall" data-reveal>
-              <img src="assets/images/parceria/presenca_comercio.png"
-                   alt="Equipe de uma unidade da Rede Delta reunida com a consultora da Evolve"
-                   data-pull="52" loading="lazy" width="800" height="520">
-              <span class="pull-frame__label">Rede Delta · unidade</span>
-            </div>
-          </div>
           <blockquote class="voz__quote" data-reveal style="--d:120ms">
             <p>“Tivemos uma evolução muito significativa no desenvolvimento da nossa equipe, graças aos treinamentos executados e bem pontuados. Considero extremamente importante dar esse feedback sobre a evolução que alcançamos, e achei muito positivo acompanhar esse processo.</p>
             <p>Neste último treinamento, <mark>ficou evidente o quanto o time se desenvolveu e conseguiu evoluir</mark>. Então, parabéns! Acredito que o seu trabalho está sendo executado de forma consistente, com direcionamento claro, e já apresenta resultados muito expressivos.”</p>
@@ -281,15 +276,6 @@ VOZES = """
               <span class="empresa">Integração Gestão Empresarial</span>
             </footer>
           </blockquote>
-          <div class="voz__media">
-            <div class="pull-frame pull-frame--tall" data-reveal style="--d:120ms">
-              <img src="assets/images/parceria/foto_treinamento_equipe.png"
-                   alt="Registro de um encontro de desenvolvimento com equipe cliente em auditório"
-                   data-pull="52" loading="lazy" width="1024" height="600"
-                   style="object-position: 12% 40%">
-              <span class="pull-frame__label">Encontro de desenvolvimento</span>
-            </div>
-          </div>
         </article>
       </div>
     </section>
@@ -307,39 +293,31 @@ PRESENCA = """
         </div>
 
         <div class="presenca-mosaico presenca-mosaico--campo" data-stagger="80">
-          <figure class="presenca-item pull-frame pull-frame--wide" data-reveal style="border-radius:var(--radius-md);overflow:hidden">
-            <img src="assets/images/parceria/campo_acefb.jpg" alt="Grupo grande de participantes reunido diante do letreiro da ACEFB ao final de um encontro" data-pull="56" loading="lazy" width="870" height="500">
-            <span class="pull-frame__label">Associação empresarial · encontro de lideranças</span>
+          <figure class="presenca-item presenca-item--acefb pull-frame pull-frame--squareish" data-reveal>
+            <img src="assets/images/parceria/campo_acefb.jpg" alt="Grupo grande de participantes reunido diante do letreiro da ACEFB ao final de um encontro" loading="lazy" width="870" height="500">
+            <span class="pull-frame__label">Ação empresarial</span>
           </figure>
-          <figure class="presenca-item pull-frame pull-frame--squareish" data-reveal>
-            <img src="assets/images/parceria/campo_grupo_sala.jpg" alt="Equipe numerosa reunida em sala corporativa ao final de um treinamento" data-pull="40" loading="lazy" width="1032" height="517">
+          <figure class="presenca-item presenca-item--treinamento pull-frame pull-frame--squareish" data-reveal>
+            <img src="assets/images/parceria/campo_grupo_sala.jpg" alt="Equipe numerosa reunida em sala corporativa ao final de um treinamento" loading="lazy" width="1032" height="517">
             <span class="pull-frame__label">Treinamento de equipe</span>
           </figure>
-          <figure class="presenca-item pull-frame pull-frame--squareish" data-reveal>
-            <img src="assets/images/parceria/presenca_industria.png" alt="Amanda reunida com a equipe de uma indústria familiar no galpão de produção" data-pull="40" loading="lazy" width="800" height="520">
+          <figure class="presenca-item presenca-item--industria pull-frame pull-frame--squareish" data-reveal>
+            <img src="assets/images/parceria/presenca_industria.png" alt="Amanda reunida com a equipe de uma indústria familiar no galpão de produção" loading="lazy" width="800" height="520">
             <span class="pull-frame__label">Indústria familiar</span>
           </figure>
-          <figure class="presenca-item pull-frame pull-frame--squareish" data-reveal>
-            <img src="assets/images/parceria/campo_grupo_azul.jpg" alt="Equipe uniformizada reunida ao final de um encontro de desenvolvimento" data-pull="40" loading="lazy" width="1045" height="533">
+          <figure class="presenca-item presenca-item--operacional pull-frame pull-frame--squareish" data-reveal>
+            <img src="assets/images/parceria/foto_escada_equipe.png" alt="Amanda e equipe de colaboradores reunidos em escadaria corporativa de empresa cliente" loading="lazy" width="800" height="600">
             <span class="pull-frame__label">Equipe operacional</span>
           </figure>
-          <figure class="presenca-item pull-frame pull-frame--squareish" data-reveal>
-            <img src="assets/images/parceria/presenca_comercio.png" alt="Amanda com a equipe de uma unidade de comércio e serviço automotivo" data-pull="40" loading="lazy" width="800" height="520">
+          <figure class="presenca-item presenca-item--comercio pull-frame pull-frame--squareish" data-reveal>
+            <img src="assets/images/parceria/presenca_comercio.png" alt="Amanda com a equipe de uma unidade de comércio e serviço automotivo" loading="lazy" width="800" height="520">
             <span class="pull-frame__label">Comércio varejista</span>
           </figure>
-          <figure class="presenca-item pull-frame pull-frame--squareish" data-reveal>
-            <img src="assets/images/parceria/campo_refinaria.jpg" alt="Grupo de profissionais reunido diante do letreiro de uma refinaria" data-pull="40" loading="lazy" width="704" height="316">
-            <span class="pull-frame__label">Trabalho em campo · indústria de base</span>
-          </figure>
-          <figure class="presenca-item pull-frame pull-frame--squareish" data-reveal>
-            <img src="assets/images/parceria/presenca_servicos.png" alt="Amanda com a equipe de uma distribuidora no balcão de atendimento" data-pull="40" loading="lazy" width="800" height="520">
-            <span class="pull-frame__label">Distribuição</span>
-          </figure>
-          <figure class="presenca-item pull-frame pull-frame--squareish" data-reveal>
-            <img src="assets/images/parceria/foto_equipe_delta_blue.png" alt="Amanda com a equipe uniformizada de uma empresa cliente ao final de um encontro de desenvolvimento" data-pull="40" loading="lazy" width="1024" height="1024">
+          <figure class="presenca-item presenca-item--equipe-cliente pull-frame pull-frame--squareish" data-reveal>
+            <img src="assets/images/parceria/foto_equipe_delta_blue.png" alt="Amanda com a equipe uniformizada de uma empresa cliente ao final de um encontro de desenvolvimento" loading="lazy" width="1024" height="1024">
             <span class="pull-frame__label">Equipe cliente · encontro de desenvolvimento</span>
           </figure>
-                </div>
+        </div>
       </div>
     </section>
 """

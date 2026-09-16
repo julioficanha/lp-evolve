@@ -58,7 +58,7 @@ body { overscroll-behavior-y: none; }
   height: 100svh;
   max-height: 100svh;
   display: grid;
-  grid-template-columns: minmax(0, 1.36fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.45fr);
   align-items: stretch;
   overflow: hidden;
   background: var(--off-white-pure);
@@ -121,7 +121,7 @@ body { overscroll-behavior-y: none; }
 .hero-solidao__visual {
   position: relative;
   overflow: hidden;
-  clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(5% 0, 100% 0, 100% 100%, 0 100%);
   background: var(--azul-petroleo);
 }
 .hero-solidao__visual img {
@@ -140,7 +140,7 @@ body { overscroll-behavior-y: none; }
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(115deg, rgba(2,23,59,0.62) 0%, rgba(2,23,59,0.18) 46%, rgba(2,23,59,0.05) 100%);
+    linear-gradient(115deg, rgba(2,23,59,0.4) 0%, rgba(2,23,59,0.1) 46%, transparent 100%);
   pointer-events: none;
 }
 
@@ -148,7 +148,7 @@ body { overscroll-behavior-y: none; }
 .hero-solidao__slash {
   position: absolute;
   top: -10%;
-  left: 14%;
+  left: 5%;
   width: 1px;
   height: 130%;
   background: var(--terracota);
@@ -1202,6 +1202,11 @@ body { overscroll-behavior-y: none; }
   align-items: center;
   padding: clamp(2.5rem, 5vw, 4rem) 0;
   border-top: var(--hairline);
+}
+.voz:not(:has(.voz__media)) {
+  display: block;
+  max-width: 52rem;
+  margin: 0 auto;
 }
 .voz:last-child { border-bottom: var(--hairline); }
 .voz--flip { grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); }
@@ -2897,31 +2902,37 @@ select:focus-visible, textarea:focus-visible {
   position: absolute;
   inset: 0;
   z-index: 2;
-  background: radial-gradient(ellipse 75% 65% at 50% 45%, rgba(1, 14, 39, 0.4), var(--azul-petroleo-deep, #010E27) 85%);
+  background: radial-gradient(ellipse 85% 75% at 50% 45%, rgba(1, 14, 39, 0.25), rgba(1, 14, 39, 0.65) 85%);
   pointer-events: none;
 }
 
-.grafo-bg-mosaic {
+.servicos-page-mosaico-bg {
   position: absolute;
-  inset: 0;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: repeat(9, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  gap: 4px;
-  padding: 0;
-  opacity: 0.15;
-  mix-blend-mode: luminosity;
-  overflow: hidden;
-  pointer-events: none;
-  filter: saturate(0.85) contrast(1.1);
-}
-
-.grafo-bg-mosaic img {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  display: block;
+  min-height: 100%;
+  z-index: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: minmax(180px, 1fr);
+  gap: 8px;
+  padding: 8px;
+  opacity: 0.17 !important;
+  pointer-events: none;
+  overflow: hidden;
+  filter: saturate(0.88) contrast(1.06);
+}
+
+.servicos-page-mosaico-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover !important;
+  object-position: center 30% !important;
+  border-radius: 4px;
 }
 
 .grafo-secao__head { position: relative; z-index: 2; text-align: center; max-width: 46rem; margin: 0 auto; }
@@ -3497,13 +3508,15 @@ select:focus-visible, textarea:focus-visible {
   display: block !important;
   border-radius: 1.25rem !important;
   overflow: hidden !important;
-  background: var(--azul-petroleo) !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
   clip-path: none !important; /* Overrides .pull-frame clip-path inset(100% 0 0 0) */
   opacity: 1 !important;     /* Overrides [data-reveal] opacity: 0 */
-  box-shadow: 0 16px 38px rgba(2, 23, 59, 0.16), 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 14px 32px rgba(2, 23, 59, 0.14) !important;
   transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
-  min-height: 240px !important;
-  aspect-ratio: 4 / 3 !important;
+  min-height: 220px !important;
+  aspect-ratio: 16 / 10 !important;
   margin: 0 !important;
 }
 
@@ -3511,7 +3524,7 @@ select:focus-visible, textarea:focus-visible {
 .presenca-mosaico--campo .presenca-item:first-child {
   grid-column: span 1 !important;
   grid-row: span 1 !important;
-  aspect-ratio: 4 / 3 !important;
+  aspect-ratio: 16 / 10 !important;
 }
 
 
@@ -3521,10 +3534,59 @@ select:focus-visible, textarea:focus-visible {
   object-fit: cover !important;
   display: block !important;
   opacity: 1 !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 1.25rem !important;
+  box-sizing: border-box !important;
   transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.45s ease !important;
 }
 
-/* Hover 3D: elevação suave e micro-zoom da foto */
+/* 01. ACEFB / Ação empresarial — preenchimento total sem bordas */
+.presenca-mosaico--campo .presenca-item--acefb img {
+  object-fit: cover !important;
+  object-position: center 30% !important;
+  transform: none !important;
+}
+
+/* 02. Treinamento de equipe — preenchimento total sem bordas */
+.presenca-mosaico--campo .presenca-item--treinamento img {
+  object-fit: cover !important;
+  object-position: center 15% !important;
+  transform: none !important;
+}
+
+/* 03. Indústria familiar — preenchimento total sem bordas */
+.presenca-mosaico--campo .presenca-item--industria img {
+  object-fit: cover !important;
+  object-position: center 40% !important;
+  transform: none !important;
+}
+
+/* 04. Equipe operacional — foto da escadaria corporativa com enquadramento perfeito */
+.presenca-mosaico--campo .presenca-item--operacional img {
+  object-fit: cover !important;
+  object-position: center 30% !important;
+  transform: none !important;
+}
+
+/* 05. Comércio varejista — preenchimento total sem bordas */
+.presenca-mosaico--campo .presenca-item--comercio img {
+  object-fit: cover !important;
+  object-position: 30% 35% !important;
+  transform: none !important;
+}
+
+/* 06. Equipe cliente — enquadramento sutil: preserva 100% dos rostos no topo e mantém o time da frente visível */
+.presenca-mosaico--campo .presenca-item--equipe-cliente img {
+  object-fit: cover !important;
+  object-position: center 48% !important;
+  transform: none !important;
+}
+
+/* Hover 3D: elevação suave */
 .presenca-mosaico--campo .presenca-item:hover {
   transform: translateY(-12px) scale(1.03) rotateX(1.5deg) rotateY(-1.5deg) !important;
   box-shadow: 0 30px 60px rgba(2, 23, 59, 0.28), 0 14px 28px rgba(155, 81, 47, 0.22) !important;
@@ -3532,7 +3594,7 @@ select:focus-visible, textarea:focus-visible {
 }
 
 .presenca-mosaico--campo .presenca-item:hover img {
-  transform: scale(1.08) !important;
+  transform: scale(1.04) !important;
 }
 
 .presenca-mosaico--campo .pull-frame__label {
