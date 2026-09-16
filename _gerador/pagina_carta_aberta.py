@@ -543,52 +543,7 @@ FIT = """
 """
 
 
-CASO = """
-    <!-- 12 · CASO REDE DELTA -->
-    <section class="bloco" id="caso" style="background:var(--off-white)">
-      <div class="u-wrap">
-        <div class="bloco__head" data-reveal>
-          <span class="no-secao"><span class="no-secao__dot"></span>Prova de transformação</span>
-          <h2 class="bloco__title" style="margin-top:1.25rem">Rede Delta: de conflitos prolongados a decisões que andam.</h2>
-        </div>
-
-        <div class="scrub__rows" style="border-top:var(--hairline)">
-          <div class="scrub-row" style="cursor:default" data-reveal>
-            <div class="scrub-row__side scrub-row__side--antes" style="opacity:1;filter:none;transform:none">
-              <span class="scrub-row__tag scrub-row__tag--antes">Cenário inicial</span>
-              <ul class="limite" style="border:none;padding:0;list-style:none;display:grid;gap:0.7rem">
-                <li style="grid-template-columns:1fr">Conflitos prolongados entre setores e diretoria.</li>
-                <li style="grid-template-columns:1fr">Insegurança das lideranças intermediárias na tomada de decisão.</li>
-                <li style="grid-template-columns:1fr">Centralização excessiva de processos no nível diretivo.</li>
-              </ul>
-            </div>
-            <div class="scrub-row__axis" aria-hidden="true">
-              <svg viewBox="0 0 88 44" preserveAspectRatio="none">
-                <path class="rail" d="M 4 34 C 24 34, 26 10, 44 10 C 62 10, 64 34, 84 34"/>
-                <path class="fill" d="M 4 34 C 24 34, 26 10, 44 10 C 62 10, 64 34, 84 34" style="stroke-dasharray:none;stroke-dashoffset:0"/>
-              </svg>
-            </div>
-            <div class="scrub-row__side scrub-row__side--depois" style="opacity:1;filter:none;transform:none">
-              <span class="scrub-row__tag scrub-row__tag--depois">Resultado</span>
-              <ul class="limite" style="border:none;padding:0;list-style:none;display:grid;gap:0.7rem;text-align:right">
-                <li style="grid-template-columns:1fr">Agilidade decisória sem necessidade de aval constante.</li>
-                <li style="grid-template-columns:1fr">Maturidade dos gestores e clareza de responsabilidades.</li>
-                <li style="grid-template-columns:1fr">Ambiente de trabalho mais seguro e organizado.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="bloco__head u-mt-xl" data-reveal>
-          <span class="bloco__eyebrow">Atuação Evolve</span>
-          <p class="bloco__lead" style="max-width:60ch;margin-top:0">
-            Diagnóstico comportamental e alinhamento de lideranças · implantação de ritos de gestão e clareza de papéis ·
-            acompanhamento próximo na resolução dos conflitos internos.
-          </p>
-        </div>
-      </div>
-    </section>
-"""
+CASO = ""
 
 
 SERVICOS_HUB = """
@@ -710,7 +665,6 @@ def render():
         + METODO
         + INDICADORES
         + FIT
-        + CASO
         + SERVICOS_HUB
         + FAQ.replace("%ITENS%", _faq())
         + P.cta_final(
