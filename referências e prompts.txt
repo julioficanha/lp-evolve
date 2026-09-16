@@ -1,0 +1,585 @@
+
+
+
+---------------
+*COMENTÁRIOS
+O que eu entendi que a Evolve realmente vende
+
+A principal descoberta é esta: eu não posicionaria a Evolve como uma empresa de RH.
+
+Ela usa RH, psicologia organizacional, Departamento Pessoal, recrutamento e liderança como instrumentos, mas a transformação central descrita no próprio briefing é outra:
+
+tirar pequenas e médias empresas da dependência do dono e construir uma estrutura de gestão capaz de crescer com segurança, previsibilidade e autonomia.
+
+Não é:
+
+“Cuidamos das pessoas da sua empresa.”
+
+É muito mais próximo de:
+
+Estruturamos pessoas, processos e lideranças para sua empresa crescer sem depender de você.
+
+Human Intelligence × Business Structure.
+---------------
+
+Prompts:
+
+Crie um protótipo de site institucional B2B para a Evolve Capital Humano, consultoria 
+de RH e psicologia organizacional para PMEs (5-200 colaboradores) em fase de expansão, 
+reorganização ou sucessão familiar. O decisor é o próprio dono/empresário, sobrecarregado 
+e "apagando incêndios".
+
+ARQUITETURA (6 camadas):
+1. Home institucional (visão geral, hub para as 4 frentes)
+2. Landing — Departamento Pessoal / Assessoria em DP
+3. Landing — Recrutamento & Seleção
+4. Landing — Gestão de Pessoas / Liderança
+5. Landing — Saúde Organizacional & Riscos Psicossociais (NR-1)
+6. Aba Institucional (equipe, história, certificações)
+Cada landing de produto termina em um quiz diagnóstico dedicado (placeholder de perguntas).
+
+IDENTIDADE VISUAL (manual da marca):
+- Cores: Azul Petróleo #02173B (primária, autoridade), Terracota #9B512F (destaque/CTA), 
+  Cinza Off-White #EFEFED (fundo), Verde Acinzetado #7E7161 (apoio/texto secundário)
+- Tipografia: Palash para títulos (editorial, com peso), Maleah/Montserrat/Roboto para corpo
+- Símbolo: linha contínua em curva S — usar como elemento gráfico recorrente (divisores, 
+  ícones, transições entre seções), nunca como decoração vazia
+
+TOM DE VOZ: direto, profissional, inteligente, simples, estratégico, prático. Evitar 
+jargão técnico de psicologia/RH. Falar a língua do empresário, não do RH.
+
+CONTEÚDO POR SEÇÃO (home):
+- Hero: promessa central — "construir estruturas de gestão para que PMEs cresçam com 
+  segurança, eficiência e lucratividade, com menos dependência do empresário"
+- 4 cards de frente (DP, R&S, Gestão de Pessoas, Saúde Organizacional), cada um com a 
+  dor/medo específico e link pra landing própria
+- Bloco de método: Diagnóstico Organizacional → Plano de Ação (5W2H) → Implantação 
+  Acompanhada → Transferência de Método/Autonomia
+- Prova social: atuação nacional, +10.000 pessoas impactadas, certificação internacional 
+  em Segurança Psicológica do Trabalho, 20+ anos de experiência da equipe
+- Depoimentos: Vanessa Ghoe (Rede Delta), Simone Cantu (Integração Gestão Empresarial)
+- Case "antes e depois": Rede Delta (conflitos prolongados → agilidade e autonomia)
+- FAQ: "Vocês executam ou só diagnosticam?", "Substitui meu RH interno?", 
+  "Como a empresa roda sem mim?"
+- Rodapé institucional: e-mail, telefone, endereço
+
+CADA LANDING DE PRODUTO deve ter: dor/medo específico → promessa específica → como 
+funciona → prova social relevante → CTA para o quiz diagnóstico daquele produto → 
+CTA secundário [PLACEHOLDER — ação principal ainda não definida com o cliente]
+
+QUIZ DIAGNÓSTICO: estrutura de perguntas com [PLACEHOLDER — perguntas reais pendentes], 
+termina em resultado personalizado por estágio de maturidade, com CTA para contato.
+
+Não usar paleta de SaaS de RH genérica (azul-roxo-gradiente). O peso visual deve ser 
+mais próximo de consultoria boutique/editorial do que de HR-tech.
+
+--
+
+Crie um protótipo de alta fidelidade para a página principal da EVOLVE CAPITAL HUMANO.
+
+IMPORTANTE:
+Não crie um site genérico de Recursos Humanos.
+Não trate a Evolve visualmente como clínica de psicologia.
+Não trate a Evolve como empresa de recrutamento.
+Não utilize o padrão visual comum de consultorias de RH com cards genéricos, ícones de pessoas, apertos de mão, equipes sorrindo em banco de imagens ou excesso de azul corporativo.
+
+A Evolve deve ser percebida como uma CONSULTORIA DE TRANSFORMAÇÃO ORGANIZACIONAL PARA PEQUENAS E MÉDIAS EMPRESAS, que combina ciência psicológica, visão de negócio, processos, segurança e desenvolvimento humano.
+
+OBJETIVO CENTRAL DA MARCA
+
+A Evolve ajuda pequenas e médias empresas a criarem estruturas de gestão capazes de sustentar crescimento com mais segurança, eficiência, lucratividade, previsibilidade e menor dependência do proprietário.
+
+A transformação central é:
+
+ANTES:
+empresário sobrecarregado;
+centralização;
+empresa dependente do dono;
+decisões chegando constantemente ao proprietário;
+contratações erradas;
+lideranças despreparadas;
+conflitos;
+processos frágeis;
+riscos trabalhistas;
+rotatividade;
+gestão reativa;
+sensação de apagar incêndios.
+
+DEPOIS:
+empresa mais profissional;
+processos claros;
+lideranças maduras;
+pessoas adequadas às funções;
+mais autonomia;
+mais previsibilidade;
+segurança;
+clareza;
+gestão estruturada;
+dono atuando estrategicamente;
+capacidade de crescimento.
+
+A psicologia organizacional deve aparecer como inteligência e fundamento do método, e não como assunto acadêmico.
+
+POSICIONAMENTO
+
+A página deve comunicar:
+
+“Não entregamos apenas diagnóstico.
+Construímos o como junto com a empresa.”
+
+A Evolve não vende relatórios passivos nem pacotes genéricos.
+Ela diagnostica, estrutura, implanta junto, acompanha e transfere o método para que a empresa desenvolva autonomia.
+
+TOM DE VOZ
+
+Direto.
+Inteligente.
+Profissional.
+Prático.
+Estratégico.
+Humano.
+Próximo da realidade do empresário.
+
+Evitar:
+jargões de RH;
+linguagem excessivamente psicológica;
+linguagem motivacional;
+frases vazias sobre “pessoas serem o maior patrimônio”;
+corporativês;
+textos excessivamente emocionais.
+
+DIREÇÃO VISUAL
+
+Construir uma estética de consultoria premium contemporânea.
+
+Referências conceituais:
+SYPartners
+The Ready
+Kin&Co
+People+Strategy
+August Public
+
+Não copiar os sites.
+
+Absorver deles:
+hierarquia editorial;
+tipografia de grande escala;
+respiro;
+narrativa;
+fotografia documental;
+sofisticação;
+assimetria controlada;
+uso inteligente de espaço vazio;
+transições suaves;
+sensação de estratégia e profundidade.
+
+A experiência deve ficar em algum lugar entre:
+
+EDITORIAL PREMIUM
++
+HUMAN SCIENCE
++
+BUSINESS STRATEGY
++
+ORGANIZATIONAL DESIGN.
+
+Evitar estética de SaaS.
+
+Evitar glassmorphism excessivo.
+
+Evitar gradientes tecnológicos.
+
+Evitar ilustrações 3D.
+
+Evitar excesso de cards.
+
+Evitar ícones coloridos genéricos.
+
+IDENTIDADE EVOLVE
+
+Paleta:
+
+Azul Petróleo #02173B
+Terracota #9B512F
+Off-White #EFEFED
+Verde Acinzentado #7E7161
+
+Fundo principal preferencialmente Off-White, nunca branco puro em toda a experiência.
+
+Utilizar Azul Petróleo para grandes áreas institucionais e momentos de contraste.
+
+Terracota deve funcionar como cor de ênfase, CTA, pequenos detalhes gráficos ou pontos de atenção.
+
+Verde acinzentado deve funcionar de forma secundária.
+
+Tipografia:
+Palash para grandes títulos, quando disponível.
+Maleah, Montserrat ou Roboto para textos funcionais e interfaces.
+
+Utilizar títulos grandes e expressivos.
+
+Evitar páginas totalmente centralizadas.
+Explorar grids editoriais e composições assimétricas.
+
+ELEMENTO GRÁFICO PRINCIPAL
+
+A marca possui uma curva contínua semelhante a um “S”.
+
+Transforme essa curva em um sistema gráfico para a experiência.
+
+Ela deve aparecer de maneira sofisticada e discreta.
+
+Ao longo do scroll, a linha pode acompanhar simbolicamente a jornada:
+
+CAOS
+↓
+DIAGNÓSTICO
+↓
+ESTRUTURA
+↓
+IMPLANTAÇÃO
+↓
+AUTONOMIA
+
+Não transformar a linha em uma animação chamativa.
+Usar movimentos muito suaves e elegantes.
+
+FOTOGRAFIA
+
+Priorizar fotografias reais da equipe Evolve e dos ambientes disponíveis.
+
+Direção fotográfica:
+documental;
+profissional;
+natural;
+pessoas trabalhando de verdade;
+reuniões;
+escuta;
+discussões;
+liderança;
+interações reais.
+
+Evitar poses corporativas artificiais.
+
+Quando não existir fotografia adequada no protótipo, utilizar placeholders editoriais neutros, não fotografias clichês de RH.
+
+ESTRUTURA DA HOME
+
+A home deve funcionar como página comercial e também como HUB para as landing pages específicas.
+
+SEÇÃO 01 — HERO
+
+Não começar pelos serviços.
+
+Começar pelo desafio do empresário.
+
+Explorar como headline inicial:
+
+“Sua empresa cresceu.
+A gestão precisa evoluir também.”
+
+OU:
+
+“Sua empresa precisa continuar crescendo.
+Sem continuar dependendo de você.”
+
+Criar headline grande, com bastante espaço negativo.
+
+Subheadline:
+
+“A Evolve estrutura pessoas, processos e lideranças para transformar empresas sobrecarregadas em negócios mais previsíveis, profissionais e autônomos.”
+
+CTA provisório:
+“Conversar com a Evolve”
+
+CTA secundário:
+“Entender meu cenário”
+
+Marcar os CTAs como provisórios porque a ação oficial ainda será definida.
+
+Inserir fotografia ou composição editorial real da Evolve de maneira sofisticada.
+
+SEÇÃO 02 — RECONHECIMENTO DO PROBLEMA
+
+Título:
+
+“Quando tudo passa por você,
+o problema não é falta de esforço.”
+
+Complemento:
+
+“É falta de estrutura.”
+
+Construir uma sequência editorial com sintomas reais:
+
+decisões dependem do dono;
+lideranças não conseguem resolver conflitos;
+contratações não permanecem;
+processos vivem apenas na cabeça das pessoas;
+erros operacionais geram insegurança;
+o empresário não consegue sair da operação.
+
+Essa seção deve causar identificação.
+
+Não usar cards iguais.
+
+Usar composição editorial, números, pequenas frases e elementos de movimento.
+
+SEÇÃO 03 — A MUDANÇA
+
+Construir uma transição visual.
+
+“Do negócio que depende do empresário
+para uma empresa capaz de funcionar com autonomia.”
+
+Representar visualmente:
+
+SOBRECARGA → ESTRUTURA
+REAÇÃO → PREVISIBILIDADE
+CENTRALIZAÇÃO → AUTONOMIA
+IMPROVISO → PROCESSO
+CONFLITO → MATURIDADE
+
+Usar a curva S da Evolve conectando os estados.
+
+SEÇÃO 04 — ECOSSISTEMA DE SOLUÇÕES
+
+Agora apresentar as quatro frentes.
+
+1. Departamento Pessoal & Assessoria
+
+Promessa:
+eficiência, conformidade e segurança trabalhista nas rotinas de pessoal, reduzindo dependência operacional do dono e riscos.
+
+2. Recrutamento & Seleção
+
+Promessa:
+pessoas certas nos lugares certos através de curadoria e alinhamento de perfil, reduzindo erros de contratação e turnover.
+
+3. Gestão de Pessoas & Liderança
+
+Promessa:
+preparar líderes para conduzir equipes, decisões e conflitos com clareza, maturidade e alinhamento cultural.
+
+4. Saúde Organizacional & Riscos Psicossociais
+
+Promessa:
+transformar exigências normativas em diagnóstico, prevenção e gestão contínua das condições de trabalho.
+
+Não transformar isso em quatro cards SaaS convencionais.
+
+Criar quatro grandes blocos editoriais ou um sistema interativo.
+
+Cada área deverá futuramente apontar para sua própria landing page.
+
+SEÇÃO 05 — DIFERENCIAL
+
+Headline possível:
+
+“Diagnóstico que termina em relatório
+não transforma empresa.”
+
+Na sequência:
+
+“A Evolve fica para construir o próximo passo.”
+
+Explicar que o método integra:
+negócio;
+processos;
+segurança;
+pessoas;
+liderança;
+implantação;
+autonomia.
+
+Mostrar claramente que a Evolve faz junto.
+
+SEÇÃO 06 — MÉTODO
+
+Criar uma experiência visual em quatro fases:
+
+01
+Diagnóstico Organizacional
+
+02
+Plano de Ação — 5W2H
+
+03
+Implantação Acompanhada
+
+04
+Transferência de Método & Autonomia
+
+Utilizar a curva contínua da marca para conectar as quatro fases.
+
+A interação deve transmitir progressão, não checklist.
+
+SEÇÃO 07 — AUTORIDADE
+
+Trabalhar números de maneira grande e limpa.
+
+Atuação nacional.
+
+Mais de 10.000 pessoas impactadas direta ou indiretamente.
+
+Mais de 20 anos de experiência da especialista de Departamento Pessoal em empresas familiares.
+
+Atendimento focado em PMEs aproximadamente entre 5 e 200 colaboradores.
+
+Certificação Internacional em Segurança Psicológica do Trabalho.
+
+Não inventar outros números.
+
+SEÇÃO 08 — CASO / PROVA DE TRANSFORMAÇÃO
+
+Utilizar o caso Rede Delta.
+
+Estrutura sugerida:
+
+ANTES
+conflitos prolongados;
+insegurança.
+
+INTERVENÇÃO
+atuação Evolve.
+
+DEPOIS
+mais agilidade;
+autonomia;
+maturidade de liderança;
+ambiente mais seguro e organizado.
+
+Utilizar depoimento real somente quando o conteúdo integral for fornecido.
+
+Não inventar falas.
+
+SEÇÃO 09 — DEPOIMENTOS
+
+Preparar espaço premium para depoimentos reais.
+
+Evitar carrossel genérico com cinco estrelas.
+
+Usar fotografia, cargo, empresa e texto em uma composição editorial grande.
+
+SEÇÃO 10 — DIAGNÓSTICO INTERATIVO
+
+Criar apenas o teaser visual do futuro quiz.
+
+Headline possível:
+
+“Por onde sua empresa precisa começar?”
+
+Subtexto:
+“Responda algumas perguntas e identifique onde sua estrutura de gestão mais precisa evoluir.”
+
+Não criar resultados definitivos.
+
+Os sintomas, níveis e respostas do diagnóstico ainda serão definidos.
+
+Mostrar a experiência como protótipo ou estado demonstrativo.
+
+SEÇÃO 11 — FAQ
+
+Criar accordion minimalista.
+
+Incluir apenas questões já confirmadas:
+
+“A Evolve executa ou apenas diagnostica?”
+
+“A consultoria substitui meu RH?”
+
+“Como minha empresa pode funcionar com menos dependência de mim?”
+
+As respostas devem explicar que a Evolve executa junto, desenvolve o time existente e cria processos e autonomia.
+
+SEÇÃO 12 — CTA FINAL
+
+Fundo Azul Petróleo.
+
+Muito espaço vazio.
+
+Grande tipografia.
+
+Mensagem baseada em transformação.
+
+Exemplo provisório:
+
+“Uma empresa mais autônoma
+começa com uma gestão mais estruturada.”
+
+CTA provisório:
+“Conversar sobre minha empresa”
+
+Adicionar contatos institucionais apenas quando os dados oficiais forem fornecidos.
+
+NAVEGAÇÃO
+
+Menu muito limpo.
+
+Evolve
+Soluções
+Como trabalhamos
+Cases
+Sobre
+Diagnóstico
+Contato
+
+A home deve permitir expansão futura para:
+
+landing page Departamento Pessoal;
+landing page Assessoria em DP;
+landing page Recrutamento & Seleção;
+landing page Gestão de Pessoas;
+landing page Saúde Organizacional / Riscos Psicossociais;
+página institucional;
+quizzes diagnósticos.
+
+ANIMAÇÕES
+
+Extremamente discretas.
+
+Scroll reveal.
+Parallax mínimo.
+Movimento suave da curva da marca.
+Transições de texto.
+Pequenas mudanças de escala em fotografia.
+Microinterações de hover.
+
+Não utilizar animação apenas para impressionar.
+
+RESPONSIVIDADE
+
+Projetar desktop first, mas criar comportamento excelente para mobile.
+
+No mobile:
+manter títulos expressivos;
+reduzir animações;
+não transformar tudo em cards;
+preservar hierarquia editorial;
+garantir CTA visível e confortável.
+
+SENSAÇÃO FINAL
+
+Ao terminar de navegar, o empresário precisa pensar:
+
+“Eles entenderam exatamente o momento que minha empresa está vivendo.”
+
+Depois:
+
+“Isso vai além de RH.”
+
+E finalmente:
+
+“Eu preciso conversar com eles.”
+
+A página não deve parecer que está vendendo quatro serviços independentes.
+
+Ela deve comunicar que todos os serviços fazem parte de uma mesma transformação:
+
+criar uma empresa mais estruturada, segura, profissional e autônoma.
+
+Crie o protótipo completo da HOME seguindo essa direção.
+
+Não invente dados, clientes, certificações, métricas, depoimentos, garantias, preços ou resultados não fornecidos.
+
+Onde faltar informação, sinalize claramente como conteúdo provisório.

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800" role="img" aria-label="Retrato provisório da equipe Evolve">
+  <defs>
+    <linearGradient id="f4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7E7161"/>
+      <stop offset="1" stop-color="#4A4136"/>
+    </linearGradient>
+    <radialGradient id="l4" cx="0.42" cy="0.3" r="0.75">
+      <stop offset="0" stop-color="#C4B8A6" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#C4B8A6" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="g4"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.055"/></feComponentTransfer>
+      <feComposite operator="in" in2="SourceGraphic"/></filter>
+  </defs>
+  <rect width="600" height="800" fill="url(#f4)"/>
+  <rect width="600" height="800" fill="url(#l4)"/>
+  <g transform="rotate(0 300 430)" opacity="0.9">
+    <path d="M 23.25 800 C 33.5 624.75 125.75 516.1 300 516.1 C 474.25 516.1 566.5 624.75 576.75 800 Z" fill="#4A4136" opacity="0.78"/>
+    <circle cx="300" cy="364.4" r="106.60000000000001" fill="#4A4136" opacity="0.82"/>
+  </g>
+  <rect width="600" height="800" filter="url(#g4)" fill="#C4B8A6"/>
+  <rect x="0.5" y="0.5" width="599" height="799" fill="none" stroke="#EFEFED" stroke-opacity="0.10"/>
+</svg>

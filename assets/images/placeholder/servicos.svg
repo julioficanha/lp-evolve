@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 620" width="800" height="620" role="img" aria-label="Ilustração das quatro frentes conectadas pela curva contínua da marca">
+  <defs>
+    <linearGradient id="fundo-s" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F4F3EF"/><stop offset="1" stop-color="#E6E4DC"/>
+    </linearGradient>
+    <linearGradient id="fio" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7E7161"/><stop offset="0.5" stop-color="#B85D36"/><stop offset="1" stop-color="#9B512F"/>
+    </linearGradient>
+    <filter id="gs"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.05"/></feComponentTransfer>
+      <feComposite operator="in" in2="SourceGraphic"/></filter>
+  </defs>
+
+  <rect width="800" height="620" fill="url(#fundo-s)"/>
+
+  <!-- malha discreta ao fundo -->
+  <g stroke="#02173B" stroke-opacity="0.055" stroke-width="1">
+    <path d="M0 155h800M0 310h800M0 465h800M160 0v620M320 0v620M480 0v620M640 0v620"/>
+  </g>
+
+  <!-- a curva contínua -->
+  <path d="M 78 470 C 214 470 206 174 340 174 C 474 174 466 470 600 470 C 668 470 700 396 722 330"
+        fill="none" stroke="url(#fio)" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- quatro nós -->
+  <g font-family="Georgia, serif" text-anchor="middle">
+    <g>
+      <circle cx="122" cy="452" r="30" fill="#EFEFED" stroke="#9B512F" stroke-width="2.2"/>
+      <text x="122" y="459" font-size="17" fill="#02173B">01</text>
+      <text x="122" y="524" font-size="13" font-family="Montserrat, sans-serif" fill="#4A5A6E">Pessoas</text>
+    </g>
+    <g>
+      <circle cx="286" cy="212" r="30" fill="#EFEFED" stroke="#9B512F" stroke-width="2.2"/>
+      <text x="286" y="219" font-size="17" fill="#02173B">02</text>
+      <text x="286" y="166" font-size="13" font-family="Montserrat, sans-serif" fill="#4A5A6E">Seleção</text>
+    </g>
+    <g>
+      <circle cx="452" cy="212" r="30" fill="#EFEFED" stroke="#9B512F" stroke-width="2.2"/>
+      <text x="452" y="219" font-size="17" fill="#02173B">03</text>
+      <text x="452" y="166" font-size="13" font-family="Montserrat, sans-serif" fill="#4A5A6E">Saúde</text>
+    </g>
+    <g>
+      <circle cx="618" cy="452" r="30" fill="#EFEFED" stroke="#9B512F" stroke-width="2.2"/>
+      <text x="618" y="459" font-size="17" fill="#02173B">04</text>
+      <text x="618" y="524" font-size="13" font-family="Montserrat, sans-serif" fill="#4A5A6E">Liderança</text>
+    </g>
+  </g>
+
+  <text x="400" y="330" font-family="Georgia, serif" font-size="25" font-style="italic" text-anchor="middle" fill="#02173B" opacity="0.86">uma mesma transformação</text>
+
+  <rect width="800" height="620" filter="url(#gs)" fill="#02173B"/>
+</svg>
