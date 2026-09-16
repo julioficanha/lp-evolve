@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """COMECE AQUI — Abertura B2B Direct com foto da palestra à direita e apresentação corporativa sem ícones de portal."""
 import partes as P
+from pagina_carta_aberta import PRESENCA
 
 TITULO = "Comece Aqui — Evolve Capital Humano"
 DESC = ("Estruturamos negócios para que pessoas e resultados evoluam juntos. "
@@ -100,6 +101,7 @@ def render():
         + P.cabecalho("comece")
         + HERO_ALT
         + APRESENTACAO
+        + PRESENCA
         + P.cta_final(
             "Por onde a sua empresa<br>precisa começar?",
             "Se preferir conversar antes de ler ou escolher um serviço, fale com a nossa equipe.")
@@ -108,3 +110,4 @@ def render():
         + P.modal()
         + P.scripts()
     )
+
