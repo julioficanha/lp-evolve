@@ -7,62 +7,63 @@ DESC = ("Quatro áreas, uma mesma transformação: Pessoas e Relações de Traba
         "Riscos Psicossociais e Saúde Organizacional, Liderança e Desenvolvimento Humano.")
 
 CORPO = """
-  <main id="main-content" style="position:relative;overflow:hidden;">
-
-    <!-- MOSAICO COMPLETO EM TODA A EXTENSÃO DA PÁGINA COM FOTOS DA PALESTRA DO DRIVE -->
-    <div class="servicos-page-mosaico-bg" aria-hidden="true" style="opacity:0.17;">
-      <img src="drive-download-20260915T155644Z-1-001/2-DSC00678.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/3-DSC00687.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/4-DSC00690.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/5-DSC00693.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/6-DSC00696.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/7-DSC00697.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/8-DSC00701.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/9-DSC00706.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/10-DSC00709.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/13-DSC00743.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/14-DSC00762.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/15-DSC00769.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/16-DSC00770.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/17-DSC00774.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/18-DSC00776.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/19-DSC00781.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/20-DSC00792.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/21-DSC00801.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/22-DSC00808.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/28-DSC00836.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/29-DSC00840.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/31-DSC00856.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/32-DSC00868.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/33-DSC00873.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/34-DSC00883.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/35-DSC00889.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/36-DSC00897.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/37-DSC00901.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/38-DSC00909.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/39-DSC00925.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/40-DSC00926.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/41-DSC00935.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/42-DSC00945.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/43-DSC00963.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/44-DSC00977.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/45-DSC00991.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/46-DSC00995.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/47-DSC01005.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/48-DSC01018.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/49-DSC01024.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/50-DSC01025.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/53-DSC01041.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/54-DSC01048.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/55-DSC01053.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/56-DSC01070.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/57-DSC01080.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/58-DSC01082.jpg" alt="" style="object-position: center 30%;">
-      <img src="drive-download-20260915T155644Z-1-001/59-DSC01086.jpg" alt="" style="object-position: center 30%;">
-    </div>
+  <main id="main-content">
 
     <!-- ABERTURA: O NÚCLEO E AS QUATRO RAMIFICAÇÕES -->
     <section class="grafo-secao" id="abertura-servicos">
+
+      <!-- MOSAICO COM FOTOS DA PALESTRA DO DRIVE NO HERO DA PÁGINA DE SERVIÇOS -->
+      <div class="servicos-page-mosaico-bg" aria-hidden="true" style="opacity:0.17;">
+        <img src="drive-download-20260915T155644Z-1-001/2-DSC00678.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/3-DSC00687.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/4-DSC00690.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/5-DSC00693.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/6-DSC00696.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/7-DSC00697.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/8-DSC00701.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/9-DSC00706.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/10-DSC00709.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/13-DSC00743.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/14-DSC00762.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/15-DSC00769.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/16-DSC00770.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/17-DSC00774.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/18-DSC00776.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/19-DSC00781.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/20-DSC00792.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/21-DSC00801.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/22-DSC00808.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/28-DSC00836.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/29-DSC00840.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/31-DSC00856.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/32-DSC00868.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/33-DSC00873.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/34-DSC00883.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/35-DSC00889.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/36-DSC00897.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/37-DSC00901.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/38-DSC00909.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/39-DSC00925.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/40-DSC00926.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/41-DSC00935.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/42-DSC00945.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/43-DSC00963.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/44-DSC00977.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/45-DSC00991.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/46-DSC00995.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/47-DSC01005.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/48-DSC01018.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/49-DSC01024.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/50-DSC01025.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/53-DSC01041.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/54-DSC01048.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/55-DSC01053.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/56-DSC01070.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/57-DSC01080.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/58-DSC01082.jpg" alt="" style="object-position: center 30%;">
+        <img src="drive-download-20260915T155644Z-1-001/59-DSC01086.jpg" alt="" style="object-position: center 30%;">
+      </div>
+
       <div class="u-wrap">
         <div class="grafo-secao__head">
           <span class="no-secao" style="color:rgba(239,239,237,0.55);justify-content:center"><span class="no-secao__dot"></span>Ecossistema de soluções</span>
