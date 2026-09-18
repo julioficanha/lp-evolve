@@ -103,7 +103,7 @@ HERO = """
           <!-- 3º Membro: Rita -->
           <article class="equipe-card-vert" data-reveal>
             <div class="equipe-card-vert__frame">
-              """ + P.ph_equipe("pessoa__ph", "Foto oficial de Rita", "imagem provisória") + """
+              <img src="assets/images/rita.jpg" alt="Foto oficial de Rita — Responsável técnica pela área de Processos e Finanças" style="width:100%;height:100%;object-fit:cover;object-position:center 15%" loading="lazy">
             </div>
             <div class="equipe-card-vert__content">
               <span class="equipe-card-vert__badge">Processos & Finanças</span>
