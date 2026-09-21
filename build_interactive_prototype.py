@@ -102,7 +102,7 @@ def process_content_assets(content):
     return content
 
 print("Processing CSS files...")
-css_files = ['assets/css/system.css', 'style.css']
+css_files = ['style.css', 'assets/css/system.css']
 combined_css = ""
 for css in css_files:
     css_path = os.path.join(WORKSPACE_DIR, css)

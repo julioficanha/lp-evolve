@@ -22,16 +22,11 @@ MARCA_SVG = """<svg class="brand-mark-svg" viewBox="0 0 100 100" fill="none" str
         </svg>"""
 
 
-def ph_equipe(classes="", titulo="Foto da equipe", nota="imagem provisória"):
-    """Bloco cinza que reserva o lugar das fotografias oficiais da equipe."""
+def ph_equipe(classes="", titulo="Foto da equipe Evolve Capital Humano", nota=""):
+    """Fotografia oficial da equipe reunida."""
     cls = ("ph-equipe " + classes).strip()
-    return f"""<div class="{cls}" role="img" aria-label="{titulo} — {nota}">
-          <svg class="ph-equipe__marca" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" aria-hidden="true">
-            <path d="M 36 36 L 22 50 C 16 56 16 64 22 70 L 50 98 L 78 70 C 84 64 84 56 78 50 L 64 36" />
-            <path d="M 50 2 C 64 16 64 36 50 46 C 36 56 36 76 50 90 C 64 76 64 56 50 46 C 36 36 36 16 50 2 Z" />
-          </svg>
-          <span class="ph-equipe__titulo">{titulo}</span>
-          <span class="ph-equipe__nota">{nota}</span>
+    return f"""<div class="{cls}" role="img" aria-label="{titulo}">
+          <img src="assets/images/equipe_evolve_editorial.png" alt="{titulo}" style="width:100%;height:100%;object-fit:cover;object-position:center;" loading="eager">
         </div>"""
 
 
@@ -54,7 +49,7 @@ def head(titulo, descricao, extra_css=""):
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="assets/css/system.css">{extra_css}
+  <link rel="stylesheet" href="assets/css/system.css?v=20260921-equipe-2">{extra_css}
 
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
 </head>
