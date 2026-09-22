@@ -35,7 +35,7 @@ HERO_ALT = """
         <div class="hero-alt__media-card">
           <div class="hero-alt__card-inner">
             <div class="hero-alt__image-wrapper">
-              <img src="assets/images/parceria/foto_palestra_nitida.png" alt="Palestra e treinamento corporativo conduzido pela Evolve Capital Humano" loading="eager">
+              <img src="assets/images/parceria/amanda_palestra_casaco.png" alt="Palestra e treinamento corporativo conduzido pela Evolve Capital Humano" loading="eager">
             </div>
             <div class="hero-alt__card-body">
               <span class="hero-alt__card-kicker">DESENVOLVIMENTO & ESTRUTURA</span>

@@ -28,7 +28,7 @@ def get_base64_image(file_path):
         
         # Check if it's a drive photo or background image to use aggressive optimization
         is_drive_photo = 'drive-download-' in file_path or 'parceria/' in file_path
-        is_home_hero = os.path.basename(file_path) == 'foto_palestra_nitida.png'
+        is_home_hero = os.path.basename(file_path) in ('foto_palestra_nitida.png', '56-DSC01070.jpg', '46-DSC00995.jpg', 'amanda_palestra_casaco.png')
         max_size = 1800 if is_home_hero else (600 if is_drive_photo else 900)
         
         if im.width > max_size or im.height > max_size:
@@ -39,7 +39,7 @@ def get_base64_image(file_path):
         
         buffer = BytesIO()
         if ext in ['.jpg', '.jpeg']:
-            im.save(buffer, format='JPEG', quality=75, optimize=True)
+            im.save(buffer, format='JPEG', quality=95 if is_home_hero else 75, optimize=True)
             mime = "image/jpeg"
         elif ext == '.png':
             # Convert non-transparent PNGs to JPEG for 10x smaller size, or optimize PNG
