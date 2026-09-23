@@ -183,7 +183,7 @@ pages = [
     ('evolve', 'evolve.html'),
     ('carta-aberta', 'carta-aberta.html'),
     ('servicos', 'servicos.html'),
-    ('servicos-pessoas-relacionamento', 'servicos-pessoas-relacionamento.html'),
+    ('servicos-operacional-dp', 'servicos-operacional-dp.html'),
     ('servicos-recrutamento-selecao', 'servicos-recrutamento-selecao.html'),
     ('servicos-riscos-saude', 'servicos-riscos-saude.html'),
     ('servicos-lideranca-desenvolvimento', 'servicos-lideranca-desenvolvimento.html')
