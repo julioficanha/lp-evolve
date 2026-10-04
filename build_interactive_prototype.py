@@ -4,7 +4,7 @@ import base64
 from io import BytesIO
 from PIL import Image
 
-WORKSPACE_DIR = "/home/jc/Área de trabalho/LP - Evolve/LP EVOLVE ANTIGRAVITY"
+WORKSPACE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def get_base64_image(file_path):
     if not os.path.exists(file_path):
@@ -28,7 +28,7 @@ def get_base64_image(file_path):
         
         # Check if it's a drive photo or background image to use aggressive optimization
         is_drive_photo = 'drive-download-' in file_path or 'parceria/' in file_path
-        is_home_hero = os.path.basename(file_path) in ('foto_palestra_nitida.png', '56-DSC01070.jpg', '46-DSC00995.jpg', 'amanda_palestra_casaco.png')
+        is_home_hero = os.path.basename(file_path) in ('recrutamento.jpg', 'foto_palestra_nitida.png', '56-DSC01070.jpg', '46-DSC00995.jpg', 'amanda_palestra_casaco.png')
         max_size = 1800 if is_home_hero else (600 if is_drive_photo else 900)
         
         if im.width > max_size or im.height > max_size:
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function navigateTo(targetId) {
         if (!targetId) targetId = 'home';
-        targetId = targetId.replace('.html', '').replace('#', '').replace('/', '');
+        targetId = targetId.replace('.html', '').replace(/^#?view-/, '').replace('#', '').replace('/', '');
         if (targetId === '' || targetId === 'index') targetId = 'home';
         
         let targetView = document.getElementById('view-' + targetId);
@@ -151,6 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         targetView.style.display = 'block';
         targetView.classList.add('active');
+        targetView.dispatchEvent(new Event('evolve:view-open'));
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
         revealViewElements(targetView);
@@ -164,15 +165,28 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const href = link.getAttribute('href');
         if (!href) return;
+
+        if (href.length > 1 && href.startsWith('#') && !href.startsWith('#view-') && href !== '#modal-diagnostico') {
+            const ativa = document.querySelector('.app-view.active');
+            const alvo = ativa && ativa.querySelector(href);
+            if (alvo) { e.preventDefault(); alvo.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+            return;
+        }
         
-        if (href.endsWith('.html') || href.startsWith('#view-') || href === 'index.html' || href === 'evolve.html' || href === 'carta-aberta.html' || href === 'servicos.html') {
+        const [pagePath, anchor] = href.split('#');
+        if (pagePath.endsWith('.html') || href.startsWith('#view-')) {
             e.preventDefault();
-            const pageName = href.replace('.html', '').replace('#', '');
-            navigateTo(pageName);
+            navigateTo(pagePath || href);
+            if (anchor && pagePath) requestAnimationFrame(() => {
+                const view = document.querySelector('.app-view.active');
+                const target = [...view.querySelectorAll('[id]')].find(el => el.id === anchor);
+                if (target) target.scrollIntoView({behavior: 'instant', block: 'start'});
+            });
         }
     });
     
-    navigateTo('home');
+    const route = location.hash.replace(/^#(?:view-)?/, '');
+    navigateTo(document.getElementById('view-' + route) ? route : 'home');
 });
 """
 
@@ -186,7 +200,8 @@ pages = [
     ('servicos-operacional-dp', 'servicos-operacional-dp.html'),
     ('servicos-recrutamento-selecao', 'servicos-recrutamento-selecao.html'),
     ('servicos-riscos-saude', 'servicos-riscos-saude.html'),
-    ('servicos-lideranca-desenvolvimento', 'servicos-lideranca-desenvolvimento.html')
+    ('servicos-lideranca-desenvolvimento', 'servicos-lideranca-desenvolvimento.html'),
+    ('servicos-estruturacao-negocios', 'servicos-estruturacao-negocios.html')
 ]
 
 views_html = ""

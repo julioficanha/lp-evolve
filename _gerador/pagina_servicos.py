@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-"""NOSSOS SERVIÇOS — página curta de apresentação das quatro frentes."""
+"""NOSSOS SERVIÇOS — página curta de apresentação das cinco frentes."""
 import partes as P
 
 TITULO = "Nossos Serviços — Evolve Capital Humano"
-DESC = ("Quatro áreas, uma mesma transformação: Pessoas e Relações de Trabalho, Recrutamento e Seleção, "
-        "Riscos Psicossociais e Saúde Organizacional, Liderança e Desenvolvimento Humano.")
+DESC = ("Cinco frentes, uma mesma transformação: Blindagem de RH, Recrutamento e Seleção, Riscos "
+        "Psicossociais e Saúde Organizacional, Cursos, Palestras e Treinamentos, e Negócio, Governança e Gestão.")
 
 CORPO = """
   <main id="main-content">
 
-    <!-- ABERTURA: O NÚCLEO E AS QUATRO RAMIFICAÇÕES -->
+    <!-- ABERTURA: O NÚCLEO E AS CINCO RAMIFICAÇÕES -->
     <section class="grafo-secao" id="abertura-servicos">
 
       <!-- MOSAICO COM 12 FOTOS EXCLUSIVAS DA PALESTRA (SEM COMIDA/CAFÉ) -->
@@ -36,13 +36,14 @@ CORPO = """
 
         <div class="grafo" data-grafo>
           <svg class="grafo__svg" viewBox="0 0 1000 648" preserveAspectRatio="xMidYMid meet"
-               role="group" aria-label="As quatro frentes de atuação da Evolve, ligadas ao núcleo do trabalho">
+               role="group" aria-label="As cinco frentes de atuação da Evolve, ligadas ao núcleo do trabalho">
 
             <g class="grafo__links">
           <path class="grafo__link" data-link="0"></path>
           <path class="grafo__link" data-link="1"></path>
           <path class="grafo__link" data-link="2"></path>
           <path class="grafo__link" data-link="3"></path>
+          <path class="grafo__link" data-link="4"></path>
             </g>
 
             <g class="grafo__nos">
@@ -58,9 +59,9 @@ CORPO = """
                 <text class="grafo__nucleo-rotulo" y="32">EVOLVE</text>
               </g>
 
-          <a class="grafo__no" data-no="01" href="servicos-pessoas-relacionamento.html"
-             data-x="288" data-y="196" data-r="46">
-            <title>Pessoas e Relações de Trabalho — abrir a página do serviço</title>
+          <a class="grafo__no" data-no="01" href="servicos-operacional-dp.html"
+             data-x="262" data-y="214" data-r="46">
+            <title>Blindagem de RH — abrir a página do serviço</title>
             <circle class="grafo__no-halo" r="62"></circle>
             <circle class="grafo__no-disco" r="46"></circle>
             <svg class="grafo__no-icone" x="-14" y="-14" width="28" height="28" viewBox="0 0 24 24"
@@ -71,12 +72,12 @@ CORPO = """
                   <path d="M15.6 15.1c1.7-.5 3.5.2 4.4 1.7.4.7.6 1.6.6 2.4"/>
               </svg>
             <text class="grafo__no-rotulo" y="72">
-              <tspan x="0" dy="0">Pessoas e Relações</tspan>
-              <tspan x="0" dy="1.22em">de Trabalho</tspan>
+              <tspan x="0" dy="0">Blindagem</tspan>
+              <tspan x="0" dy="1.22em">de RH</tspan>
             </text>
           </a>
           <a class="grafo__no" data-no="02" href="servicos-recrutamento-selecao.html"
-             data-x="712" data-y="196" data-r="46">
+             data-x="738" data-y="214" data-r="46">
             <title>Recrutamento e Seleção — abrir a página do serviço</title>
             <circle class="grafo__no-halo" r="62"></circle>
             <circle class="grafo__no-disco" r="46"></circle>
@@ -93,7 +94,7 @@ CORPO = """
             </text>
           </a>
           <a class="grafo__no" data-no="03" href="servicos-riscos-saude.html"
-             data-x="262" data-y="452" data-r="46">
+             data-x="330" data-y="500" data-r="46">
             <title>Riscos Psicossociais e Saúde — abrir a página do serviço</title>
             <circle class="grafo__no-halo" r="62"></circle>
             <circle class="grafo__no-disco" r="46"></circle>
@@ -108,8 +109,8 @@ CORPO = """
             </text>
           </a>
           <a class="grafo__no" data-no="04" href="servicos-lideranca-desenvolvimento.html"
-             data-x="738" data-y="452" data-r="46">
-            <title>Liderança e Desenvolvimento — abrir a página do serviço</title>
+             data-x="670" data-y="500" data-r="46">
+            <title>Cursos, Palestras e Treinamentos — abrir a página do serviço</title>
             <circle class="grafo__no-halo" r="62"></circle>
             <circle class="grafo__no-disco" r="46"></circle>
             <svg class="grafo__no-icone" x="-14" y="-14" width="28" height="28" viewBox="0 0 24 24"
@@ -118,8 +119,23 @@ CORPO = """
                   <path d="M15.4 8.6l-2.1 4.7-4.7 2.1 2.1-4.7z"/>
               </svg>
             <text class="grafo__no-rotulo" y="72">
-              <tspan x="0" dy="0">Liderança e</tspan>
-              <tspan x="0" dy="1.22em">Desenvolvimento</tspan>
+              <tspan x="0" dy="0">Cursos, Palestras</tspan>
+              <tspan x="0" dy="1.22em">e Treinamentos</tspan>
+            </text>
+          </a>
+          <a class="grafo__no" data-no="05" href="servicos-estruturacao-negocios.html"
+             data-x="500" data-y="92" data-r="46">
+            <title>Negócio, Governança e Gestão — abrir a página do serviço</title>
+            <circle class="grafo__no-halo" r="62"></circle>
+            <circle class="grafo__no-disco" r="46"></circle>
+            <svg class="grafo__no-icone" x="-14" y="-14" width="28" height="28" viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M4 20h16"/>
+                  <path d="M6 20V10M10 20V6M14 20v-8M18 20V4"/>
+              </svg>
+            <text class="grafo__no-rotulo" y="72">
+              <tspan x="0" dy="0">Negócio, Governança</tspan>
+              <tspan x="0" dy="1.22em">e Gestão</tspan>
             </text>
           </a>
             </g>
@@ -131,7 +147,7 @@ CORPO = """
       </div>
     </section>
 
-    <!-- O EIXO QUE ATRAVESSA AS QUATRO -->
+    <!-- O EIXO QUE ATRAVESSA AS CINCO -->
     <section class="resultado">
       <div class="u-wrap">
         <span class="resultado__label">O eixo que atravessa tudo · Pessoas e Resultados do Negócio</span>
@@ -141,31 +157,31 @@ CORPO = """
         </p>
         <p style="max-width:56ch;margin-top:1.75rem;font-size:1rem;line-height:1.7;color:rgba(239,239,237,0.82)" data-reveal>
           Governança e processos · planejamento estratégico e KPIs · modelagem de negócio e financeiro ·
-          sucessão e continuidade. Este é o eixo que dá sentido às quatro frentes abaixo — e a razão
-          pela qual a Evolve não se apresenta como uma consultoria de RH.
+          sucessão e continuidade. Este é o eixo que dá sentido às frentes abaixo — e a razão
+          pela qual a Evolve não se limita a RH: somos Estruturação de Negócios.
         </p>
       </div>
     </section>
 
-    <!-- AS QUATRO FRENTES -->
+    <!-- AS CINCO FRENTES -->
     <section class="bloco" style="background:var(--off-white)">
       <div class="u-wrap">
         <div class="bloco__head" data-reveal>
           <span class="no-secao"><span class="no-secao__dot"></span>Frentes especializadas</span>
           <h2 class="bloco__title" style="margin-top:1.25rem">Cada frente responde a uma pergunta do negócio.</h2>
-          <p class="bloco__lead">Em cada página você encontra um diagnóstico de 4 perguntas com nota de 0 a 5, a descrição completa do serviço, as entregas e os formatos de contratação.</p>
+          <p class="bloco__lead">Em cada página você encontra a descrição completa do serviço, as entregas, os formatos de contratação e, nas frentes de RH, um teste rápido que mostra o nível de segurança ou risco da sua empresa naquele tema.</p>
         </div>
 
-        <div class="mag-grid" data-stagger="90">
+        <div class="mag-grid mag-grid--cinco" data-stagger="90">
           <article class="mag" data-reveal>
             <span class="mag__num">Frente 01</span>
-            <h3 class="mag__title">Pessoas e Relações de Trabalho</h3>
+            <h3 class="mag__title">Blindagem de RH</h3>
             <p class="mag__desc">
-              <strong>Pergunta que responde:</strong> como contratar e administrar pessoas com segurança e organização?<br><br>
-              Uma operação de pessoas mais organizada, confiável e segura, com contratações mais aderentes
-              e melhores condições de retenção e segurança trabalhista.
+              <strong>Pergunta que responde:</strong> como proteger a empresa de passivos trabalhistas sem que a rotina de pessoal dependa de você?<br><br>
+              Departamento Pessoal e RH: operação do DP em conformidade e os principais processos de gestão
+              de pessoas estruturados, com a empresa protegida.
             </p>
-            <a class="mag__link" href="servicos-pessoas-relacionamento.html" data-verb="abrir">Ver a frente e fazer o diagnóstico <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <a class="mag__link" href="servicos-operacional-dp.html" data-verb="abrir">Ver a frente e fazer o teste <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </article>
 
           <article class="mag" data-reveal>
@@ -176,7 +192,7 @@ CORPO = """
               Curadoria e estruturação de vagas para reduzir erros de contratação, rotatividade e perda
               de desempenho — com parecer e apoio à decisão.
             </p>
-            <a class="mag__link" href="servicos-recrutamento-selecao.html" data-verb="abrir">Ver a frente e fazer o diagnóstico <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <a class="mag__link" href="servicos-recrutamento-selecao.html" data-verb="abrir">Ver a frente e fazer o teste <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </article>
 
           <article class="mag" data-reveal>
@@ -187,18 +203,29 @@ CORPO = """
               Riscos conhecidos, prioridades claras e ações efetivamente gerenciadas — transformando a
               exigência normativa em gestão real.
             </p>
-            <a class="mag__link" href="servicos-riscos-saude.html" data-verb="abrir">Ver a frente e fazer o diagnóstico <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <a class="mag__link" href="servicos-riscos-saude.html" data-verb="abrir">Ver a frente e fazer o teste <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </article>
 
           <article class="mag" data-reveal>
             <span class="mag__num">Frente 04</span>
-            <h3 class="mag__title">Liderança e Desenvolvimento Humano</h3>
+            <h3 class="mag__title">Cursos, Palestras e Treinamentos</h3>
             <p class="mag__desc">
               <strong>Pergunta que responde:</strong> como desenvolver quem conduz e realiza o trabalho?<br><br>
               Lideranças e profissionais mais preparados para transformar conhecimento em comportamento,
               autonomia, responsabilidade e maturidade profissional.
             </p>
-            <a class="mag__link" href="servicos-lideranca-desenvolvimento.html" data-verb="abrir">Ver a frente e fazer o diagnóstico <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <a class="mag__link" href="servicos-lideranca-desenvolvimento.html" data-verb="abrir">Ver a frente e fazer o teste <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </article>
+
+          <article class="mag" data-reveal>
+            <span class="mag__num">Frente 05</span>
+            <h3 class="mag__title">Negócio, Governança e Gestão</h3>
+            <p class="mag__desc">
+              <strong>Pergunta que responde:</strong> como estruturar a empresa para crescer sem depender exclusivamente do dono?<br><br>
+              Estruturação de Negócios: governança, sucessão, remodelagem de negócio, indicadores, processos,
+              cultura organizacional e gestão de talentos.
+            </p>
+            <a class="mag__link" href="servicos-estruturacao-negocios.html" data-verb="abrir">Ver a frente <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </article>
         </div>
       </div>
@@ -210,11 +237,11 @@ CORPO = """
       <div class="u-wrap ordem__inner">
         <span class="no-secao" style="color:rgba(239,239,237,0.55)"><span class="no-secao__dot"></span>Regra comercial</span>
         <h2 class="ordem__title" style="margin-top:1.25rem">
-          Não vendemos tudo para todos.<br>
-          <em>Vendemos o próximo movimento</em> que o negócio precisa e consegue sustentar.
+          Não entregamos tudo para todos.<br>
+          <em>Entregamos o próximo movimento</em> que o negócio precisa e consegue sustentar.
         </h2>
         <p class="ordem__lead">
-          Você pode chegar por um serviço específico. A venda consultiva identifica se a demanda aparente
+          Você pode chegar por um serviço específico. A nossa conversa inicial identifica se a demanda aparente
           é causa, sintoma ou parte de um problema maior. Só ampliamos o escopo quando houver evidência
           de necessidade e capacidade de entrega.
         </p>
@@ -224,7 +251,7 @@ CORPO = """
     <!-- NR-1 / CERTIFICAÇÃO -->
     <section class="bloco" style="background:var(--off-white-card);padding:clamp(3.5rem,7vw,5.5rem) 0">
       <div class="u-wrap">
-        <div class="indicadores">
+        <div id="autoridade" class="indicadores indicadores--portfolio">
           <div class="indicador" data-reveal>
             <span class="indicador__num"><span class="value">NR-1</span></span>
             <span class="indicador__label">Certificação Internacional em Segurança Psicológica do Trabalho.</span>
@@ -238,8 +265,8 @@ CORPO = """
             <span class="indicador__label">Pessoas impactadas direta e indiretamente, em atuação nacional.</span>
           </div>
           <div class="indicador" data-reveal style="--d:270ms">
-            <span class="indicador__num"><span class="value">5</span><span class="suffix">a 200</span></span>
-            <span class="indicador__label">Faixa de colaboradores das PMEs que atendemos.</span>
+            <span class="indicador__num" data-count="20"><span class="value">0</span><span class="suffix">anos+</span></span>
+            <span class="indicador__label">De experiência no mercado.</span>
           </div>
         </div>
       </div>
@@ -254,7 +281,7 @@ def render():
         + CORPO
         + P.cta_final(
             "Ainda não sabe por onde começar?",
-            "Faça o diagnóstico da frente que mais se parece com o seu momento, ou converse com a nossa equipe e a gente ajuda a identificar.")
+            "Faça agora um teste e descubra o nível de segurança ou risco que o seu setor de RH/DP está correndo. Ou converse com a nossa equipe e a gente ajuda a identificar.")
         + "\n  </main>\n"
         + P.rodape()
         + P.modal("Conversar sobre os serviços")

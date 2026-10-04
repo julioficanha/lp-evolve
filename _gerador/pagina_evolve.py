@@ -3,8 +3,8 @@
 import partes as P
 
 TITULO = "A Evolve — quem somos, como trabalhamos e o que já construímos"
-DESC = ("A história, a equipe, a cultura e a rede da Evolve Capital Humano: uma consultoria de "
-        "estruturação de pequenas e médias empresas, com atuação nacional e mais de 10.000 pessoas impactadas.")
+DESC = ("A história, a equipe, a cultura e a rede da Evolve Capital Humano: Estruturação de Negócios "
+        "para empresas, com atuação nacional e mais de 10.000 pessoas impactadas.")
 
 HERO = """
   <main id="main-content">
@@ -161,59 +161,10 @@ HERO = """
       </div>
     </section>
 
-    <!-- COMPETÊNCIAS E AUTORIDADE TÉCNICA DILUÍDAS AO LONGO DA PÁGINA -->
-    <section class="bloco" style="background:var(--off-white-card);padding:clamp(4.5rem,8vw,6.5rem) 0">
-      <div class="u-wrap">
-        <div class="bloco__head" data-reveal>
-          <span class="no-secao"><span class="no-secao__dot"></span>Pilares & Habilidades da Equipe</span>
-          <h2 class="bloco__title" style="margin-top:1.25rem;color:var(--azul-petroleo)">Conhecimento científico, prática corporativa e visão de negócio.</h2>
-          <p style="margin-top:0.75rem;font-size:1.05rem;line-height:1.6;color:var(--azul-cinza);max-width:65ch">
-            A autoridade do time Evolve se consolida na união de especialidades técnicas que transformam desafios humanos e operacionais em resultados reais para a organização.
-          </p>
-        </div>
-
-        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:2rem;margin-top:3rem">
-          
-          <div class="card-metodo" data-reveal style="background:#FFFFFF;border:1px solid rgba(2,23,59,0.08);border-radius:1.25rem;padding:2rem;box-shadow:0 6px 20px rgba(2,23,59,0.03)">
-            <span style="font-size:0.75rem;font-weight:700;color:var(--terracota);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:0.6rem">Gestão Corporativa & Negócios</span>
-            <h3 style="font-family:var(--font-serif);font-size:1.3rem;font-weight:700;color:var(--azul-petroleo);margin-bottom:0.75rem">Visão de Negócio & Liderança em RH</h3>
-            <p style="font-size:0.92rem;line-height:1.6;color:var(--azul-cinza)">
-              Com mais de 20 anos de atuação estratégica liderados por <strong>Simone Ap. Luciano</strong> (graduada em Ciências Contábeis e pós em Gestão Empresarial), une-se a prática contábil à gestão corporativa. Atuação direta ao lado da alta direção para conectar pessoas, rotinas de DP, DHO e R&S aos objetivos de sustentabilidade e lucratividade do negócio.
-            </p>
-          </div>
-
-          <div class="card-metodo" data-reveal style="--d:100ms;background:#FFFFFF;border:1px solid rgba(2,23,59,0.08);border-radius:1.25rem;padding:2rem;box-shadow:0 6px 20px rgba(2,23,59,0.03)">
-            <span style="font-size:0.75rem;font-weight:700;color:var(--terracota);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:0.6rem">Psicologia & Segurança Psicológica</span>
-            <h3 style="font-family:var(--font-serif);font-size:1.3rem;font-weight:700;color:var(--azul-petroleo);margin-bottom:0.75rem">Governança & Riscos Psicossociais</h3>
-            <p style="font-size:0.92rem;line-height:1.6;color:var(--azul-cinza)">
-              Responsabilidade técnica de <strong>Amanda Cristina Favaretto (CRP-08/35489)</strong>, especialista em Psicologia Organizacional com Certificação Internacional em Segurança Psicológica. Aplica Análise do Comportamento e Neurociência na gestão de fatores de riscos psicossociais (NR-1), mentoria de lideranças e cultura corporativa.
-            </p>
-          </div>
-
-          <div class="card-metodo" data-reveal style="--d:200ms;background:#FFFFFF;border:1px solid rgba(2,23,59,0.08);border-radius:1.25rem;padding:2rem;box-shadow:0 6px 20px rgba(2,23,59,0.03)">
-            <span style="font-size:0.75rem;font-weight:700;color:var(--terracota);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:0.6rem">Inovação & Inteligência Artificial</span>
-            <h3 style="font-family:var(--font-serif);font-size:1.3rem;font-weight:700;color:var(--azul-petroleo);margin-bottom:0.75rem">Tecnologia Aplicada a Pessoas</h3>
-            <p style="font-size:0.92rem;line-height:1.6;color:var(--azul-cinza)">
-              Desenvolvimento e aplicação de soluções tecnológicas de ponta na Psicologia Organizacional e RH: avaliação socioemocional, diagnóstico de cultura por dados, modelos preditivos aplicados ao contexto de trabalho e inteligência artificial para potencializar a análise de perfil e retenção de talentos.
-            </p>
-          </div>
-
-          <div class="card-metodo" data-reveal style="--d:300ms;background:#FFFFFF;border:1px solid rgba(2,23,59,0.08);border-radius:1.25rem;padding:2rem;box-shadow:0 6px 20px rgba(2,23,59,0.03)">
-            <span style="font-size:0.75rem;font-weight:700;color:var(--terracota);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:0.6rem">Processos & Operação de Campo</span>
-            <h3 style="font-family:var(--font-serif);font-size:1.3rem;font-weight:700;color:var(--azul-petroleo);margin-bottom:0.75rem">Estruturação Financeira & Implantação</h3>
-            <p style="font-size:0.92rem;line-height:1.6;color:var(--azul-cinza)">
-              Integração prática de fluxos conduzida por <strong>Rita</strong> (responsável por Processos e Finanças, DRE e controle de custos) e <strong>Guilherme</strong> (responsável pela implantação em campo de métodos de gestão de pessoas e ações diretas de NR-1), garantindo que os métodos sejam vivenciados e consolidados pela equipe.
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
     <!-- NÚMEROS DE IMPACTO -->
     <section class="bloco" style="background:var(--off-white);padding:clamp(3.5rem,7vw,5.5rem) 0">
       <div class="u-wrap">
-        <div class="indicadores">
+        <div id="autoridade" class="indicadores indicadores--institucional">
           <div class="indicador" data-reveal>
             <span class="indicador__num"><span class="value">Nacional</span></span>
             <span class="indicador__label">Atuação em todo o território brasileiro.</span>
@@ -224,7 +175,7 @@ HERO = """
           </div>
           <div class="indicador" data-reveal style="--d:180ms">
             <span class="indicador__num" data-count="20"><span class="value">0</span><span class="suffix">anos+</span></span>
-            <span class="indicador__label">De experiência em DP e Gestão Estratégica de RH.</span>
+            <span class="indicador__label">De experiência no mercado.</span>
           </div>
           <div class="indicador" data-reveal style="--d:270ms">
             <span class="indicador__num"><span class="value">NR-1</span></span>
@@ -233,8 +184,6 @@ HERO = """
         </div>
       </div>
     </section>
-
-  </main>
 """
 
 def render():

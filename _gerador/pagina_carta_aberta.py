@@ -117,7 +117,7 @@ CARTA = """
 
           <p class="dropcap" data-reveal>
             A gente sabe como esse dia termina, porque escuta isso quase toda semana. A empresa cresceu.
-            O faturamento subiu. O nome na cidade ficou maior. E, junto com tudo isso, cresceu também
+            O faturamento subiu. O nome da empresa ficou maior. E, junto com tudo isso, cresceu também
             o número de coisas que <strong>só passam por você</strong>.
           </p>
 
@@ -135,13 +135,13 @@ CARTA = """
           <p data-reveal>
             Essa é a parte que raramente é dita em voz alta. Não é sobre o negócio ir mal — muitas vezes
             ele vai bem. É sobre carregar sozinho um peso que não deveria ser de uma só pessoa, e não
-            conseguir explicar isso para quem está do lado de fora, porque de fora parece que está tudo
+            conseguir explicar isso para quem está do lado de fora da sua pele, porque de fora parece que está tudo
             resolvido.
           </p>
 
           <p data-reveal>
             Você não quer apenas aumentar o faturamento.
-            <strong>Você quer construir uma empresa que funcione sem depender exclusivamente de você.</strong>
+            <strong>Você quer construir uma empresa que funcione, que possa expandir, sem depender exclusivamente de você.</strong>
           </p>
 
           <h3 class="carta__salutation" id="carta-sintomas" style="font-size:clamp(1.5rem,2.6vw,2.1rem);margin-top:3.5rem">
@@ -159,8 +159,8 @@ CARTA = """
 
           <p data-reveal>
             Nenhum desses pontos se resolve com um treinamento motivacional. Nenhum deles se resolve com
-            um relatório em PDF entregue no fim de um diagnóstico. Eles se resolvem quando alguém entra
-            junto com você, no problema concreto, e constrói o <em>como</em>.
+            um relatório em PDF entregue no fim de um diagnóstico. <mark>Eles se resolvem quando alguém entra
+            junto com você, no problema concreto, e constrói o <em>como</em>.</mark>
           </p>
 
           <h3 class="carta__salutation" id="carta-quem" style="font-size:clamp(1.5rem,2.6vw,2.1rem);margin-top:3.5rem">
@@ -168,13 +168,13 @@ CARTA = """
           </h3>
 
           <p data-reveal>
-            A Evolve é uma consultoria especializada na estruturação de pequenas e médias empresas.
+            A Evolve é uma empresa que apoia outras empresas a crescerem.
             Mais do que resolver problemas pontuais, construímos modelos de gestão que tornam as
             empresas mais organizadas, eficientes, seguras e preparadas para crescer.
           </p>
 
           <p data-reveal>
-            Não vendemos treinamentos. Não vendemos apenas RH. Não vendemos somente adequação à
+            Não entregamos somente treinamentos. Não entregamos apenas RH. Não entregamos somente adequação à
             legislação. <strong>Construímos empresas que funcionam melhor</strong> — integrando estratégia,
             pessoas, processos, segurança jurídica e saúde organizacional no mesmo movimento.
           </p>
@@ -265,8 +265,8 @@ VOZES = """
         <article class="voz voz--flip">
           <blockquote class="voz__quote" data-reveal>
             <p>“A parceria com a Evolve foi um marco muito positivo para a nossa empresa. No decorrer do tempo elaboramos vários projetos e muito desenvolvimento pessoal e profissional na equipe interna.</p>
-            <p>O acompanhamento contínuo da equipe fez toda a diferença. A presença da Amanda trouxe segurança, apoio e orientação tanto para coordenadores quanto para colaboradores, ajudando a lidar melhor com desafios, conflitos e mudanças. <mark>Problemas que antes se prolongavam passaram a ser tratados com mais rapidez e maturidade.</mark></p>
-            <p>De uma forma geral, percebemos uma empresa mais organizada, humana e alinhada. O ambiente de trabalho melhorou, as pessoas se sentem mais ouvidas e o desempenho das equipes evoluiu de maneira consistente. Hoje temos a Amanda como uma ‘parte’ da nossa empresa e sabemos que podemos contar sempre com seu apoio.”</p>
+            <p>O acompanhamento contínuo da equipe fez toda a diferença. A presença da empresa Evolve trouxe segurança, apoio e orientação tanto para coordenadores quanto para colaboradores, ajudando a lidar melhor com desafios, conflitos e mudanças. <mark>Problemas que antes se prolongavam passaram a ser tratados com mais rapidez e maturidade.</mark></p>
+            <p>De uma forma geral, percebemos uma empresa mais organizada, humana e alinhada. O ambiente de trabalho melhorou, as pessoas se sentem mais ouvidas e o desempenho das equipes evoluiu de maneira consistente. Hoje temos a Evolve como uma ‘parte’ da nossa empresa e sabemos que podemos contar sempre com seu apoio.”</p>
             <footer class="voz__who">
               <span class="nome">Simone Cantu</span>
               <span class="cargo">Gerente de Operações e Administrativo</span>
@@ -391,10 +391,10 @@ def _rows():
 
 
 VENDEMOS = """
-    <!-- 08 · O QUE REALMENTE VENDEMOS -->
+    <!-- 08 · O QUE REALMENTE ENTREGAMOS -->
     <section class="frase-ancora frase-ancora--enxuta" id="vendemos">
       <div class="u-wrap">
-        <span class="no-secao" style="color:rgba(239,239,237,0.55)"><span class="no-secao__dot"></span>O que realmente vendemos</span>
+        <span class="no-secao" style="color:rgba(239,239,237,0.55)"><span class="no-secao__dot"></span>O que realmente entregamos</span>
         <div class="frase-ancora__inner" data-reveal>
           <span>Toda a comunicação da Evolve gira em torno de</span>
           <span class="territorio-slot">
@@ -427,7 +427,7 @@ METODO = """
         <div class="bloco__head" data-reveal>
           <span class="no-secao"><span class="no-secao__dot"></span>Como trabalhamos</span>
           <h2 class="bloco__title" style="margin-top:1.25rem">Quatro fases, uma só direção: autonomia.</h2>
-          <p class="bloco__lead">A mesma metodologia sustenta as quatro frentes de atuação. Prazos são definidos no alinhamento inicial, conforme o porte e o estágio de cada empresa.</p>
+          <p class="bloco__lead">A mesma metodologia sustenta as frentes de atuação. Prazos são definidos no alinhamento inicial, conforme o porte e o estágio de cada empresa.</p>
         </div>
 
         <div class="rotina__rail rotina__rail--4">
@@ -482,7 +482,7 @@ INDICADORES = """
           <h2 class="bloco__title" style="margin-top:1.25rem">Experiência sólida a serviço de PMEs que querem crescer.</h2>
         </div>
 
-        <div class="indicadores">
+        <div class="indicadores indicadores--carta">
           <div class="indicador" data-reveal>
             <span class="indicador__num"><span class="value">Nacional</span></span>
             <span class="indicador__label">Atuação e atendimento em todo o território brasileiro.</span>
@@ -493,7 +493,7 @@ INDICADORES = """
           </div>
           <div class="indicador" data-reveal style="--d:180ms">
             <span class="indicador__num" data-count="20" data-count-dur="1500"><span class="value">0</span><span class="suffix">anos+</span></span>
-            <span class="indicador__label">De experiência prática em Departamento Pessoal em empresas familiares.</span>
+            <span class="indicador__label">De experiência no mercado.</span>
           </div>
           <div class="indicador" data-reveal style="--d:270ms">
             <span class="indicador__num"><span class="value">NR-1</span></span>
@@ -511,15 +511,15 @@ FIT = """
       <div class="u-wrap">
         <div class="bloco__head" data-reveal>
           <span class="no-secao"><span class="no-secao__dot"></span>Encaixe</span>
-          <h2 class="bloco__title" style="margin-top:1.25rem">Não vendemos tudo para todos.</h2>
-          <p class="bloco__lead">Vendemos o próximo movimento que o negócio realmente precisa e consegue sustentar. Por isso, é honesto dizer também com quem não funcionamos bem.</p>
+          <h2 class="bloco__title" style="margin-top:1.25rem">Não entregamos tudo para todos.</h2>
+          <p class="bloco__lead">Entregamos o próximo movimento que o negócio realmente precisa e consegue sustentar. Por isso, é honesto dizer também com quem não funcionamos bem.</p>
         </div>
 
         <div class="limites__grid">
           <div class="limite" data-reveal>
             <h4>Funcionamos muito bem com</h4>
             <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Empresas de aproximadamente 10 a 200 colaboradores.</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Empresas que precisam estruturar a gestão e os processos.</span></li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Negócios em expansão, profissionalização, reorganização ou sucessão.</span></li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Empresas ainda dependentes dos donos ou de poucas pessoas-chave.</span></li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Gestores que reconhecem o problema e querem construir a solução — não apenas receber um relatório.</span></li>
@@ -531,7 +531,7 @@ FIT = """
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Quem tem baixo nível de consciência organizacional e do próprio papel na mudança.</span></li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Quem quer tudo pronto e não se vê como parte do processo.</span></li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Quem busca um pacote genérico, aplicável a qualquer empresa sem diagnóstico.</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Quem procura dependência permanente de um consultor, em vez de autonomia.</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Quem procura dependência permanente de um parceiro externo, em vez de autonomia.</span></li>
             </ul>
           </div>
         </div>
@@ -544,42 +544,17 @@ CASO = ""
 
 
 SERVICOS_HUB = """
-    <!-- 13 · PORTA DE ENTRADA PARA AS QUATRO FRENTES -->
+    <!-- 13 · PORTA DE ENTRADA PARA AS CINCO FRENTES -->
     <section class="bloco" id="frentes" style="background:var(--off-white-card)">
       <div class="u-wrap">
         <div class="bloco__head" data-reveal>
           <span class="no-secao"><span class="no-secao__dot"></span>Ecossistema</span>
-          <h2 class="bloco__title" style="margin-top:1.25rem">Quatro áreas, uma mesma transformação.</h2>
+          <h2 class="bloco__title" style="margin-top:1.25rem">Cinco frentes, uma mesma transformação.</h2>
           <p class="bloco__lead">Você pode chegar por um serviço específico. Na prática, um mesmo projeto integra diferentes competências conforme o diagnóstico.</p>
         </div>
-
-        <div class="mag-grid" data-stagger="80">
-          <article class="mag" data-reveal>
-            <span class="mag__num">01</span>
-            <h3 class="mag__title">Pessoas e Relações de Trabalho</h3>
-            <p class="mag__desc">Contratar e administrar pessoas com segurança e organização: recrutamento, rotinas de DP, carreiras e remuneração.</p>
-            <a class="mag__link" href="servicos-pessoas-relacionamento.html" data-verb="abrir">Ver a frente <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </article>
-          <article class="mag" data-reveal>
-            <span class="mag__num">02</span>
-            <h3 class="mag__title">Recrutamento e Seleção</h3>
-            <p class="mag__desc">As pessoas certas nos lugares certos, com definição de perfil, avaliação por evidências e apoio à decisão.</p>
-            <a class="mag__link" href="servicos-recrutamento-selecao.html" data-verb="abrir">Ver a frente <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </article>
-          <article class="mag" data-reveal>
-            <span class="mag__num">03</span>
-            <h3 class="mag__title">Riscos Psicossociais e Saúde Organizacional</h3>
-            <p class="mag__desc">Da exigência da NR-1 à gestão real: diagnóstico, plano 5W2H, integração ao GRO/PGR e melhoria contínua.</p>
-            <a class="mag__link" href="servicos-riscos-saude.html" data-verb="abrir">Ver a frente <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </article>
-          <article class="mag" data-reveal>
-            <span class="mag__num">04</span>
-            <h3 class="mag__title">Liderança e Desenvolvimento Humano</h3>
-            <p class="mag__desc">Preparar quem conduz pessoas, decisões e resultados — com prática, aplicação no trabalho e acompanhamento.</p>
-            <a class="mag__link" href="servicos-lideranca-desenvolvimento.html" data-verb="abrir">Ver a frente <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </article>
+        <div class="mag-grid mag-grid--cinco" data-stagger="80">
+%CARDS%
         </div>
-
         <div class="u-mt-xl" data-reveal>
           <a href="servicos.html" class="btn btn-terracota btn-lg" data-verb="conhecer">
             <span>Conheça nossos serviços</span>
@@ -589,8 +564,19 @@ SERVICOS_HUB = """
       </div>
     </section>
 """
-
-
+_FRENTES = [
+    ("Blindagem de RH", "Departamento Pessoal e RH: operação do DP em conformidade e processos de gestão de pessoas estruturados, com a empresa protegida de passivos trabalhistas.", "servicos-operacional-dp.html"),
+    ("Recrutamento e Seleção", "As pessoas certas nos lugares certos, com curadoria da vaga, análise técnica, comportamental e psicossocial e garantia de reposição.", "servicos-recrutamento-selecao.html"),
+    ("Riscos Psicossociais e Saúde Organizacional", "Da exigência da NR-1 à gestão real: diagnóstico, plano 5W2H, integração ao GRO/PGR e melhoria contínua.", "servicos-riscos-saude.html"),
+    ("Cursos, Palestras e Treinamentos", "Formação de líderes e equipes feita para a sua empresa, com prática, aplicação no trabalho e acompanhamento.", "servicos-lideranca-desenvolvimento.html"),
+    ("Negócio, Governança e Gestão", "Estruturação de Negócios: governança, sucessão, indicadores, processos, cultura organizacional e gestão de talentos.", "servicos-estruturacao-negocios.html"),
+]
+SERVICOS_HUB = SERVICOS_HUB.replace("%CARDS%", "\n".join(f'''          <article class="mag" data-reveal>
+            <span class="mag__num">{i+1:02d}</span>
+            <h3 class="mag__title">{t}</h3>
+            <p class="mag__desc">{d}</p>
+            <a class="mag__link" href="{h}" data-verb="abrir">Ver a frente <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </article>''' for i, (t, d, h) in enumerate(_FRENTES)))
 FAQ = """
     <!-- 14 · FAQ -->
     <section class="section-padding section-faq bg-off-white" id="faq">
@@ -610,7 +596,7 @@ FAQ = """
 _FAQ = [
     ("A Evolve executa ou apenas diagnostica?",
      "Diagnosticamos, desenhamos o plano de ação em 5W2H e entramos na operação para implantar junto com você e a sua equipe, acompanhando até que o time conquiste autonomia. Nosso critério de conclusão é uma pergunta interna: o cliente conseguirá continuar fazendo isso quando não estivermos presentes?"),
-    ("A consultoria substitui o meu RH interno?",
+    ("A Evolve substitui o meu RH interno?",
      "Não. A Evolve estrutura e desenvolve a equipe que você já tem. Se existe um profissional de RH ou DP, nós instalamos o método e qualificamos essa pessoa. Se não existe, começamos do início — boa parte dos nossos clientes chega exatamente assim."),
     ("Como a minha empresa pode funcionar com menos dependência de mim?",
      "Pela combinação de três coisas: processos claros e descritos, lideranças preparadas para tomar decisões operacionais dentro de alçadas definidas, e governança de indicadores para você acompanhar sem precisar estar no meio de cada decisão."),
@@ -619,7 +605,7 @@ _FAQ = [
     ("Já contratei consultoria antes e não deu certo. Por que seria diferente?",
      "Muita consultoria aponta falhas e deixa o cliente sozinho para resolvê-las. Nós desenhamos a solução com as pessoas que conhecem a operação, capacitamos, acompanhamos a aplicação e encerramos com responsáveis e indicadores definidos. O que combatemos explicitamente é o documento sofisticado que ninguém consegue usar."),
     ("Minha empresa é pequena e não tem RH estruturado. Faz sentido para mim?",
-     "Sim. Atendemos PMEs de 5 a 200 colaboradores, e uma parte importante dos nossos clientes chega sem nenhuma estrutura de RH. É daí que a gente começa."),
+     "Sim. Atendemos empresas de diferentes portes, e uma parte importante dos nossos clientes chega sem nenhuma estrutura de RH. É daí que a gente começa."),
     ("Vocês atendem empresas do meu setor?",
      "Atuamos nacionalmente com indústria, comércio, serviços e empresas familiares em fase de sucessão. O projeto é ajustado ao estágio e à realidade do negócio — o método se adapta ao setor, não o contrário."),
     ("Quanto tempo leva até eu sentir diferença?",

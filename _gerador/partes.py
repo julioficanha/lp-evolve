@@ -2,9 +2,9 @@
 """Partes compartilhadas das páginas da Evolve (cabeçalho, rodapé, modal, head)."""
 
 SERVICOS = [
-    ("servicos-pessoas-relacionamento.html",
-     "Pessoas e Relações de Trabalho",
-     "Contratar e administrar pessoas com segurança e organização"),
+    ("servicos-operacional-dp.html",
+     "Blindagem de RH",
+     "Departamento Pessoal e RH protegidos contra passivos trabalhistas"),
     ("servicos-recrutamento-selecao.html",
      "Recrutamento e Seleção",
      "As pessoas certas nos lugares certos, com curadoria de perfil"),
@@ -12,8 +12,11 @@ SERVICOS = [
      "Riscos Psicossociais e Saúde Organizacional",
      "Da exigência da NR-1 à gestão real das condições de trabalho"),
     ("servicos-lideranca-desenvolvimento.html",
-     "Liderança e Desenvolvimento Humano",
-     "Preparar quem conduz pessoas, decisões e resultados"),
+     "Cursos, Palestras e Treinamentos",
+     "Formação de líderes e equipes, feita para a sua empresa"),
+    ("servicos-estruturacao-negocios.html",
+     "Negócio, Governança e Gestão",
+     "Estruturação de Negócios: governança, indicadores, sucessão e cultura"),
 ]
 
 MARCA_SVG = """<svg class="brand-mark-svg" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -49,7 +52,7 @@ def head(titulo, descricao, extra_css=""):
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="assets/css/system.css?v=20260921-equipe-2">{extra_css}
+  <link rel="stylesheet" href="assets/css/system.css?v=20261004-nomes">{extra_css}
 
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
 </head>
@@ -191,7 +194,7 @@ def rodape():
       <div class="footer-info-col">
         <h4 class="footer-title">Atendimento</h4>
         <p class="footer-info-text">Atuação nacional, em todo o Brasil.</p>
-        <p class="footer-info-text">Foco em PMEs de 5 a 200 colaboradores.</p>
+        <p class="footer-info-text">Atendimento a empresas de diferentes portes.</p>
         <p class="footer-info-text" style="margin-top:1rem">
           <span class="provisorio provisorio--light">Provisório</span>
         </p>
@@ -245,7 +248,7 @@ def modal(titulo="Conversar com a Evolve",
         <div class="form-group">
           <label for="form-subject">Frente de interesse</label>
           <select id="form-subject" name="servico">
-            <option value="geral">Estruturação de gestão (visão geral)</option>
+            <option value="geral">Estruturação de Negócios (visão geral)</option>
 {opcoes}
           </select>
         </div>

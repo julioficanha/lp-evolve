@@ -6,11 +6,13 @@
 index.html                               COMECE AQUI — abertura da marca + três portais
 carta-aberta.html                        CARTA ABERTA — a carta de vendas completa
 evolve.html                              A EVOLVE — institucional (equipe, cultura, números)
-servicos.html                            NOSSOS SERVIÇOS — hub curto com as 4 frentes
-servicos-pessoas-relacionamento.html     Frente 01 + diagnóstico
-servicos-recrutamento-selecao.html       Frente 02 + diagnóstico
-servicos-riscos-saude.html               Frente 03 + diagnóstico
-servicos-lideranca-desenvolvimento.html  Frente 04 + diagnóstico
+servicos.html                            NOSSOS SERVIÇOS — hub curto com as 5 frentes
+servicos-operacional-dp.html             Frente 01 · Blindagem de RH + teste
+servicos-recrutamento-selecao.html       Frente 02 · Recrutamento e Seleção + teste
+servicos-riscos-saude.html               Frente 03 · Riscos Psicossociais + teste
+servicos-lideranca-desenvolvimento.html  Frente 04 · Cursos, Palestras e Treinamentos + teste
+servicos-estruturacao-negocios.html      Frente 05 · Negócio, Governança e Gestão
+servicos-pessoas-relacionamento.html     fora do menu · Pessoas e Relações de Trabalho + teste
 
 assets/images/placeholder/               ilustrações próprias em SVG (40 KB no total)
   carta.svg · servicos.svg · equipe.svg  as três imagens dos portais
@@ -19,7 +21,7 @@ assets/images/placeholder/               ilustrações próprias em SVG (40 KB n
 style.css                                base herdada (cabeçalho, botões, rodapé, modal, FAQ)
 assets/css/system.css                    sistema de movimento e componentes novos
 assets/js/app.js                         motor de interação (um único laço rAF)
-assets/js/diagnostico.js                 motor do quiz + banco de perguntas e devolutivas
+assets/js/diagnostico.js                 teste "Diagnóstico Rápido de RH" (CONFIG + BLOCOS + motor)
 DESIGN.md                                design system + sistema de movimento documentado
 _gerador/                                gerador das páginas estáticas
 ```
@@ -40,72 +42,45 @@ servidor e sem dependência de rede além das fontes do Google e do Lenis (CDN).
 
 ---
 
-## O algoritmo do diagnóstico
+## O teste — Diagnóstico Rápido de RH da sua Empresa
 
-Quatro perguntas por serviço, quatro alternativas cada, com pesos **0 · 1 · 3 · 5**
-(0 = não existe, 5 = maduro). O indicador exibido mede **risco**, então a média é
-invertida:
+(Substitui o diagnóstico antigo de 4 perguntas com medidor 0–5, excluído em out/2026.)
 
-```
-nota = 5 − [(p1 + p2 + p3 + p4) / 4]
-```
+Quatro blocos, um por página de serviço, na mesma seção `#diagnostico`:
 
-Assim **0 significa estrutura instalada e 5 significa risco ativo** — quanto mais
-alto o número, mais grave o cenário. A direção fica escrita ao lado do medidor,
-para não depender de interpretação.
+| Bloco | Perguntas | Página(s) |
+|---|---|---|
+| DP e conformidade trabalhista | 10 | `servicos-operacional-dp.html` (Blindagem de RH) |
+| Segurança e Saúde no Trabalho | 9 | `servicos-riscos-saude.html` |
+| Estrutura de RH e Gestão de Pessoas | 15 | `servicos-recrutamento-selecao.html` e `servicos-pessoas-relacionamento.html` |
+| Liderança e gestão | 7 | `servicos-lideranca-desenvolvimento.html` |
 
-Os pesos são propositalmente não lineares. A distância entre "não existe" e
-"existe no improviso" é pequena na prática; o salto para "existe formalizado" é
-grande. Com 0-1-2-3 quatro respostas medianas gerariam uma nota falsamente boa.
+- Respostas: Sim = 2 · Parcialmente = 1 · Não = 0 · Não se aplica (fica fora da conta).
+- Cada pergunta tem peso 1, 2 ou 3 (3 = crítica: passivo, multa, saúde, risco legal).
+- `Bloco% = Σ(peso × resposta) / Σ(peso × 2) × 100`, só sobre as perguntas respondidas e aplicáveis.
+- `Índice Geral = 0,30·DP + 0,30·SST + 0,20·Gestão de Pessoas + 0,20·Liderança`, só quando os 4 blocos
+  foram feitos (o progresso fica no navegador); bloco 100% "Não se aplica" sai e os pesos são redistribuídos.
+- Faixas: 76–100 RH Estruturado 🟢 · 51–75 RH em Desenvolvimento 🟡 · 26–50 Pontos de Atenção 🟠 · 0–25 Necessidade de Estruturação 🔴.
+- Alerta ⚠️: bloco abaixo de 40% ou qualquer pergunta de peso 3 respondida "Não".
+- Validade: o bloco só é calculado com pelo menos 70% das perguntas respondidas.
 
-| Nota | Faixa | Leitura | Cor |
-|------|-------|---------|-----|
-| 0,0 – 1,2 | Maturidade instalada | Ganho maior está em outra frente | verde azulado |
-| 1,3 – 2,4 | Estrutura com lacunas | Lacunas pontuais e localizáveis | oliva |
-| 2,5 – 3,4 | Organização iniciada | Base montada, frágil nas bordas | terracota |
-| 3,5 – 4,4 | Dependência estrutural | Funciona porque alguém segura | terracota fechado |
-| 4,5 – 5,0 | **Risco ativo** | Nada estruturado; exposição real | **vermelho vinho** |
+Fluxo: dados da empresa (pedidos uma vez) → perguntas → pontuação pública + "Acesse seu resultado
+completo" → cadastro de e-mail e telefone (lead) → resultado completo (por tema, lacunas críticas, índice geral).
 
-Na faixa crítica o medidor inteiro entra em alerta: traço, valor, moldura e o
-selo do resultado passam para vermelho vinho (`#722033`).
-
-São **20 devolutivas** (4 serviços × 5 faixas), cada uma com título, leitura e
-três próximos passos extraídos das entregas daquele serviço no manual comercial.
-O tom segue o Manual da Cultura: apresentar o que foi identificado sem rótulos,
-simplificações ou acusações, e sempre indicar o próximo movimento.
-
-Toda a lógica e todo o texto estão em `assets/js/diagnostico.js`, no início do
-arquivo, comentados em português.
+Todas as constantes (pesos, faixas, limiares, `LEAD_ENDPOINT`) ficam no objeto `CONFIG`, no topo de
+`assets/js/diagnostico.js`; as perguntas, em `BLOCOS`.
 
 ---
 
 ## O que falta ligar (2 itens)
 
-### 1. Google Forms + notificação para a Evolve
+### 1. Planilha Google de leads
 
-Abra `assets/js/diagnostico.js` e preencha `FORM_CONFIG` no topo do arquivo:
+Siga a nota **"Tutorial - Planilha Google de leads (Evolve)"** (Apps Script publicado como Web App) e cole a
+URL `/exec` em `CONFIG.LEAD_ENDPOINT`. Cada teste concluído com cadastro gera uma linha na planilha.
 
-```js
-const FORM_CONFIG = {
-  formId: '',        // ex: '1FAIpQLSd...'  (só o ID, sem /viewform)
-  entries: { nome: 'entry.111111111', empresa: '...', /* ... */ }
-};
-```
-
-Passo a passo:
-
-1. Crie o formulário com estes campos, nesta ordem: **nome, empresa, cargo,
-   e-mail, whatsapp, colaboradores, segmento, cidade/UF, desafio, serviço, nota,
-   faixa, respostas**. Os quatro últimos são preenchidos automaticamente pela página.
-2. No Forms, aba **Respostas** → menu de três pontos → **Receber notificações por
-   e-mail de novas respostas**. É isso que avisa a Evolve a cada preenchimento.
-3. Abra o formulário publicado, inspecione cada campo e copie o atributo `name`
-   (formato `entry.123456789`).
-4. Cole os valores em `FORM_CONFIG.entries` e o ID em `formId`.
-
-**Enquanto o `formId` estiver vazio**, o diagnóstico funciona normalmente: os
-dados vão para o `console` e para o `localStorage` (chaves `evolve_diagnosticos`
-e `evolve_contatos`), o que permite testar o fluxo completo sem back-end.
+**Enquanto `LEAD_ENDPOINT` estiver vazio**, o teste funciona normalmente: os leads ficam no `localStorage`
+(chave `evolve_leads_pendentes`) e o console avisa.
 
 ### 2. Dados institucionais
 

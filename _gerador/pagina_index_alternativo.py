@@ -2,7 +2,7 @@
 """Página Inicial Alternativa (Hero B2B Direct com foto da equipe na ACEFB)."""
 import partes as P
 
-TITULO = "Evolve Capital Humano — Consultoria para PMEs"
+TITULO = "Evolve Capital Humano — Estruturação de Negócios para Empresas"
 DESC = ("Organizamos a gestão de pessoas, desenvolvemos lideranças e construímos processos "
         "com a sua equipe. Para a sua empresa crescer sem depender de você para tudo.")
 
@@ -13,7 +13,7 @@ HERO_ALT = """
     <section class="hero-alt">
       <div class="container hero-alt__grid">
         <div class="hero-alt__content">
-          <span class="hero-alt__kicker">CONSULTORIA PARA PEQUENAS E MÉDIAS EMPRESAS</span>
+          <span class="hero-alt__kicker">ESTRUTURAÇÃO DE NEGÓCIOS PARA EMPRESAS</span>
           <h1 class="hero-alt__title">
             Sua empresa pode<br>
             crescer.<br>
@@ -27,7 +27,7 @@ HERO_ALT = """
             <a href="servicos.html" class="link-next">Encontrar meu próximo passo +</a>
           </div>
           <div class="hero-alt__meta">
-            PMEs de 5 a 200 colaboradores &nbsp;·&nbsp; Atuação nacional
+            Empresas de diferentes portes &nbsp;·&nbsp; Atuação nacional
           </div>
         </div>
 
@@ -78,16 +78,16 @@ PORTAIS = """
           <span class="portal__indice">02 · O que fazemos</span>
           <div class="portal__media">
             <img src="assets/images/placeholder/servicos.svg"
-                 alt="As quatro frentes de atuação da Evolve conectadas por uma única linha contínua"
+                 alt="As frentes de atuação da Evolve conectadas por uma única linha contínua"
                  loading="lazy" width="800" height="620">
           </div>
           <div class="portal__texto">
             <h2 class="portal__titulo">Nossos serviços</h2>
             <p>
-              Quatro frentes especializadas: Pessoas e Relações de Trabalho, Recrutamento e Seleção,
-              Riscos Psicossociais e Saúde Organizacional, Liderança e Desenvolvimento.
-              <strong>Cada uma responde a uma pergunta do negócio</strong> — e traz um diagnóstico
-              de quatro perguntas para você medir onde está.
+              Cinco frentes: Blindagem de RH, Recrutamento e Seleção, Riscos Psicossociais e Saúde
+              Organizacional, Cursos, Palestras e Treinamentos, e Negócio, Governança e Gestão.
+              <strong>Cada uma responde a uma pergunta do negócio</strong> — e as frentes de RH trazem
+              um teste rápido para você medir onde está.
             </p>
             <a href="servicos.html" class="btn btn-outline-dark btn-lg" data-verb="conhecer">
               <span>Conhecer os serviços</span>

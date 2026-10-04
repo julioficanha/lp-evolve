@@ -5,7 +5,7 @@ from pagina_carta_aberta import PRESENCA
 
 TITULO = "Comece Aqui — Evolve Capital Humano"
 DESC = ("Estruturamos negócios para que pessoas e resultados evoluam juntos. "
-        "Consultoria de gestão, cultura e desenvolvimento para pequenas e médias empresas.")
+        "Estruturação de Negócios: gestão, cultura e desenvolvimento para empresas.")
 
 HERO_ALT = """
   <main id="main-content">
@@ -14,7 +14,7 @@ HERO_ALT = """
     <section class="hero-alt">
       <div class="container hero-alt__grid">
         <div class="hero-alt__content">
-          <span class="hero-alt__kicker">CONSULTORIA PARA PEQUENAS E MÉDIAS EMPRESAS</span>
+          <span class="hero-alt__kicker">ESTRUTURAÇÃO DE NEGÓCIOS PARA EMPRESAS</span>
           <h1 class="hero-alt__title">
             Sua empresa pode<br>
             crescer.<br>
@@ -28,7 +28,7 @@ HERO_ALT = """
             <a href="servicos.html" class="link-next">Encontrar meu próximo passo +</a>
           </div>
           <div class="hero-alt__meta">
-            PMEs de 5 a 200 colaboradores &nbsp;·&nbsp; Atuação nacional
+            Empresas de diferentes portes &nbsp;·&nbsp; Atuação nacional
           </div>
         </div>
 
@@ -73,9 +73,9 @@ APRESENTACAO = """
 
           <a href="servicos.html" class="card-metodo" data-reveal style="--d:100ms;text-decoration:none;background:#FFFFFF;border:1px solid rgba(2,23,59,0.08);border-radius:1.25rem;padding:2rem;box-shadow:0 6px 20px rgba(2,23,59,0.03);transition:transform 0.3s ease">
             <span style="font-size:0.75rem;font-weight:700;color:var(--terracota);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:0.6rem">02 · O que fazemos</span>
-            <h3 style="font-family:var(--font-serif);font-size:1.35rem;font-weight:700;color:var(--azul-petroleo);margin-bottom:0.75rem">Nossos serviços & Diagnóstico</h3>
+            <h3 style="font-family:var(--font-serif);font-size:1.35rem;font-weight:700;color:var(--azul-petroleo);margin-bottom:0.75rem">Nossos serviços & Teste rápido</h3>
             <p style="font-size:0.92rem;line-height:1.6;color:var(--azul-cinza);margin-bottom:1.25rem">
-              Quatro frentes especializadas: Pessoas e Relações de Trabalho, Recrutamento e Seleção, Riscos Psicossociais e Liderança. Faça um diagnóstico rápido.
+              Cinco frentes: Blindagem de RH, Recrutamento e Seleção, Riscos Psicossociais, Cursos, Palestras e Treinamentos, e Negócio, Governança e Gestão. Faça um teste rápido.
             </p>
             <span style="font-size:0.85rem;font-weight:700;color:var(--terracota);display:inline-flex;align-items:center;gap:0.4rem">Conhecer serviços →</span>
           </a>

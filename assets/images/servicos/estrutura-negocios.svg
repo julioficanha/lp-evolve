@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="680" viewBox="0 0 960 680" role="img" aria-labelledby="title desc">
+<title id="title">Estruturação de Negócios</title><desc id="desc">Governança, processos, pessoas e indicadores conectados pela estratégia.</desc>
+<rect width="960" height="680" rx="28" fill="#EFEFED"/>
+<g fill="none" stroke="#02173B" opacity=".08"><circle cx="480" cy="340" r="140"/><circle cx="480" cy="340" r="245"/><path d="M0 340h960M480 0v680"/></g>
+<g stroke="#9B512F" stroke-width="2" fill="none"><path d="M270 180C480 180 320 340 480 340S590 180 690 180M270 500C480 500 320 340 480 340S590 500 690 500"/></g>
+<g fill="#02173B"><rect x="350" y="284" width="260" height="112" rx="56"/></g>
+<g font-family="Georgia,serif" font-size="34" text-anchor="middle"><text x="480" y="353" fill="#EFEFED">Estratégia</text></g>
+<g fill="#fff" stroke="#02173B" stroke-opacity=".12"><rect x="120" y="125" width="300" height="110" rx="16"/><rect x="540" y="125" width="300" height="110" rx="16"/><rect x="120" y="445" width="300" height="110" rx="16"/><rect x="540" y="445" width="300" height="110" rx="16"/></g>
+<g font-family="Arial,sans-serif" text-anchor="middle"><g fill="#9B512F" font-size="14" letter-spacing="3"><text x="270" y="157">01 / DIREÇÃO</text><text x="690" y="157">02 / OPERAÇÃO</text><text x="270" y="477">03 / CULTURA</text><text x="690" y="477">04 / RESULTADOS</text></g><g fill="#02173B" font-size="30"><text x="270" y="201">Governança</text><text x="690" y="201">Processos</text><text x="270" y="521">Pessoas</text><text x="690" y="521">Indicadores</text></g><text x="480" y="624" font-size="15" letter-spacing="2" fill="#475E69">UMA EMPRESA QUE FUNCIONA EM CONJUNTO</text></g>
+</svg>
