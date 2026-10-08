@@ -19,10 +19,7 @@ SERVICOS = [
      "Estruturação de Negócios: governança, indicadores, sucessão e cultura"),
 ]
 
-MARCA_SVG = """<svg class="brand-mark-svg" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M 36 36 L 22 50 C 16 56 16 64 22 70 L 50 98 L 78 70 C 84 64 84 56 78 50 L 64 36" />
-          <path d="M 50 2 C 64 16 64 36 50 46 C 36 56 36 76 50 90 C 64 76 64 56 50 46 C 36 36 36 16 50 2 Z" />
-        </svg>"""
+MARCA_SVG = """<img class="brand-mark-svg" src="assets/images/evolve-simbolo-original.svg" width="44" height="44" alt="" aria-hidden="true" style="object-fit:contain;flex-shrink:0">"""
 
 
 def ph_equipe(classes="", titulo="Foto da equipe Evolve Capital Humano", nota=""):

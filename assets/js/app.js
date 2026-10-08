@@ -1266,3 +1266,74 @@ window.EvolveEscrever = (function () {
   obs.observe(sec);
   setTimeout(comeca, 2500);   /* rede de segurança */
 })();
+
+/* Hold a photo to pause; release to resume the remaining display time. */
+(() => {
+  document.querySelectorAll('[data-hero-gallery]').forEach(gallery => {
+    const slides = [...gallery.querySelectorAll('.hero-gallery__slide')];
+    let current = 0, timer, held = false, visible = true, pending = 0;
+    let remaining = 5500, deadline = 0, pointer = null, key = null;
+    const stop = () => {
+      if (timer !== undefined) {
+        clearTimeout(timer);
+        remaining = Math.max(0, deadline - performance.now());
+        timer = undefined;
+      }
+    };
+    const schedule = () => {
+      stop();
+      if (!held && visible && !document.hidden) {
+        deadline = performance.now() + remaining;
+        timer = setTimeout(() => { timer = undefined; show((current + 1) % slides.length); }, remaining);
+      }
+    };
+    async function show(index) {
+      const request = ++pending;
+      try { await slides[index].querySelector('img').decode(); }
+      catch { remaining = 5500; schedule(); return; }
+      if (request !== pending || held || !visible || document.hidden) return;
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('is-active', i === index);
+        slide.setAttribute('aria-hidden', String(i !== index));
+      });
+      current = index; remaining = 5500; schedule();
+    }
+    function reflect() {
+      held = pointer !== null || key !== null;
+      ++pending;
+      gallery.classList.toggle('is-paused', held || !visible || document.hidden);
+      schedule();
+    }
+    gallery.addEventListener('pointerdown', event => {
+      if (!event.isPrimary || event.button !== 0 || pointer !== null) return;
+      pointer = event.pointerId;
+      gallery.setPointerCapture(pointer);
+      reflect();
+    });
+    function release(event) {
+      if (event.pointerId !== pointer) return;
+      pointer = null; reflect();
+    }
+    gallery.addEventListener('pointerup', release);
+    gallery.addEventListener('pointercancel', release);
+    gallery.addEventListener('lostpointercapture', release);
+    gallery.addEventListener('dragstart', event => event.preventDefault());
+    gallery.addEventListener('contextmenu', event => event.preventDefault());
+    gallery.addEventListener('keydown', event => {
+      if (event.key !== ' ' && event.key !== 'Enter') return;
+      event.preventDefault();
+      if (!event.repeat) { key = event.key; reflect(); }
+    });
+    gallery.addEventListener('keyup', event => {
+      if (event.key === key) { event.preventDefault(); key = null; reflect(); }
+    });
+    function reset() { pointer = null; key = null; reflect(); }
+    gallery.addEventListener('blur', reset);
+    window.addEventListener('blur', reset);
+    document.addEventListener('visibilitychange', reset);
+    new IntersectionObserver(entries => { visible = entries[0].isIntersecting; reflect(); }, {threshold: .15}).observe(gallery);
+    gallery.tabIndex = 0;
+    gallery.setAttribute('aria-label', 'Treinamentos Evolve em ação. Mantenha pressionado para pausar; solte para continuar. No teclado, segure Espaço ou Enter.');
+    reflect();
+  });
+})();

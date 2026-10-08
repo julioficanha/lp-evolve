@@ -51,11 +51,7 @@ CORPO = """
                  data-x="500" data-y="324" data-r="66">
                 <title>O núcleo do trabalho da Evolve</title>
                 <circle class="grafo__no-disco" r="66"></circle>
-                <svg class="grafo__nucleo-marca" x="-21" y="-30" width="42" height="42" viewBox="0 0 100 100"
-                     fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" aria-hidden="true">
-                  <path d="M 36 36 L 22 50 C 16 56 16 64 22 70 L 50 98 L 78 70 C 84 64 84 56 78 50 L 64 36" />
-                  <path d="M 50 2 C 64 16 64 36 50 46 C 36 56 36 76 50 90 C 64 76 64 56 50 46 C 36 36 36 16 50 2 Z" />
-                </svg>
+                <image class="grafo__nucleo-marca" x="-21" y="-30" width="42" height="42" href="assets/images/evolve-simbolo-original.svg" aria-hidden="true"/>
                 <text class="grafo__nucleo-rotulo" y="32">EVOLVE</text>
               </g>
 

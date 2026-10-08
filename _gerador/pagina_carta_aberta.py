@@ -223,10 +223,7 @@ CARTA = """
           </p>
 
           <div class="carta__signature" data-reveal>
-            <svg class="carta__signature-mark" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true">
-              <path d="M 36 36 L 22 50 C 16 56 16 64 22 70 L 50 98 L 78 70 C 84 64 84 56 78 50 L 64 36" />
-              <path d="M 50 2 C 64 16 64 36 50 46 C 36 56 36 76 50 90 C 64 76 64 56 50 46 C 36 36 36 16 50 2 Z" />
-            </svg>
+            <img class="carta__signature-mark" src="assets/images/evolve-simbolo-original.svg" width="52" height="52" alt="" aria-hidden="true" style="object-fit:contain">
             <div class="carta__signature-text">
               <span class="who">Equipe Evolve Capital Humano</span>
               <span class="what">Estruturamos negócios para que pessoas e resultados evoluam juntos.</span>
