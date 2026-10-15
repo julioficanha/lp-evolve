@@ -1333,7 +1333,7 @@ window.EvolveEscrever = (function () {
     document.addEventListener('visibilitychange', reset);
     new IntersectionObserver(entries => { visible = entries[0].isIntersecting; reflect(); }, {threshold: .15}).observe(gallery);
     gallery.tabIndex = 0;
-    gallery.setAttribute('aria-label', 'Treinamentos Evolve em ação. Mantenha pressionado para pausar; solte para continuar. No teclado, segure Espaço ou Enter.');
+    gallery.setAttribute('aria-label', `${gallery.dataset.galleryLabel || 'Treinamentos Evolve em ação'}. Mantenha pressionado para pausar; solte para continuar. No teclado, segure Espaço ou Enter.`);
     reflect();
   });
 })();
