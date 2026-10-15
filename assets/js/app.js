@@ -1338,46 +1338,63 @@ window.EvolveEscrever = (function () {
   });
 })();
 
-/* Vídeos do hero SOLIDÃO: toca os vídeos em sequência, sem som, com troca suave e em looping. */
+/* Hero SOLIDÃO: alterna vídeos e fotos em sequência, sem som, com troca suave e em looping. */
 (() => {
   document.querySelectorAll('[data-video-reel]').forEach(reel => {
     if (reel.dataset.reelReady) return;
     reel.dataset.reelReady = '1';
-    const clips = [...reel.querySelectorAll('video')];
-    const dots = [...reel.querySelectorAll('[data-reel-dot]')];
-    if (!clips.length) return;
+    const items = [...reel.querySelectorAll('.reel__clip')];
+    if (items.length < 2) return;
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let current = 0, visible = false, advancing = false;
     const FADE = 1.1;
-    clips.forEach(v => { v.muted = true; v.defaultMuted = true; v.playsInline = true; });
-    function warm(i) { const v = clips[i % clips.length]; if (v.preload !== 'auto') { v.preload = 'auto'; v.load(); } }
+    let current = 0, visible = false, advancing = false, timer;
+    const isVideo = el => el.tagName === 'VIDEO';
+    items.filter(isVideo).forEach(v => { v.muted = true; v.defaultMuted = true; v.playsInline = true; });
+    function warm(i) {
+      const el = items[i % items.length];
+      if (isVideo(el) && el.preload !== 'auto') { el.preload = 'auto'; el.load(); }
+      if (!isVideo(el)) { el.loading = 'eager'; }
+    }
     function play(v) { const p = v.play(); if (p && p.catch) p.catch(() => {}); }
-    function show(index) {
-      const prev = clips[current];
+    function startCurrent() {
+      clearTimeout(timer);
+      const el = items[current];
+      if (isVideo(el)) play(el);
+      else timer = setTimeout(next, Number(el.dataset.duration) || 5500);
+    }
+    function stopCurrent() {
+      clearTimeout(timer);
+      const el = items[current];
+      if (isVideo(el)) el.pause();
+    }
+    async function next() {
+      if (advancing) return;
+      advancing = true;
+      const prev = items[current];
+      const index = (current + 1) % items.length;
+      const el = items[index];
+      if (!isVideo(el)) { try { await el.decode(); } catch {} }
+      else el.currentTime = 0;
       current = index;
-      const next = clips[current];
-      next.currentTime = 0;
-      play(next);
-      clips.forEach((v, i) => v.classList.toggle('is-active', i === current));
-      dots.forEach((d, i) => d.classList.toggle('is-active', i === current));
-      setTimeout(() => { if (prev !== next) prev.pause(); advancing = false; }, FADE * 1000);
+      items.forEach((it, i) => it.classList.toggle('is-active', i === current));
+      if (visible && !document.hidden) startCurrent();
+      setTimeout(() => { if (prev !== el && isVideo(prev)) prev.pause(); advancing = false; }, FADE * 1000);
       warm(current + 1);
     }
-    clips.forEach((v, i) => {
+    items.filter(isVideo).forEach(v => {
       v.addEventListener('timeupdate', () => {
-        if (i !== current || advancing || !v.duration) return;
-        if (v.duration - v.currentTime <= FADE) { advancing = true; show((current + 1) % clips.length); }
+        if (items[current] !== v || advancing || !v.duration) return;
+        if (v.duration - v.currentTime <= FADE) next();
       });
-      v.addEventListener('ended', () => { if (i === current && !advancing) { advancing = true; show((current + 1) % clips.length); } });
+      v.addEventListener('ended', () => { if (items[current] === v) next(); });
     });
     if (reduced) return;
     new IntersectionObserver(entries => {
       visible = entries[0].isIntersecting;
-      if (visible) { warm(current); warm(current + 1); play(clips[current]); }
-      else clips[current].pause();
+      if (visible) { warm(current + 1); startCurrent(); } else stopCurrent();
     }, { threshold: 0.2 }).observe(reel);
     document.addEventListener('visibilitychange', () => {
-      if (document.hidden) clips[current].pause(); else if (visible) play(clips[current]);
+      if (document.hidden) stopCurrent(); else if (visible) startCurrent();
     });
   });
 })();
