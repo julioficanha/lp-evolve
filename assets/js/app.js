@@ -1337,3 +1337,47 @@ window.EvolveEscrever = (function () {
     reflect();
   });
 })();
+
+/* "O extremo oposto": toca os vídeos em sequência, sem som, com troca suave e em looping. */
+(() => {
+  document.querySelectorAll('[data-video-reel]').forEach(reel => {
+    if (reel.dataset.reelReady) return;
+    reel.dataset.reelReady = '1';
+    const clips = [...reel.querySelectorAll('video')];
+    const dots = [...reel.querySelectorAll('.oposto__dot')];
+    if (!clips.length) return;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let current = 0, visible = false, advancing = false;
+    const FADE = 1.1;
+    clips.forEach(v => { v.muted = true; v.defaultMuted = true; v.playsInline = true; });
+    function warm(i) { const v = clips[i % clips.length]; if (v.preload !== 'auto') { v.preload = 'auto'; v.load(); } }
+    function play(v) { const p = v.play(); if (p && p.catch) p.catch(() => {}); }
+    function show(index) {
+      const prev = clips[current];
+      current = index;
+      const next = clips[current];
+      next.currentTime = 0;
+      play(next);
+      clips.forEach((v, i) => v.classList.toggle('is-active', i === current));
+      dots.forEach((d, i) => d.classList.toggle('is-active', i === current));
+      setTimeout(() => { if (prev !== next) prev.pause(); advancing = false; }, FADE * 1000);
+      warm(current + 1);
+    }
+    clips.forEach((v, i) => {
+      v.addEventListener('timeupdate', () => {
+        if (i !== current || advancing || !v.duration) return;
+        if (v.duration - v.currentTime <= FADE) { advancing = true; show((current + 1) % clips.length); }
+      });
+      v.addEventListener('ended', () => { if (i === current && !advancing) { advancing = true; show((current + 1) % clips.length); } });
+    });
+    if (reduced) return;
+    new IntersectionObserver(entries => {
+      visible = entries[0].isIntersecting;
+      if (visible) { warm(current); warm(current + 1); play(clips[current]); }
+      else clips[current].pause();
+    }, { threshold: 0.2 }).observe(reel);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) clips[current].pause(); else if (visible) play(clips[current]);
+    });
+  });
+})();
