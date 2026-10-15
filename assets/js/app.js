@@ -1345,7 +1345,6 @@ window.EvolveEscrever = (function () {
     reel.dataset.reelReady = '1';
     const items = [...reel.querySelectorAll('.reel__clip')];
     if (items.length < 2) return;
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const FADE = 1.1;
     let current = 0, visible = false, advancing = false, timer;
     const isVideo = el => el.tagName === 'VIDEO';
@@ -1353,7 +1352,6 @@ window.EvolveEscrever = (function () {
     function warm(i) {
       const el = items[i % items.length];
       if (isVideo(el) && el.preload !== 'auto') { el.preload = 'auto'; el.load(); }
-      if (!isVideo(el)) { el.loading = 'eager'; }
     }
     function play(v) { const p = v.play(); if (p && p.catch) p.catch(() => {}); }
     function startCurrent() {
@@ -1373,8 +1371,10 @@ window.EvolveEscrever = (function () {
       const prev = items[current];
       const index = (current + 1) % items.length;
       const el = items[index];
-      if (!isVideo(el)) { try { await el.decode(); } catch {} }
-      else el.currentTime = 0;
+      if (!isVideo(el)) {
+        /* espera a foto decodificar, mas nunca trava a sequência por causa dela */
+        await Promise.race([el.decode().catch(() => {}), new Promise(r => setTimeout(r, 1500))]);
+      } else el.currentTime = 0;
       current = index;
       items.forEach((it, i) => it.classList.toggle('is-active', i === current));
       if (visible && !document.hidden) startCurrent();
@@ -1388,7 +1388,7 @@ window.EvolveEscrever = (function () {
       });
       v.addEventListener('ended', () => { if (items[current] === v) next(); });
     });
-    if (reduced) return;
+    /* Com "reduzir animações" ligado, a sequência continua; só o zoom é desligado (no CSS). */
     new IntersectionObserver(entries => {
       visible = entries[0].isIntersecting;
       if (visible) { warm(current + 1); startCurrent(); } else stopCurrent();
