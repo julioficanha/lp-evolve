@@ -4179,3 +4179,7 @@ select:focus-visible, textarea:focus-visible {
 /* Recrutamento: fotos passando no hero, no mesmo estilo da galeria da página inicial */
 .svc-abre__foto--galeria { aspect-ratio: var(--prop, 1.775); }
 .svc-abre__foto--galeria .hero-gallery__slide img { width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; object-position: center; }
+
+/* Carta aberta: mosaico 2x2 no hero SOLIDÃO (o oposto da solidão: gente junta) */
+.solidao-mosaico { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 6px; background: var(--azul-petroleo); }
+.hero-solidao--equipe .hero-solidao__visual .solidao-mosaico img { position: static; width: 100%; height: 100%; object-fit: cover; transform: none !important; filter: saturate(0.95) contrast(1.03); }
