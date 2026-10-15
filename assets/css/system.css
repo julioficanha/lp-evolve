@@ -4159,7 +4159,10 @@ select:focus-visible, textarea:focus-visible {
 }
 .logos-clientes__item:hover { transform: translateY(-3px); box-shadow: 0 14px 30px -18px rgba(2, 23, 59, 0.35); }
 .logos-clientes__item .foto-provisoria { padding: 1rem; }
-.logos-clientes__item img { width: 100%; height: 100%; object-fit: contain; padding: 1rem; background: #fff; }
+.logos-clientes__item img { width: 100%; height: 100%; object-fit: contain; padding: 1.1rem 1.4rem; background: #fff; }
+.logos-clientes__grid:has(img) { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+@media (max-width: 900px) { .logos-clientes__grid:has(img) { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .logos-clientes__grid:has(img) { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; } }
 
 /* Indicadores com 3 itens (servicos.html, sem o NR-1) */
 .indicadores--tres { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 0 2.5rem !important; }
