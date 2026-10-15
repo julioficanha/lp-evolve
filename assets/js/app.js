@@ -1338,13 +1338,13 @@ window.EvolveEscrever = (function () {
   });
 })();
 
-/* "O extremo oposto": toca os vídeos em sequência, sem som, com troca suave e em looping. */
+/* Vídeos do hero SOLIDÃO: toca os vídeos em sequência, sem som, com troca suave e em looping. */
 (() => {
   document.querySelectorAll('[data-video-reel]').forEach(reel => {
     if (reel.dataset.reelReady) return;
     reel.dataset.reelReady = '1';
     const clips = [...reel.querySelectorAll('video')];
-    const dots = [...reel.querySelectorAll('.oposto__dot')];
+    const dots = [...reel.querySelectorAll('[data-reel-dot]')];
     if (!clips.length) return;
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let current = 0, visible = false, advancing = false;

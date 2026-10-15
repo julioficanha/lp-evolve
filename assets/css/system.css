@@ -4180,24 +4180,9 @@ select:focus-visible, textarea:focus-visible {
 .svc-abre__foto--galeria { aspect-ratio: var(--prop, 1.775); }
 .svc-abre__foto--galeria .hero-gallery__slide img { width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; object-position: center; }
 
-/* Carta aberta: mosaico 2x2 no hero SOLIDÃO (o oposto da solidão: gente junta) */
-.solidao-mosaico { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 6px; background: var(--azul-petroleo); }
-.hero-solidao--equipe .hero-solidao__visual .solidao-mosaico img { position: static; width: 100%; height: 100%; object-fit: cover; transform: none !important; filter: saturate(0.95) contrast(1.03); }
-
-/* Carta aberta: "O extremo oposto" — vídeos de sessões práticas em sequência, sem som */
-.oposto { background: var(--azul-petroleo); color: var(--off-white); padding: clamp(4rem, 9vw, 7rem) 0; overflow: hidden; }
-.oposto__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); gap: clamp(2rem, 6vw, 5rem); align-items: center; }
-.oposto__titulo { font-family: var(--font-serif); font-size: clamp(2.2rem, 4.6vw, 4rem); line-height: 1.05; margin: 1.25rem 0 1.25rem; color: var(--off-white); }
-.oposto__titulo em { color: var(--terracota, #9B512F); font-style: italic; }
-.oposto__lead { max-width: 44ch; font-size: clamp(1rem, 1.3vw, 1.12rem); line-height: 1.65; color: rgba(239, 239, 237, 0.78); }
-.oposto__palco { position: relative; margin: 0; width: 100%; max-width: 480px; justify-self: end; aspect-ratio: 4 / 5; border-radius: var(--radius-md, 1rem); overflow: hidden; background: #071B3D; box-shadow: 0 38px 90px -44px rgba(0, 0, 0, 0.7); }
-.oposto__palco::after { content: ''; position: absolute; inset: 0; border: 1px solid rgba(239, 239, 237, 0.12); border-radius: inherit; pointer-events: none; }
-.oposto__clip { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.1s ease; }
-.oposto__clip.is-active { opacity: 1; z-index: 1; animation: oposto-zoom 12s ease-out both; }
-@keyframes oposto-zoom { from { transform: scale(1.0); } to { transform: scale(1.07); } }
-.oposto__legenda { position: absolute; z-index: 2; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 2.4rem 1.2rem 1rem; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(239, 239, 237, 0.85); background: linear-gradient(to top, rgba(2, 23, 59, 0.9), transparent); }
-.oposto__dots { display: flex; gap: 6px; }
-.oposto__dot { width: 6px; height: 6px; border-radius: 9px; background: rgba(255, 255, 255, 0.45); transition: width 0.4s, background 0.4s; }
-.oposto__dot.is-active { width: 20px; background: #fff; }
-@media (max-width: 900px) { .oposto__grid { grid-template-columns: 1fr; } .oposto__palco { justify-self: center; } }
-@media (prefers-reduced-motion: reduce) { .oposto__clip { transition: none; } .oposto__clip.is-active { animation: none; } }
+/* Carta aberta: vídeos de sessões práticas no hero SOLIDÃO, em sequência, sem som e em looping */
+.solidao-reel { position: absolute; inset: 0; background: var(--azul-petroleo); overflow: hidden; }
+.reel__clip { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.1s ease; }
+.reel__clip.is-active { opacity: 1; z-index: 1; animation: reel-zoom 12s ease-out both; }
+@keyframes reel-zoom { from { transform: scale(1); } to { transform: scale(1.05); } }
+@media (prefers-reduced-motion: reduce) { .reel__clip { transition: none; } .reel__clip.is-active { animation: none; } }
