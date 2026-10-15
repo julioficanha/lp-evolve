@@ -4075,3 +4075,100 @@ select:focus-visible, textarea:focus-visible {
 .hero-gallery.is-paused { cursor:grabbing; }
 .hero-gallery:focus-visible { outline:2px solid #d4a52e; outline-offset:-4px; }
 .hero-gallery img { -webkit-user-drag:none; }
+
+/* --------------------------------------------------------------------------
+   FOTO / LOGO PROVISÓRIA — marca visível onde o material real ainda não chegou.
+   Para trocar: substituir o bloco .foto-provisoria pela <img> definitiva.
+   -------------------------------------------------------------------------- */
+.foto-provisoria {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 2rem;
+  text-align: center;
+  color: var(--azul-petroleo, #02173B);
+  background:
+    radial-gradient(120% 90% at 20% 10%, rgba(166, 82, 46, 0.16), transparent 60%),
+    repeating-linear-gradient(135deg, rgba(2, 23, 59, 0.045) 0 14px, transparent 14px 28px),
+    #E9E6E0;
+  border: 2px dashed rgba(166, 82, 46, 0.6);
+  border-radius: inherit;
+  box-sizing: border-box;
+}
+.foto-provisoria__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans, 'Montserrat', sans-serif);
+  font-size: clamp(0.75rem, 1.1vw, 0.9rem);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--terracota, #A6522E);
+}
+.foto-provisoria__tag::before {
+  content: "";
+  width: 0.55rem; height: 0.55rem;
+  border-radius: 50%;
+  background: currentColor;
+  animation: foto-provisoria-pulse 1.8s ease-in-out infinite;
+}
+.foto-provisoria__nota {
+  max-width: 32ch;
+  font-size: clamp(0.78rem, 1vw, 0.9rem);
+  line-height: 1.5;
+  opacity: 0.75;
+}
+.foto-provisoria--escuro {
+  color: rgba(239, 239, 237, 0.9);
+  background:
+    radial-gradient(120% 90% at 20% 10%, rgba(166, 82, 46, 0.22), transparent 60%),
+    repeating-linear-gradient(135deg, rgba(239, 239, 237, 0.04) 0 14px, transparent 14px 28px),
+    #0B2349;
+  border-color: rgba(239, 239, 237, 0.3);
+}
+.foto-provisoria--escuro .foto-provisoria__tag { color: #E08A5F; }
+/* Contextos de hero com proporção fixa: o bloco preenche o quadro inteiro */
+.hero-solidao__visual .foto-provisoria,
+.svc-hero__visual .foto-provisoria { position: absolute; inset: 0; }
+/* Faixa de foto das páginas de serviço */
+.svc-abre__foto .foto-provisoria { height: auto; aspect-ratio: var(--prop, 1.5); }
+@keyframes foto-provisoria-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+@media (prefers-reduced-motion: reduce) { .foto-provisoria__tag::before { animation: none; } }
+
+/* --------------------------------------------------------------------------
+   FAIXA DE LOGOS — "Empresas que já confiaram em nosso trabalho"
+   -------------------------------------------------------------------------- */
+.logos-clientes { padding: clamp(3.5rem, 7vw, 5.5rem) 0; background: var(--off-white, #EFEFED); }
+.logos-clientes__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+.logos-clientes__item {
+  aspect-ratio: 16 / 9;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.logos-clientes__item:hover { transform: translateY(-3px); box-shadow: 0 14px 30px -18px rgba(2, 23, 59, 0.35); }
+.logos-clientes__item .foto-provisoria { padding: 1rem; }
+.logos-clientes__item img { width: 100%; height: 100%; object-fit: contain; padding: 1rem; background: #fff; }
+
+/* Indicadores com 3 itens (servicos.html, sem o NR-1) */
+.indicadores--tres { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 0 2.5rem !important; }
+.indicadores--tres .indicador { flex-direction: column; align-items: flex-start !important; gap: 0.75rem !important; }
+.indicadores--tres .indicador__num { min-width: 0 !important; }
+@media (max-width: 900px) { .indicadores--tres { grid-template-columns: 1fr !important; } }
+
+/* Recrutamento com 3 indicadores (sem o card de 90 dias): 3 colunas, número acima do texto */
+.indicadores--recrutamento.indicadores--tres { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.indicadores--recrutamento.indicadores--tres .indicador { grid-template-columns: 1fr; align-content: start; gap: 0.75rem; }
+@media (max-width: 720px) { .indicadores--recrutamento.indicadores--tres { grid-template-columns: 1fr; } }
+.equipe-card-vert__frame .foto-provisoria { position: absolute; inset: 0; }
