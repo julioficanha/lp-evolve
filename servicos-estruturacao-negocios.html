@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="assets/css/system.css?v=20261015-reel5">
+  <link rel="stylesheet" href="assets/css/system.css?v=20261023-wa1">
 
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
 </head>
@@ -78,7 +78,7 @@
       </nav>
 
       <div class="header-actions">
-        <a href="#modal-diagnostico" class="btn btn-terracota btn-header-cta">Vamos conversar</a>
+        <a href="#modal-diagnostico" class="btn btn-terracota btn-header-cta open-contact-trigger" data-subject="geral">Vamos conversar</a>
         <button type="button" class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -307,14 +307,11 @@
           <textarea id="form-message" name="desafio" rows="3" placeholder="Ex.: as decisões operacionais passam quase todas por mim e preciso preparar a minha linha de gestores."></textarea>
         </div>
         <button type="submit" class="btn btn-terracota btn-block btn-lg" data-verb="enviar"><span>Enviar mensagem</span></button>
-        <p class="provisional-note" style="margin-top:1rem;font-size:0.72rem;line-height:1.5;color:var(--verde-acinzentado)">
-          <span class="provisorio">Provisório</span>
-          O destino do formulário será ligado ao canal oficial da Evolve (e-mail ou Google Forms com notificação).
-        </p>
+        <p class="form-nota-wa">Ao enviar, o WhatsApp da Evolve abre com os seus dados já preenchidos. É só tocar em enviar por lá.</p>
       </form>
     </div>
   </div>
 
-  <script src="assets/js/app.js?v=20261015-reel4" defer></script>
+  <script src="assets/js/app.js?v=20261023-wa1" defer></script>
 </body>
 </html>

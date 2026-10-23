@@ -593,6 +593,13 @@
     const open = (subject) => {
       lastFocus = document.activeElement;
       modal.classList.add('active');
+      document.body.classList.add('modal-aberto');
+      const form = $('#contact-form', modal);
+      if (form && form.hidden) {
+        $$('.wa-ok', modal).forEach((n) => n.remove());
+        form.reset();
+        form.hidden = false;
+      }
       modal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
       if (window.lenis) window.lenis.stop();
@@ -606,6 +613,7 @@
     };
     const close = () => {
       modal.classList.remove('active');
+      document.body.classList.remove('modal-aberto');
       modal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
       if (window.lenis) window.lenis.start();
@@ -623,8 +631,9 @@
     window.EvolveModal = { open, close };
 
     /* Envio do formulário de contato.
-       Enquanto o canal oficial não estiver ligado, o registro fica no
-       localStorage e no console para conferência. Ver README-ENTREGA.md. */
+       Ainda sem canal oficial (e-mail/planilha): o registro fica no
+       localStorage e a conversa segue pelo WhatsApp da Evolve, com os
+       dados preenchidos já escritos na mensagem. */
     const form = $('#contact-form', modal);
     if (form) {
       form.addEventListener('submit', (e) => {
@@ -637,18 +646,61 @@
           lista.push(registro);
           localStorage.setItem(chave, JSON.stringify(lista));
         } catch (_) {}
-        console.info('[Evolve · contato registrado]', registro);
 
-        const box = form.parentNode;
+        const frente = select ? select.options[select.selectedIndex].text : '';
+        const linhas = [
+          WHATSAPP.msgFormulario,
+          '',
+          `*Nome:* ${dados.nome || ''}`,
+          `*Empresa:* ${dados.empresa || ''}`,
+          `*E-mail:* ${dados.email || ''}`,
+          `*Telefone:* ${dados.whatsapp || ''}`,
+          `*Frente de interesse:* ${frente}`
+        ];
+        if ((dados.desafio || '').trim()) linhas.push(`*Desafio:* ${dados.desafio.trim()}`);
+        const url = linkWhatsApp(linhas.join('\n'));
+        const janela = window.open(url, '_blank');
+        if (janela) janela.opener = null;
+
+        const primeiro = (dados.nome || '').trim().split(' ')[0];
         const ok = document.createElement('div');
-        ok.className = 'capta__ok';
-        ok.style.marginTop = '1rem';
-        ok.innerHTML = `<strong>Mensagem recebida, ${(dados.nome || '').split(' ')[0] || 'obrigado'}.</strong>
-          <p>A equipe da Evolve vai analisar o cenário da ${dados.empresa || 'sua empresa'} e retornar o contato. Quem responde é uma pessoa, não um robô.</p>`;
+        ok.className = 'wa-ok';
+        ok.setAttribute('role', 'status');
+        ok.innerHTML = `
+          <div class="wa-ok__selo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+          <strong>Formulário recebido${primeiro ? ', ' + esc(primeiro) : ''}.</strong>
+          <p>${janela ? 'Abrimos o WhatsApp da Evolve com os seus dados. Toque em enviar por lá para concluir.' : 'Falta só um passo: abra o WhatsApp da Evolve e envie a mensagem que já deixamos pronta.'}</p>
+          <a class="btn btn-terracota btn-lg" href="${url}" target="_blank" rel="noopener"><span class="wa-flutuante__icone" aria-hidden="true"></span><span>${janela ? 'Abrir o WhatsApp de novo' : 'Abrir o WhatsApp'}</span></a>`;
         form.hidden = true;
-        box.appendChild(ok);
+        form.parentNode.appendChild(ok);
       });
     }
+  }
+
+  /* ---------------------------------------------- 16b. WHATSAPP DA EVOLVE */
+  const WHATSAPP = {
+    numero: '554699827553',
+    msgFormulario: 'Oi, respondi o formulário e gostaria de conhecer as soluções da Evolve para o meu problema.',
+    msgBotao: 'Oi, vim pelo site e gostaria de conhecer as soluções da Evolve.'
+  };
+  function linkWhatsApp(texto) {
+    return `https://wa.me/${WHATSAPP.numero}?text=${encodeURIComponent(texto)}`;
+  }
+  function esc(t) {
+    return String(t).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+
+  function initWhatsAppFlutuante() {
+    const a = document.createElement('a');
+    a.className = 'wa-flutuante';
+    a.href = linkWhatsApp(WHATSAPP.msgBotao);
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.setAttribute('aria-label', 'Conversar com a Evolve pelo WhatsApp');
+    a.innerHTML = '<span class="wa-flutuante__icone" aria-hidden="true"></span><span class="wa-flutuante__rotulo">Fale com a Evolve</span>';
+    document.body.appendChild(a);
+    frame.add((f) => a.classList.toggle('is-visivel', f.y > 240));
+    a.classList.toggle('is-visivel', window.scrollY > 240);
   }
 
   /* ------------------------------------- 17. SUMÁRIO DA CARTA (seção corrente) */
@@ -706,6 +758,7 @@
     initNav();
     initAccordions();
     initModal();
+    initWhatsAppFlutuante();
     initCartaToc();
     initRotina();
     initScrollCue();

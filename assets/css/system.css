@@ -4189,3 +4189,86 @@ select:focus-visible, textarea:focus-visible {
 /* usa "scale" (e não "transform"), porque a regra antiga força transform: none !important nas imagens */
 @keyframes reel-zoom { from { scale: 1; } to { scale: 1.05; } }
 @media (prefers-reduced-motion: reduce) { .reel__clip { transition: none; } .reel__clip.is-active { animation: none; } }
+
+/* --------------------------------------------------------------------------
+   24. HERO SEM FOTO, CONTATO VIA WHATSAPP E BOTÃO FLUTUANTE
+   -------------------------------------------------------------------------- */
+
+/* hero de coluna única (página A Evolve, sem fotografia lateral) */
+.svc-hero--solo { grid-template-columns: minmax(0, 1fr); min-height: min(82svh, 46rem); }
+.svc-hero--solo .svc-hero__text { max-width: 62rem; padding-right: 6vw; }
+.svc-hero--solo .svc-hero__q { max-width: 58ch; }
+@media (max-width: 900px) { .svc-hero--solo { min-height: auto; } }
+
+/* nota abaixo do botão do formulário */
+.form-nota-wa {
+  display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+  margin-top: 1rem;
+  font-size: 0.78rem; line-height: 1.5; text-align: center;
+  color: var(--verde-acinzentado);
+}
+.form-nota-wa::before {
+  content: ''; flex: 0 0 auto; width: 0.95rem; height: 0.95rem;
+  background: currentColor;
+  -webkit-mask: var(--wa-icone) center / contain no-repeat;
+          mask: var(--wa-icone) center / contain no-repeat;
+}
+
+/* confirmação depois do envio */
+.modal-form[hidden] { display: none !important; }
+.wa-ok { text-align: center; padding: 0.5rem 0 0.25rem; }
+.wa-ok__selo {
+  width: 3.25rem; height: 3.25rem; margin: 0 auto 1rem;
+  display: grid; place-items: center; border-radius: 50%;
+  background: var(--terracota-subtle); color: var(--terracota);
+}
+.wa-ok strong { display: block; font-family: var(--font-serif); font-size: 1.35rem; color: var(--azul-petroleo); margin-bottom: 0.5rem; }
+.wa-ok p { color: var(--verde-acinzentado); line-height: 1.6; margin: 0 auto 1.25rem; max-width: 34ch; }
+.wa-ok .btn { gap: 0.6rem; }
+
+/* ícone do WhatsApp em forma de máscara: herda a cor do texto */
+:root {
+  --wa-icone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.15a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.21 8.21 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 4.54 0 8.23 3.7 8.23 8.24 0 4.54-3.69 8.24-8.23 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z'/%3E%3C/svg%3E");
+}
+
+/* botão flutuante */
+.wa-flutuante {
+  position: fixed; right: clamp(1rem, 2.5vw, 1.75rem); bottom: clamp(1rem, 2.5vw, 1.75rem);
+  z-index: 900;
+  display: inline-flex; align-items: center;
+  height: 3.5rem; padding: 0 1.05rem;
+  border-radius: 999px;
+  background: var(--azul-petroleo); color: var(--off-white);
+  border: 1px solid rgba(239, 239, 237, 0.14);
+  box-shadow: 0 18px 40px -18px rgba(2, 23, 59, 0.65), 0 2px 6px rgba(2, 23, 59, 0.18);
+  text-decoration: none;
+  font-family: var(--font-sans); font-size: 0.86rem; font-weight: 600; letter-spacing: 0.01em;
+  opacity: 0; transform: translateY(14px) scale(0.96); pointer-events: none;
+  transition: opacity .45s var(--ease-rise), transform .45s var(--ease-rise), background-color .25s ease;
+}
+.wa-flutuante.is-visivel { opacity: 1; transform: none; pointer-events: auto; }
+.wa-flutuante:hover, .wa-flutuante:focus-visible { background: var(--terracota); }
+.wa-flutuante:focus-visible { outline: 2px solid var(--terracota-hover); outline-offset: 3px; }
+.wa-flutuante__icone {
+  position: relative; flex: 0 0 auto; width: 1.45rem; height: 1.45rem;
+  background: currentColor;
+  -webkit-mask: var(--wa-icone) center / contain no-repeat;
+          mask: var(--wa-icone) center / contain no-repeat;
+}
+/* ponto verde discreto: "estamos por aqui" */
+.wa-flutuante::after {
+  content: ''; position: absolute; top: 0.62rem; left: 2.05rem;
+  width: 0.5rem; height: 0.5rem; border-radius: 50%;
+  background: #3FBF6F; box-shadow: 0 0 0 2px var(--azul-petroleo);
+  transition: box-shadow .25s ease;
+}
+.wa-flutuante:hover::after { box-shadow: 0 0 0 2px var(--terracota); }
+.wa-flutuante__rotulo {
+  max-width: 0; overflow: hidden; white-space: nowrap; opacity: 0;
+  transition: max-width .45s var(--ease-rise), opacity .3s ease, margin .45s var(--ease-rise);
+}
+.wa-flutuante:hover .wa-flutuante__rotulo,
+.wa-flutuante:focus-visible .wa-flutuante__rotulo { max-width: 12rem; opacity: 1; margin-left: 0.6rem; }
+body.modal-aberto .wa-flutuante { opacity: 0; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .wa-flutuante, .wa-flutuante__rotulo { transition: none; } }
+@media print { .wa-flutuante { display: none; } }
