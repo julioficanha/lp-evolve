@@ -679,7 +679,7 @@
 
   /* ---------------------------------------------- 16b. WHATSAPP DA EVOLVE */
   const WHATSAPP = {
-    numero: '554699827553',
+    numero: '5546999827553',
     msgFormulario: 'Oi, respondi o formulário e gostaria de conhecer as soluções da Evolve para o meu problema.',
     msgBotao: 'Oi, vim pelo site e gostaria de conhecer as soluções da Evolve.'
   };
