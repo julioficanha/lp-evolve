@@ -1346,7 +1346,7 @@ body { overscroll-behavior-y: none; }
 }
 .resultado__label {
   font-size: 0.75rem; letter-spacing: 0.24em; text-transform: uppercase;
-  color: rgba(239,239,237,0.7); display: block; margin-bottom: 1.25rem;
+  color: rgba(239,239,237,0.94); display: block; margin-bottom: 1.25rem;
 }
 .resultado__text {
   font-family: var(--font-serif);
@@ -1709,6 +1709,7 @@ body { overscroll-behavior-y: none; }
 .capta__field select:focus,
 .capta__field textarea:focus {
   outline: none;
+  box-shadow: 0 0 0 3px rgba(217, 140, 104, 0.4);
   border-color: var(--terracota);
   background: rgba(239,239,237,0.1);
 }
@@ -2130,7 +2131,7 @@ body { overscroll-behavior-y: none; }
   background: transparent;
 }
 .provisorio::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--verde-acinzentado); }
-.provisorio--light { color: rgba(239,239,237,0.55); border-color: rgba(239,239,237,0.35); }
+.provisorio--light { color: rgba(239,239,237,0.9); border-color: rgba(239,239,237,0.45); }
 .provisorio--light::before { background: rgba(239,239,237,0.55); }
 
 /* --------------------------------------------------------------------------
