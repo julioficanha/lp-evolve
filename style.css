@@ -565,6 +565,8 @@ body {
 .modal-form { display: flex; flex-direction: column; gap: 1.25rem; }
 .form-group { display: flex; flex-direction: column; gap: 0.35rem; text-align: left; }
 .form-group label { font-size: 0.875rem; font-weight: 700; color: var(--azul-petroleo); }
+/* asterisco decorativo nos obrigatórios (o leitor de tela usa required/aria-required) */
+.form-group:has(> :required) > label::after { content: " *"; color: var(--terracota); }
 
 .form-group input,.form-group select,.form-group textarea {
   width: 100%;

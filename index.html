@@ -300,20 +300,20 @@
       <form class="modal-form" id="contact-form">
         <div class="form-group">
           <label for="form-name">Seu nome completo</label>
-          <input type="text" id="form-name" name="nome" required autocomplete="name" placeholder="Nome e sobrenome">
+          <input type="text" id="form-name" name="nome" required aria-required="true" autocomplete="name" placeholder="Nome e sobrenome">
         </div>
         <div class="form-group">
           <label for="form-company">Nome da sua empresa</label>
-          <input type="text" id="form-company" name="empresa" required autocomplete="organization" placeholder="Razão social ou nome fantasia">
+          <input type="text" id="form-company" name="empresa" required aria-required="true" autocomplete="organization" placeholder="Razão social ou nome fantasia">
         </div>
         <div class="form-row">
           <div class="form-group">
             <label for="form-email">E-mail profissional</label>
-            <input type="email" id="form-email" name="email" required autocomplete="email" placeholder="nome@suaempresa.com.br">
+            <input type="email" id="form-email" name="email" required aria-required="true" autocomplete="email" placeholder="nome@suaempresa.com.br">
           </div>
           <div class="form-group">
             <label for="form-phone">Telefone / WhatsApp</label>
-            <input type="tel" id="form-phone" name="whatsapp" required autocomplete="tel" placeholder="(00) 00000-0000">
+            <input type="tel" id="form-phone" name="whatsapp" required aria-required="true" inputmode="tel" autocomplete="tel" pattern="\(\d{2}\) \d{4,5}-\d{4}" placeholder="(00) 00000-0000">
           </div>
         </div>
         <div class="form-group">

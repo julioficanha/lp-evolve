@@ -715,8 +715,7 @@
         form.hidden = false;
       }
       modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-      if (window.lenis) window.lenis.stop();
+      travaScroll('modal', true);
       if (subject && select) {
         const opt = Array.from(select.options)
           .find((o) => o.value === subject || o.text.toLowerCase().includes(String(subject).toLowerCase()));
@@ -731,15 +730,20 @@
       modal.classList.remove('active');
       document.body.classList.remove('modal-aberto');
       modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-      if (window.lenis) window.lenis.start();
+      travaScroll('modal', false);
       if (lastFocus) lastFocus.focus();
     };
 
+    /* fecha pelo fundo só se o clique começou E terminou nele: arrastar uma
+       seleção de texto de dentro do campo até o fundo não fecha o modal */
+    let downNoFundo = false;
+    modal.addEventListener('mousedown', (e) => { downNoFundo = e.target === modal; });
     document.addEventListener('click', (e) => {
       const trigger = e.target.closest('.open-contact-trigger');
       if (trigger) { e.preventDefault(); open(trigger.dataset.subject); return; }
-      if (e.target === modal || e.target.closest('#modal-close-btn')) close();
+      if (e.target.closest('#modal-close-btn')) { close(); return; }
+      if (e.target === modal && downNoFundo) close();
+      downNoFundo = false;
     });
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && modal.classList.contains('active')) close();
@@ -751,6 +755,28 @@
        Evolve, com os dados preenchidos já escritos na mensagem. */
     const form = $('#contact-form', modal);
     if (form) {
+      /* telefone: máscara (00) 00000-0000 durante a digitação; um +55 inicial é
+         ignorado. A validação de 10 ou 11 dígitos fica no atributo pattern,
+         com a mensagem nativa do navegador (texto próprio aguarda aprovação) */
+      const fone = $('#form-phone', form);
+      if (fone) {
+        const mascara = (v) => {
+          let d = v.replace(/\D/g, '');
+          if (d.length > 11 && d.startsWith('55')) d = d.slice(2);
+          d = d.slice(0, 11);
+          if (d.length <= 2) return d.length ? `(${d}` : '';
+          const corte = d.length === 11 ? 7 : 6;
+          if (d.length <= 6) return `(${d.slice(0, 2)}) ${d.slice(2)}`;
+          return `(${d.slice(0, 2)}) ${d.slice(2, corte)}-${d.slice(corte)}`;
+        };
+        fone.addEventListener('input', () => { fone.value = mascara(fone.value); });
+      }
+
+      /* região viva criada vazia antes do envio, para o leitor de tela anunciar */
+      const statusEl = document.createElement('div');
+      statusEl.setAttribute('role', 'status');
+      form.parentNode.appendChild(statusEl);
+
       form.addEventListener('submit', (e) => {
         e.preventDefault();
         const dados = Object.fromEntries(new FormData(form).entries());
@@ -773,14 +799,15 @@
         const primeiro = (dados.nome || '').trim().split(' ')[0];
         const ok = document.createElement('div');
         ok.className = 'wa-ok';
-        ok.setAttribute('role', 'status');
+        ok.tabIndex = -1;
         ok.innerHTML = `
           <div class="wa-ok__selo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
           <strong>Formulário recebido${primeiro ? ', ' + esc(primeiro) : ''}.</strong>
           <p>${janela ? 'Abrimos o WhatsApp da Evolve com os seus dados. Toque em enviar por lá para concluir.' : 'Falta só um passo: abra o WhatsApp da Evolve e envie a mensagem que já deixamos pronta.'}</p>
           <a class="btn btn-terracota btn-lg" href="${url}" target="_blank" rel="noopener"><span class="wa-flutuante__icone" aria-hidden="true"></span><span>${janela ? 'Abrir o WhatsApp de novo' : 'Abrir o WhatsApp'}</span></a>`;
         form.hidden = true;
-        form.parentNode.appendChild(ok);
+        statusEl.appendChild(ok);
+        ok.focus();
       });
     }
   }
