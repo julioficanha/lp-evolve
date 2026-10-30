@@ -41,7 +41,7 @@
         </div>
       </a>
 
-      <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+      <nav class="main-nav" id="main-nav" aria-label="Navegação principal" data-lenis-prevent>
         <ul class="nav-list">
           <li class="nav-item-btn">
             <a href="index.html" class="nav-link-creative"><span>COMECE AQUI</span></a>
@@ -53,28 +53,28 @@
             <a href="evolve.html" class="nav-link-creative"><span>EVOLVE</span></a>
           </li>
           <li class="nav-item-btn has-dropdown">
-            <a href="servicos.html" class="nav-link-creative active" aria-haspopup="true" aria-expanded="false">
+            <a href="servicos.html" class="nav-link-creative active" aria-expanded="false" aria-controls="menu-servicos">
               <span>NOSSOS SERVIÇOS</span>
               <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
             </a>
-            <div class="nav-dropdown-menu" role="menu">
-              <a href="servicos-operacional-dp.html" class="dropdown-item" role="menuitem">
+            <div class="nav-dropdown-menu" id="menu-servicos">
+              <a href="servicos-operacional-dp.html" class="dropdown-item">
                 <span class="dropdown-item-title">Blindagem de RH</span>
                 <span class="dropdown-item-sub">Departamento Pessoal e RH protegidos contra passivos trabalhistas</span>
               </a>
-              <a href="servicos-recrutamento-selecao.html" class="dropdown-item" role="menuitem">
+              <a href="servicos-recrutamento-selecao.html" class="dropdown-item">
                 <span class="dropdown-item-title">Recrutamento e Seleção</span>
                 <span class="dropdown-item-sub">As pessoas certas nos lugares certos, com curadoria de perfil</span>
               </a>
-              <a href="servicos-riscos-saude.html" class="dropdown-item" role="menuitem">
+              <a href="servicos-riscos-saude.html" class="dropdown-item">
                 <span class="dropdown-item-title">Riscos Psicossociais e Saúde Organizacional</span>
                 <span class="dropdown-item-sub">Da exigência da NR-1 à gestão real das condições de trabalho</span>
               </a>
-              <a href="servicos-lideranca-desenvolvimento.html" class="dropdown-item" role="menuitem">
+              <a href="servicos-lideranca-desenvolvimento.html" class="dropdown-item">
                 <span class="dropdown-item-title">Cursos, Palestras e Treinamentos</span>
                 <span class="dropdown-item-sub">Formação de líderes e equipes, feita para a sua empresa</span>
               </a>
-              <a href="servicos-estruturacao-negocios.html" class="dropdown-item" role="menuitem">
+              <a href="servicos-estruturacao-negocios.html" class="dropdown-item">
                 <span class="dropdown-item-title">Negócio, Governança e Gestão</span>
                 <span class="dropdown-item-sub">Estruturação de Negócios: governança, indicadores, sucessão e cultura</span>
               </a>
@@ -85,7 +85,7 @@
 
       <div class="header-actions">
         <a href="https://wa.me/5546999827553?text=Oi%2C%20vim%20pelo%20site%20e%20gostaria%20de%20conhecer%20as%20solu%C3%A7%C3%B5es%20da%20Evolve." class="btn btn-terracota btn-header-cta" data-wa="header" target="_blank" rel="noopener" aria-label="Vamos conversar pelo WhatsApp (abre em nova aba)">Vamos conversar</a>
-        <button type="button" class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+        <button type="button" class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="main-nav">
           <span></span><span></span><span></span>
         </button>
       </div>

@@ -17,6 +17,15 @@
   const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
   const lerp  = (a, b, t) => a + (b - a) * t;
+  /* trava de rolagem única, compartilhada por modal e menu: a página só volta
+     a rolar quando nenhum dos dois estiver aberto */
+  const travas = new Set();
+  const travaScroll = (motivo, ligar) => {
+    if (ligar) travas.add(motivo); else travas.delete(motivo);
+    const travado = travas.size > 0;
+    document.body.style.overflow = travado ? 'hidden' : '';
+    if (window.lenis) travado ? window.lenis.stop() : window.lenis.start();
+  };
   /* progresso de um elemento atravessando a viewport: 0 ao entrar, 1 ao sair */
   const crossProgress = (rect, vh) =>
     clamp((vh - rect.top) / (vh + rect.height));
@@ -531,21 +540,100 @@
 
     const toggle = $('#mobile-menu-toggle');
     const nav = $('#main-nav');
+    const header = $('#site-header');
+    const mobile = window.matchMedia('(max-width: 768px)');
+    const dropdowns = $$('.nav-item-btn.has-dropdown');
+    const linkDe = (li) => $(':scope > .nav-link-creative', li);
+    const isMenuOpen = () => !!nav && nav.classList.contains('mobile-active');
+
+    const setSub = (li, aberto) => {
+      li.classList.toggle('mobile-open', aberto && mobile.matches);
+      const link = linkDe(li);
+      if (link) link.setAttribute('aria-expanded', String(aberto));
+    };
+
+    const closeMenu = () => {
+      if (!toggle || !nav) return;
+      const estava = isMenuOpen();
+      nav.classList.remove('mobile-active');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Abrir menu de navegação');
+      dropdowns.forEach((li) => setSub(li, false));
+      if (estava) travaScroll('menu', false);
+    };
+    const openMenu = () => {
+      if (!toggle || !nav) return;
+      if (header) nav.style.setProperty('--nav-top', `${Math.max(0, header.getBoundingClientRect().bottom)}px`);
+      nav.classList.add('mobile-active');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Fechar menu de navegação');
+      travaScroll('menu', true);
+    };
+
     if (toggle && nav) {
-      toggle.addEventListener('click', () => {
-        const open = nav.classList.toggle('mobile-active');
-        toggle.setAttribute('aria-expanded', String(open));
-        document.body.style.overflow = open ? 'hidden' : '';
+      toggle.addEventListener('click', () => (isMenuOpen() ? closeMenu() : openMenu()));
+
+      /* clique fora fecha */
+      document.addEventListener('click', (e) => {
+        if (!isMenuOpen()) return;
+        if (nav.contains(e.target) || toggle.contains(e.target)) return;
+        closeMenu();
       });
-      $$('.nav-item-btn.has-dropdown > .nav-link-creative').forEach((btn) => {
-        btn.addEventListener('click', (e) => {
-          if (window.innerWidth <= 900) {
-            e.preventDefault();
-            btn.parentElement.classList.toggle('mobile-open');
-          }
-        });
+
+      /* qualquer link do menu fecha (exceto o primeiro toque em "Nossos Serviços") */
+      nav.addEventListener('click', (e) => {
+        const a = e.target.closest('a');
+        if (!a || !isMenuOpen() || e.defaultPrevented) return;
+        closeMenu();
       });
+
+      /* voltou para desktop com o menu aberto: fecha e libera a rolagem */
+      mobile.addEventListener('change', (e) => { if (!e.matches) closeMenu(); });
     }
+
+    dropdowns.forEach((li) => {
+      const link = linkDe(li);
+      if (!link) return;
+
+      /* celular: o 1º toque abre o submenu; com ele aberto, o 2º navega para servicos.html */
+      link.addEventListener('click', (e) => {
+        if (!mobile.matches) return;
+        if (!li.classList.contains('mobile-open')) {
+          e.preventDefault();
+          setSub(li, true);
+        }
+      });
+
+      /* desktop: aria-expanded acompanha hover e foco (padrão disclosure) */
+      li.addEventListener('mouseenter', () => { if (mobile.matches) return; li.classList.remove('is-dismissed'); setSub(li, true); });
+      li.addEventListener('mouseleave', () => {
+        if (mobile.matches) return;
+        li.classList.remove('is-dismissed');
+        if (!li.contains(document.activeElement)) setSub(li, false);
+      });
+      li.addEventListener('focusin', (e) => {
+        if (mobile.matches) return;
+        if (e.target !== link) li.classList.remove('is-dismissed');
+        if (!li.classList.contains('is-dismissed')) setSub(li, true);
+      });
+      li.addEventListener('focusout', (e) => {
+        if (mobile.matches || li.contains(e.relatedTarget)) return;
+        li.classList.remove('is-dismissed');
+        if (!li.matches(':hover')) setSub(li, false);
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      if (isMenuOpen()) { closeMenu(); toggle.focus(); return; }
+      dropdowns.forEach((li) => {
+        const link = linkDe(li);
+        if (!link || link.getAttribute('aria-expanded') !== 'true') return;
+        li.classList.add('is-dismissed');
+        setSub(li, false);
+        if (li.contains(document.activeElement)) link.focus();
+      });
+    });
   }
 
   /* ------------------------------------------------- 15. ACORDEÕES (FAQ/pilares) */
