@@ -67,8 +67,8 @@
       requestAnimationFrame(this.tick);
       const medir = () => this.measure();
       window.addEventListener('resize', medir, { passive: true });
-      /* a altura do documento muda com fontes e imagens carregando */
-      if (document.fonts && document.fonts.ready) document.fonts.ready.then(medir);
+      /* a altura do documento muda com fontes e imagens carregando; o observer
+         roda depois do layout (cobre também a troca de fonte sem forçar reflow) */
       if ('ResizeObserver' in window) new ResizeObserver(medir).observe(document.body);
       document.addEventListener('visibilitychange', () => {
         if (!document.hidden && this.paused) { this.paused = false; requestAnimationFrame(this.tick); }
