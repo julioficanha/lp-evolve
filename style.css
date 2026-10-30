@@ -87,7 +87,6 @@ html { font-size: clamp(100%, calc(0.625rem + 0.4167vw), 112.5%); }
 body {
   line-height: 1.6;
   min-height: 100vh;
-  overflow-x: hidden;
   background-color: var(--off-white);
 }
 
@@ -510,6 +509,11 @@ body {
 }
 
 .modal-backdrop.active .modal-dialog { transform: translateY(0); }
+/* celular: o diálogo não encosta nas bordas da tela */
+@media (max-width: 768px) {
+  .modal-dialog { width: calc(100% - 2rem); padding: 2.5rem 1.5rem 2rem; border-radius: var(--radius-lg); }
+  .modal-close-btn { top: 1rem; right: 1rem; }
+}
 .modal-close-btn { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 2rem; color: var(--azul-petroleo); cursor: pointer; line-height: 1; }
 .modal-title { font-family: var(--font-serif); font-size: 2rem; color: var(--azul-petroleo); margin-bottom: 0.5rem; }
 .modal-subtitle { font-size: 0.9375rem; color: var(--azul-cinza); margin-bottom: 2rem; }
@@ -724,6 +728,7 @@ body {
 @media (max-width: 400px) {
   .header-container { padding-left: 1rem; padding-right: 1rem; }
   .brand-link { gap: 0.6rem; }
+  .brand-sub { letter-spacing: 0.14em; }  /* compensa o piso de 12px sem alargar a marca */
   .btn-header-cta { padding: 0.5rem 0.65rem; }
 }
 
@@ -744,7 +749,7 @@ body {
 
 @media (max-width: 992px) {
   .hero-alt__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);  /* a coluna pode encolher abaixo do conteúdo */
     gap: 3rem;
   }
 }

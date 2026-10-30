@@ -3615,6 +3615,7 @@ select:focus-visible, textarea:focus-visible {
   transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
   min-height: 220px !important;
   aspect-ratio: 16 / 10 !important;
+  width: 100% !important;  /* sem isso, min-height + aspect-ratio alargavam a figura além da coluna */
   margin: 0 !important;
 }
 
@@ -3825,11 +3826,7 @@ select:focus-visible, textarea:focus-visible {
     padding-top: 1rem !important;
   }
 
-  /* 5. Prevenção de corte de texto e ajuste de topo do hero no celular */
-  html, body {
-    max-width: 100% !important;
-    overflow-x: hidden !important;
-  }
+  /* 5. Ajuste de topo do hero no celular */
 
   .hero-alt,
   .hero-solidao {
