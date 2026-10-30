@@ -164,6 +164,7 @@
     if (REDUCED || TOUCH) return;
     const fio = document.createElement('div');
     fio.className = 'fio-progresso';
+    fio.setAttribute('aria-hidden', 'true');
     fio.innerHTML = '<span class="fio-progresso__fill"></span><span class="fio-progresso__knob"></span>';
     document.body.appendChild(fio);
     const fill = $('.fio-progresso__fill', fio);
@@ -186,6 +187,7 @@
     if (REDUCED || TOUCH) return;
     const cur = document.createElement('div');
     cur.className = 'campo-cursor';
+    cur.setAttribute('aria-hidden', 'true');
     cur.innerHTML = '<span class="campo-cursor__verb"></span>';
     document.body.appendChild(cur);
     const verb = $('.campo-cursor__verb', cur);
@@ -543,10 +545,16 @@
     $$('.nav-link-creative').forEach((link) => {
       const href = (link.getAttribute('href') || '').toLowerCase();
       link.classList.remove('active');
+      link.removeAttribute('aria-current');
       const isHome = page === '' || page === 'index.html' || page === 'comece-aqui.html';
       if (href === page) link.classList.add('active');
       else if (isHome && (href === 'index.html' || href === 'comece-aqui.html')) link.classList.add('active');
       else if (page.startsWith('servicos') && href === 'servicos.html') link.classList.add('active');
+      /* "page" só no link da própria página; na seção de serviços, "true" */
+      if (link.classList.contains('active')) link.setAttribute('aria-current', href === page || (isHome && href === 'index.html') ? 'page' : 'true');
+    });
+    $$('.dropdown-item').forEach((a) => {
+      if ((a.getAttribute('href') || '').toLowerCase() === page) a.setAttribute('aria-current', 'page');
     });
 
     const toggle = $('#mobile-menu-toggle');
