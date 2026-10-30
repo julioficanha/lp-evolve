@@ -266,18 +266,20 @@ body { overscroll-behavior-y: none; }
    02. PRIMITIVAS DE REVELAÇÃO
    -------------------------------------------------------------------------- */
 
-/* 02.a — Linha de texto que sobe de dentro de uma máscara */
+/* 02.a — Linha de texto que sobe de dentro de uma máscara.
+   Os estados escondidos só valem com .js-ready (posto no <head>): sem JS,
+   ou se o app.js falhar, o conteúdo aparece normalmente. */
 .rise { display: block; overflow: hidden; }
-.rise > * {
-  display: block;
+.rise > * { display: block; }
+.js-ready .rise > * {
   transform: translateY(112%);
   transition: transform var(--dur-lg) var(--ease-rise);
   transition-delay: var(--d, 0ms);
 }
-.revealed .rise > *, .rise.revealed > * { transform: translateY(0); }
+.js-ready .revealed .rise > *, .js-ready .rise.revealed > * { transform: translateY(0); }
 
 /* 02.b — Bloco que sobe e ganha opacidade */
-[data-reveal] {
+.js-ready [data-reveal] {
   opacity: 0;
   transform: translateY(28px);
   transition:
@@ -285,15 +287,15 @@ body { overscroll-behavior-y: none; }
     transform var(--dur-lg) var(--ease-rise) var(--d, 0ms);
   will-change: opacity, transform;
 }
-[data-reveal].is-in { opacity: 1; transform: none; }
+.js-ready [data-reveal].is-in { opacity: 1; transform: none; }
 
 /* 02.c — Régua que se desenha */
-[data-reveal-rule] {
+.js-ready [data-reveal-rule] {
   transform: scaleX(0);
   transform-origin: left;
   transition: transform var(--dur-lg) var(--ease-line) var(--d, 0ms);
 }
-[data-reveal-rule].is-in { transform: scaleX(1); }
+.js-ready [data-reveal-rule].is-in { transform: scaleX(1); }
 
 /* 02.d — FOTO PUXADA: moldura com clip que abre + imagem em contra-parallax.
    A moldura cresce em altura ao entrar: a foto parece ser arrancada do papel. */
@@ -3230,21 +3232,21 @@ select:focus-visible, textarea:focus-visible {
 .grafo-secao.is-aguardando .no-secao,
 .grafo-secao.is-aguardando .grafo__dica { opacity: 0; }
 
-.grafo-secao .no-secao {
+.js-ready .grafo-secao .no-secao {
   opacity: 0;
   transform: translate3d(0, 10px, 0);
   transition: opacity var(--dur-md) ease-out, transform var(--dur-md) var(--ease-rise);
 }
-.grafo-secao .no-secao.is-on,
-.grafo-secao.is-escrito .no-secao { opacity: 1; transform: none; }
+.js-ready .grafo-secao .no-secao.is-on,
+.js-ready .grafo-secao.is-escrito .no-secao { opacity: 1; transform: none; }
 
-.grafo__dica {
+.js-ready .grafo__dica {
   opacity: 0;
   transform: translate3d(0, 8px, 0);
   transition: opacity var(--dur-lg) ease-out, transform var(--dur-lg) var(--ease-rise);
 }
-.grafo__dica.is-on,
-.grafo-secao.is-escrito .grafo__dica { opacity: 1; transform: none; }
+.js-ready .grafo__dica.is-on,
+.js-ready .grafo-secao.is-escrito .grafo__dica { opacity: 1; transform: none; }
 
 /* durante o estouro, as ligações entram desenhando */
 .grafo__link { opacity: 1; transition: stroke var(--dur-sm) ease-out, stroke-width var(--dur-sm) ease-out, opacity var(--dur-md) ease-out; }
@@ -3269,7 +3271,7 @@ select:focus-visible, textarea:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .tw__cursor { display: none; }
   .tw .tw__c { opacity: 1; }
-  .grafo-secao .no-secao, .grafo__dica { opacity: 1; transform: none; transition: none; }
+  .js-ready .grafo-secao .no-secao, .js-ready .grafo__dica { opacity: 1; transform: none; transition: none; }
   .grafo.is-armado .grafo__link,
   .grafo.is-armado .grafo__no-rotulo,
   .grafo.is-armado .grafo__no-icone { opacity: 1; }

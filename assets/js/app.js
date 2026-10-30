@@ -741,28 +741,21 @@
 
   /* ------------------------------------------------------------------ boot */
   function boot() {
-    initSmoothScroll();
-    frame.start();
-    initReveal();
-    initPull();
-    initFio();
-    initCursor();
-    initCounters();
-    initTerritorios();
-    initFaixa();
-    initScrub();
-    initCena();
-    initOrdem();
-    initMag();
-    initHeader();
-    initNav();
-    initAccordions();
-    initModal();
-    initWhatsAppFlutuante();
-    initCartaToc();
-    initRotina();
-    initScrollCue();
-    document.documentElement.classList.add('js-ready');
+    window.__evolveBoot = true;
+    /* cada módulo roda isolado: a falha de um não derruba os demais */
+    const roda = (fn) => {
+      try { fn(); } catch (err) {
+        console.error(`[evolve] ${fn.name} falhou`, err);
+        /* sem o observer de revelação, o conteúdo escondido nunca apareceria */
+        if (fn === initReveal) document.documentElement.classList.remove('js-ready');
+      }
+    };
+    [
+      initSmoothScroll, () => frame.start(), initReveal, initPull, initFio, initCursor,
+      initCounters, initTerritorios, initFaixa, initScrub, initCena, initOrdem, initMag,
+      initHeader, initNav, initAccordions, initModal, initWhatsAppFlutuante, initCartaToc,
+      initRotina, initScrollCue
+    ].forEach(roda);
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
