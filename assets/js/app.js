@@ -27,6 +27,11 @@
     document.body.style.overflow = travado ? 'hidden' : '';
     if (window.lenis) travado ? window.lenis.stop() : window.lenis.start();
   };
+  /* Mensuração: empurra eventos para o dataLayer só se ele existir (GA4/GTM
+     ainda não instalados). Nunca enviar nome, e-mail ou telefone. */
+  const track = (evento, params = {}) => {
+    if (Array.isArray(window.dataLayer)) window.dataLayer.push({ event: evento, ...params });
+  };
   /* progresso de um elemento atravessando a viewport: 0 ao entrar, 1 ao sair */
   const crossProgress = (rect, vh) =>
     clamp((vh - rect.top) / (vh + rect.height));
@@ -740,6 +745,7 @@
           .find((o) => o.value === subject || o.text.toLowerCase().includes(String(subject).toLowerCase()));
         if (opt) select.value = opt.value;
       }
+      track('form_open', { subject: subject || 'geral' });
       const first = $('#form-name', modal) || modal.querySelector('input, select, textarea, button');
       if (first) setTimeout(() => first.focus(), 60);
     };
@@ -799,6 +805,7 @@
       form.addEventListener('submit', (e) => {
         e.preventDefault();
         const dados = Object.fromEntries(new FormData(form).entries());
+        track('form_submit', { servico: dados.servico || '' });
 
         const frente = select ? select.options[select.selectedIndex].text : '';
         const linhas = [
@@ -823,7 +830,7 @@
           <div class="wa-ok__selo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
           <strong>Formulário recebido${primeiro ? ', ' + esc(primeiro) : ''}.</strong>
           <p>${janela ? 'Abrimos o WhatsApp da Evolve com os seus dados. Toque em enviar por lá para concluir.' : 'Falta só um passo: abra o WhatsApp da Evolve e envie a mensagem que já deixamos pronta.'}</p>
-          <a class="btn btn-terracota btn-lg" href="${url}" target="_blank" rel="noopener"><span class="wa-flutuante__icone" aria-hidden="true"></span><span>${janela ? 'Abrir o WhatsApp de novo' : 'Abrir o WhatsApp'}</span></a>`;
+          <a class="btn btn-terracota btn-lg" href="${url}" target="_blank" rel="noopener" data-wa="formulario"><span class="wa-flutuante__icone" aria-hidden="true"></span><span>${janela ? 'Abrir o WhatsApp de novo' : 'Abrir o WhatsApp'}</span></a>`;
         form.hidden = true;
         statusEl.appendChild(ok);
         ok.focus();
@@ -848,6 +855,11 @@
      fallback sem JS; aqui ele é regravado a partir da mensagem oficial */
   function initWhatsAppLinks() {
     $$('a[data-wa]').forEach((a) => { a.href = linkWhatsApp(WHATSAPP.msgBotao); });
+    /* delegado: vale também para links criados depois (flutuante, confirmação do formulário) */
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('a[data-wa]');
+      if (a) track('whatsapp_click', { origem: a.dataset.wa });
+    });
   }
 
   function initWhatsAppFlutuante() {
