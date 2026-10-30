@@ -698,6 +698,12 @@
     return String(t).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   }
 
+  /* links fixos de WhatsApp (ex.: botão do header): o href estático é o
+     fallback sem JS; aqui ele é regravado a partir da mensagem oficial */
+  function initWhatsAppLinks() {
+    $$('a[data-wa]').forEach((a) => { a.href = linkWhatsApp(WHATSAPP.msgBotao); });
+  }
+
   function initWhatsAppFlutuante() {
     const a = document.createElement('a');
     a.className = 'wa-flutuante';
@@ -761,7 +767,7 @@
     [
       initSmoothScroll, () => frame.start(), initReveal, initPull, initFio, initCursor,
       initCounters, initTerritorios, initFaixa, initScrub, initCena, initOrdem, initMag,
-      initHeader, initNav, initAccordions, initModal, initWhatsAppFlutuante, initCartaToc,
+      initHeader, initNav, initAccordions, initModal, initWhatsAppLinks, initWhatsAppFlutuante, initCartaToc,
       initRotina, initScrollCue
     ].forEach(roda);
   }
