@@ -85,7 +85,18 @@
       const target = document.querySelector(id);
       if (!target) return;
       e.preventDefault();
-      lenis.scrollTo(target, { offset: -96, duration: 1.1 });
+      lenis.scrollTo(target, {
+        offset: -96,
+        duration: 1.1,
+        onComplete: () => {
+          /* o foco acompanha a rolagem (teclado e leitor de tela) e a URL guarda a âncora */
+          if (!target.hasAttribute('tabindex') && !target.matches('a[href], button, input, select, textarea')) {
+            target.setAttribute('tabindex', '-1');
+          }
+          target.focus({ preventScroll: true });
+          if (location.hash !== id) history.pushState(null, '', id);
+        }
+      });
     });
     return lenis;
   }
@@ -518,7 +529,7 @@
     let hidden = false;
     frame.add(({ y, dir }) => {
       header.classList.toggle('is-compact', y > 40);
-      const shouldHide = dir > 0 && y > 420;
+      const shouldHide = dir > 0 && y > 420 && !header.contains(document.activeElement);
       if (shouldHide !== hidden) {
         hidden = shouldHide;
         header.classList.toggle('is-tucked', hidden);

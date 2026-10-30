@@ -74,6 +74,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: auto;
+  scroll-padding-top: 6.5rem;  /* âncoras não ficam sob o header fixo */
 }
 
 @media (max-width: 1920px) { html { font-size: 0.85vw; } }
