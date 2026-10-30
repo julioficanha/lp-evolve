@@ -747,22 +747,13 @@
     window.EvolveModal = { open, close };
     if (location.hash === '#contact-modal') open();
 
-    /* Envio do formulário de contato.
-       Ainda sem canal oficial (e-mail/planilha): o registro fica no
-       localStorage e a conversa segue pelo WhatsApp da Evolve, com os
-       dados preenchidos já escritos na mensagem. */
+    /* Envio do formulário de contato: a conversa segue pelo WhatsApp da
+       Evolve, com os dados preenchidos já escritos na mensagem. */
     const form = $('#contact-form', modal);
     if (form) {
       form.addEventListener('submit', (e) => {
         e.preventDefault();
         const dados = Object.fromEntries(new FormData(form).entries());
-        const registro = { ...dados, quando: new Date().toISOString(), pagina: location.pathname };
-        try {
-          const chave = 'evolve_contatos';
-          const lista = JSON.parse(localStorage.getItem(chave) || '[]');
-          lista.push(registro);
-          localStorage.setItem(chave, JSON.stringify(lista));
-        } catch (_) {}
 
         const frente = select ? select.options[select.selectedIndex].text : '';
         const linhas = [
