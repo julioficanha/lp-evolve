@@ -613,6 +613,9 @@
       toggle.setAttribute('aria-expanded', 'true');
       toggle.setAttribute('aria-label', 'Fechar menu de navegação');
       travaScroll('menu', true);
+      /* os links vêm antes do botão no DOM: leva o foco para o primeiro deles */
+      const primeiro = $('.nav-link-creative', nav);
+      if (primeiro) primeiro.focus({ preventScroll: true });
     };
 
     if (toggle && nav) {
@@ -723,7 +726,7 @@
     const select = $('#form-subject', modal);
     let lastFocus = null;
     /* com o modal aberto, o resto da página sai da ordem de foco (focus trap) */
-    const fundo = () => $$('body > header, body > main, body > footer, .wa-flutuante');
+    const fundo = () => Array.from(document.body.children).filter((el) => el !== modal && el.tagName !== 'SCRIPT');
     const isOpen = () => modal.classList.contains('active');
 
     const open = (subject) => {
