@@ -560,7 +560,7 @@
     const toggle = $('#mobile-menu-toggle');
     const nav = $('#main-nav');
     const header = $('#site-header');
-    const mobile = window.matchMedia('(max-width: 768px)');
+    const mobile = window.matchMedia('(max-width: 1180px)');  /* mesmo valor do CSS do menu */
     const dropdowns = $$('.nav-item-btn.has-dropdown');
     const linkDe = (li) => $(':scope > .nav-link-creative', li);
     const isMenuOpen = () => !!nav && nav.classList.contains('mobile-active');

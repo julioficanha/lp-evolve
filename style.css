@@ -67,7 +67,6 @@ h1, h2, h3, h4, h5, h6,
 }
 
 html {
-  font-size: 16px;
   background-color: var(--off-white);
   color: var(--azul-cinza);
   font-family: var(--font-sans);
@@ -77,10 +76,9 @@ html {
   scroll-padding-top: 6.5rem;  /* âncoras não ficam sob o header fixo */
 }
 
-@media (max-width: 1920px) { html { font-size: 0.85vw; } }
-@media (max-width: 1440px) { html { font-size: 1.1vw; } }
-@media (max-width: 1024px) { html { font-size: 1.5vw; } }
-@media (max-width: 768px)  { html { font-size: 16px; } }
+/* Base que respeita a preferência e o zoom do usuário: 100% até 1440px,
+   cresce devagar até 112,5% em 1920px. Sem saltos entre faixas. */
+html { font-size: clamp(100%, calc(0.625rem + 0.4167vw), 112.5%); }
 
 body {
   line-height: 1.6;
@@ -246,7 +244,7 @@ body {
 }
 
 .brand-sub {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.22em;
   color: var(--verde-acinzentado);
@@ -364,7 +362,7 @@ body {
 }
 
 /* Esc fecha o submenu aberto por hover/foco até o ponteiro ou o foco saírem */
-@media (min-width: 769px) {
+@media (min-width: 1181px) {
   .nav-item-btn.is-dismissed .nav-dropdown-menu { opacity: 0; visibility: hidden; pointer-events: none; }
 }
 
@@ -621,7 +619,9 @@ body {
   .footer-container { grid-template-columns: 1fr 1fr; }
 }
 
-@media (max-width: 768px) {
+/* Menu recolhido (hambúrguer) até 1180px: com a base de 16px, logo + 4 itens +
+   CTA não cabem numa linha abaixo disso. O JS usa o mesmo valor. */
+@media (max-width: 1180px) {
   .main-nav { display: none; }
   
   .main-nav.mobile-active {
@@ -664,8 +664,20 @@ body {
   .nav-item-btn.mobile-open .nav-dropdown-menu {
     display: flex;
   }
+  /* no painel, hover/foco não deslocam o submenu como no desktop */
+  .nav-item-btn:hover .nav-dropdown-menu,
+  .nav-item-btn:focus-within .nav-dropdown-menu { transform: none; }
 
   .mobile-menu-toggle { display: flex; }
+}
+
+/* 1181–1279px: menu horizontal compacto para caber sem quebra */
+@media (min-width: 1181px) and (max-width: 1279px) {
+  .main-nav .nav-list { gap: 0.6rem; }
+  .nav-link-creative { padding: 0.6rem 0.85rem; letter-spacing: 0.1em; }
+}
+
+@media (max-width: 768px) {
   .problem-cards-grid { grid-template-columns: 1fr; }
 
   .matrix-row {
@@ -884,7 +896,7 @@ body {
 .hero-alt__card-kicker {
   display: block;
   font-family: var(--font-sans);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
