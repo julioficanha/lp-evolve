@@ -30,9 +30,9 @@
   --border-dark: rgba(239, 239, 237, 0.15);
   --border-terracota: rgba(155, 81, 47, 0.3);
   
-  /* Typography Stack — Manual da Marca Evolve: Títulos = Palash, Texto = Maleah */
-  --font-serif: 'Palash', 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'Maleah', 'Montserrat', 'Onest', -apple-system, sans-serif;
+  /* Typography Stack — Playfair Display (títulos) e Montserrat (texto), via Google Fonts */
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Montserrat', 'Onest', -apple-system, sans-serif;
   
   /* Container Spacing & Radii */
   --container-max: 1380px;
