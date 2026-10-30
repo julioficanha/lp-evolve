@@ -441,61 +441,12 @@ body {
 .mobile-menu-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
 /* --------------------------------------------------------------------------
-   01. GLOBAL SPLASH COVER (Cover azul escuro total em z-index 2000 que esconde o topo)
-   -------------------------------------------------------------------------- */
-
-/* Espaçador de scroll para transição em camadas consumindo de baixo para cima */
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-  40% { transform: translateY(-8px); }
-  60% { transform: translateY(-4px); }
-}
-
-/* Spacer for main content when splash cover is fixed */
-
-/* --------------------------------------------------------------------------
-   02. WHITE CANVAS HERO SECTION FOR COMECE AQUI ("SOLIDÃO") FULL-STACK
-   -------------------------------------------------------------------------- */
-
-/* Coluna Direita com Divisão Diagonal Animada */
-
-/* Risco / Linha de Corte Diagonal Ajustada para Ajuste Perfeito */
-
-/* Container Expandido Ocupando Todo o Outro Lado da Divisa */
-
-/* --------------------------------------------------------------------------
    SEÇÃO PRESENÇA (Empresas em transformação, silenciosamente)
    -------------------------------------------------------------------------- */
-
 /* Problem Recognition */
 .section-header-editorial { margin-bottom: 4rem; }
 
-/* --------------------------------------------------------------------------
-   SEÇÃO PARA QUEM É (FIT CARDS GRID)
-   -------------------------------------------------------------------------- */
-
-/* Transformation Matrix */
-
-/* Solutions System */
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Differential Section */
-
-/* Method Timeline */
-
-/* Authority & Numbers */
-
-/* Case Study */
-
-/* Testimonials */
-
 /* Quiz Engine */
-
 .btn-link-light { background: none; border: none; color: var(--off-white); text-decoration: underline; cursor: pointer; font-size: 0.9375rem; }
 
 /* FAQ Accordion */
@@ -605,15 +556,6 @@ body {
 
 @media (min-width: 1024px) { .scene-bg-img { object-position: center 12%; } }
 @media (min-width: 1440px) { .scene-bg-img { object-position: center 10%; } }
-
-/* Pop-up Matéria / Estatística (Posicionado na parte inferior para não poluir nem cobrir o botão) */
-
-@keyframes slideUpFade {
-  from { opacity: 0; transform: translate(-50%, 20px); }
-  to { opacity: 1; transform: translate(-50%, 0); }
-}
-
-/* Presença Subline */
 
 /* Responsive Mobile Breakpoints */
 @media (max-width: 1024px) {

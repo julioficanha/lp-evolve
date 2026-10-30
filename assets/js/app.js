@@ -9,7 +9,8 @@
 (() => {
   'use strict';
 
-  const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const mqReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let REDUCED = mqReduced.matches;
   const TOUCH   = window.matchMedia('(hover: none), (pointer: coarse)').matches;
 
   /* ---------------------------------------------------------------- helpers */
@@ -45,6 +46,8 @@
       this.docH = Math.max(1, document.documentElement.scrollHeight - this.vh);
     },
     tick() {
+      /* aba oculta: o laço para e volta no visibilitychange */
+      if (document.hidden) { frame.paused = true; return; }
       const y = window.scrollY || window.pageYOffset || 0;
       if (Math.abs(y - frame.y) > 0.4) frame.dir = y > frame.y ? 1 : -1;
       frame.lastY = frame.y;
@@ -57,7 +60,14 @@
       this.running = true;
       this.measure();
       requestAnimationFrame(this.tick);
-      window.addEventListener('resize', () => this.measure(), { passive: true });
+      const medir = () => this.measure();
+      window.addEventListener('resize', medir, { passive: true });
+      /* a altura do documento muda com fontes e imagens carregando */
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(medir);
+      if ('ResizeObserver' in window) new ResizeObserver(medir).observe(document.body);
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden && this.paused) { this.paused = false; requestAnimationFrame(this.tick); }
+      });
     }
   };
 
@@ -69,11 +79,19 @@
       easing: (t) => 1 - Math.pow(1 - t, 3.2),  /* desacelera sem arrastar */
       smoothWheel: true,
       wheelMultiplier: 1.0,
-      touchMultiplier: 1.4,
-      lerp: 0.11
+      touchMultiplier: 1.4
+      /* sem lerp: no Lenis 1.1.18, duration prevalece e o lerp era ignorado */
     });
-    const raf = (t) => { lenis.raf(t); requestAnimationFrame(raf); };
-    requestAnimationFrame(raf);
+    let rafId = 0;
+    const raf = (t) => { lenis.raf(t); rafId = requestAnimationFrame(raf); };
+    rafId = requestAnimationFrame(raf);
+    /* pediu menos movimento no meio da visita: volta ao scroll nativo */
+    mqReduced.addEventListener('change', (e) => {
+      if (!e.matches || !window.lenis) return;
+      cancelAnimationFrame(rafId);
+      lenis.destroy();
+      window.lenis = null;
+    });
     window.lenis = lenis;
 
     /* âncoras internas passam a usar o Lenis */
@@ -194,9 +212,11 @@
 
     let tx = window.innerWidth / 2, ty = window.innerHeight / 2;
     let cx = tx, cy = ty;
+    let rodando = false;
 
     window.addEventListener('pointermove', (e) => {
       tx = e.clientX; ty = e.clientY;
+      if (!rodando) { rodando = true; requestAnimationFrame(run); }
       cur.classList.add('is-on');
       const hit = e.target.closest('[data-verb]');
       if (hit) {
@@ -209,13 +229,14 @@
 
     window.addEventListener('pointerleave', () => cur.classList.remove('is-on'));
 
-    const run = () => {
+    /* o laço só gira enquanto o anel ainda não alcançou o ponteiro */
+    function run() {
       cx = lerp(cx, tx, 0.19);
       cy = lerp(cy, ty, 0.19);
       cur.style.transform = `translate3d(${cx.toFixed(1)}px, ${cy.toFixed(1)}px, 0)`;
+      if (document.hidden || (Math.abs(tx - cx) < 0.1 && Math.abs(ty - cy) < 0.1)) { rodando = false; return; }
       requestAnimationFrame(run);
-    };
-    requestAnimationFrame(run);
+    }
   }
 
   /* ----------------------------------------- 06. CONTADORES COM INÉRCIA
@@ -509,16 +530,14 @@
      Nada de tilt 3D. O que se move é o fio: um segmento terracota corre pela
      borda superior acompanhando o ponteiro. Sutil e proprietário.            */
   function initMag() {
-    if (TOUCH) return;
-    $$('.mag').forEach((card) => {
+    const cards = $$('.mag');
+    if (TOUCH || !cards.length) return;
+    cards.forEach((card) => {
       card.addEventListener('pointermove', (e) => {
         const r = card.getBoundingClientRect();
-        const px = clamp((e.clientX - r.left) / r.width);
         /* o segmento tem 6rem; centraliza no ponteiro sem passar das bordas */
-        card.style.setProperty('--mx', `${(px * 100).toFixed(1)}`);
         const seg = 96; /* px aproximados de 6rem */
         const max = Math.max(0, r.width - seg);
-        card.style.setProperty('--mx', `0`);
         card.style.setProperty('--seg-x', `${(clamp((e.clientX - r.left - seg / 2) / (max || 1)) * max).toFixed(1)}px`);
       }, { passive: true });
     });
@@ -885,6 +904,23 @@
     frame.add(({ y }) => cue.classList.toggle('is-hidden', y > 80));
   }
 
+  /* ----------------------------------------- 20. MENOS MOVIMENTO AO VIVO
+     Se a pessoa ativar "reduzir movimento" com a página aberta, o que ainda
+     estava escondido aparece e os números assumem o valor final.            */
+  function initReducedWatch() {
+    mqReduced.addEventListener('change', (e) => {
+      REDUCED = e.matches;
+      if (!REDUCED) return;
+      $$('[data-reveal], [data-reveal-rule], .rise, .no-secao, .rotina__step, .pull-frame')
+        .forEach((n) => n.classList.add('is-in', 'revealed'));
+      $$('[data-count]').forEach((el) => {
+        const v = $('.value', el);
+        const n = parseFloat(el.dataset.count);
+        if (v) v.textContent = el.dataset.countGroup === 'true' ? String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.') : String(n);
+      });
+    });
+  }
+
   /* ------------------------------------------------------------------ boot */
   function boot() {
     window.__evolveBoot = true;
@@ -900,7 +936,7 @@
       initSmoothScroll, () => frame.start(), initReveal, initPull, initFio, initCursor,
       initCounters, initTerritorios, initFaixa, initScrub, initCena, initOrdem, initMag,
       initHeader, initNav, initAccordions, initModal, initWhatsAppLinks, initWhatsAppFlutuante, initCartaToc,
-      initRotina, initScrollCue
+      initRotina, initScrollCue, initReducedWatch
     ].forEach(roda);
   }
 
@@ -1001,9 +1037,9 @@
     window.removeEventListener('keydown', liberar);
     window.removeEventListener('wheel', liberar);
   };
-  window.addEventListener('pointerdown', liberar, { once: true, passive: true });
-  window.addEventListener('keydown', liberar, { once: true });
-  window.addEventListener('wheel', liberar, { once: true, passive: true });
+  window.addEventListener('pointerdown', liberar, { passive: true });
+  window.addEventListener('keydown', liberar);
+  window.addEventListener('wheel', liberar, { passive: true });
 
   function toque(t0, freq, volume) {
     const osc = ctx.createOscillator();
