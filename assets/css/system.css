@@ -4266,9 +4266,10 @@ select:focus-visible, textarea:focus-visible {
   text-decoration: none;
   font-family: var(--font-sans); font-size: 0.86rem; font-weight: 600; letter-spacing: 0.01em;
   opacity: 0; transform: translateY(14px) scale(0.96); pointer-events: none;
-  transition: opacity .45s var(--ease-rise), transform .45s var(--ease-rise), background-color .25s ease;
+  visibility: hidden;  /* escondido também sai da ordem de foco */
+  transition: opacity .45s var(--ease-rise), transform .45s var(--ease-rise), background-color .25s ease, visibility 0s .45s;
 }
-.wa-flutuante.is-visivel { opacity: 1; transform: none; pointer-events: auto; }
+.wa-flutuante.is-visivel { opacity: 1; transform: none; pointer-events: auto; visibility: visible; transition-delay: 0s; }
 .wa-flutuante:hover, .wa-flutuante:focus-visible { background: var(--terracota); }
 .wa-flutuante:focus-visible { outline: 2px solid var(--terracota-hover); outline-offset: 3px; }
 .wa-flutuante__icone {
@@ -4291,6 +4292,11 @@ select:focus-visible, textarea:focus-visible {
 }
 .wa-flutuante:hover .wa-flutuante__rotulo,
 .wa-flutuante:focus-visible .wa-flutuante__rotulo { max-width: 12rem; opacity: 1; margin-left: 0.6rem; }
-body.modal-aberto .wa-flutuante { opacity: 0; pointer-events: none; }
+body.modal-aberto .wa-flutuante { opacity: 0; pointer-events: none; visibility: hidden; transition-delay: 0s, 0s, 0s, .45s; }
+/* toque não tem hover: o rótulo fica sempre visível */
+@media (hover: none) {
+  .wa-flutuante { min-height: 2.75rem; }
+  .wa-flutuante__rotulo { max-width: 12rem; opacity: 1; margin-left: 0.6rem; }
+}
 @media (prefers-reduced-motion: reduce) { .wa-flutuante, .wa-flutuante__rotulo { transition: none; } }
 @media print { .wa-flutuante { display: none; } }

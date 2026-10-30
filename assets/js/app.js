@@ -837,11 +837,16 @@
     a.href = linkWhatsApp(WHATSAPP.msgBotao);
     a.target = '_blank';
     a.rel = 'noopener';
-    a.setAttribute('aria-label', 'Conversar com a Evolve pelo WhatsApp');
+    a.dataset.wa = 'flutuante';
+    a.setAttribute('aria-label', 'Fale com a Evolve pelo WhatsApp (abre em nova aba)');
     a.innerHTML = '<span class="wa-flutuante__icone" aria-hidden="true"></span><span class="wa-flutuante__rotulo">Fale com a Evolve</span>';
-    document.body.appendChild(a);
-    frame.add((f) => a.classList.toggle('is-visivel', f.y > 240));
-    a.classList.toggle('is-visivel', window.scrollY > 240);
+    /* dentro do rodapé (landmark); a posição continua fixa na tela */
+    ($('body > footer') || document.body).appendChild(a);
+    /* no celular aparece desde o carregamento; no desktop, depois de 240px */
+    const mobile = window.matchMedia('(max-width: 768px)');
+    const atualiza = (y) => a.classList.toggle('is-visivel', mobile.matches || y > 240);
+    frame.add((f) => atualiza(f.y));
+    atualiza(window.scrollY);
   }
 
   /* ------------------------------------- 17. SUMÁRIO DA CARTA (seção corrente) */
