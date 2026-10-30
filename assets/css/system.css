@@ -2890,7 +2890,7 @@ select:focus-visible, textarea:focus-visible {
 }
 .btn--border:hover { background: currentColor; color: var(--off-white); }
 
-.btn-link-light, .btn-link-dark { border: none; text-decoration: none; }
+.btn-link-light, .btn-link-dark { border: none; }  /* o sublinhado de cada um vem da própria regra */
 .btn-link-light {
   background: transparent;
   color: rgba(239, 239, 237, 0.86);
