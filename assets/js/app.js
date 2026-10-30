@@ -220,7 +220,9 @@
 
   /* ----------------------------------------- 06. CONTADORES COM INÉRCIA
      Sobe rápido, passa um pouco do alvo e assenta — como um ponteiro real.
-     Roda uma única vez, quando o número entra em cena.                       */
+     Roda uma única vez, quando o número entra em cena. O HTML já traz o
+     valor final (buscadores, prévias e leitura sem JS); só ao começar a
+     animação o número volta a zero e conta até o alvo de data-count.         */
   function initCounters() {
     const nodes = $$('[data-count]');
     if (!nodes.length) return;
