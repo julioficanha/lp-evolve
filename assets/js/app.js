@@ -70,7 +70,7 @@
     /* âncoras internas passam a usar o Lenis */
     document.addEventListener('click', (e) => {
       const a = e.target.closest('a[href^="#"]');
-      if (!a) return;
+      if (!a || a.classList.contains('open-contact-trigger')) return;
       const id = a.getAttribute('href');
       if (!id || id === '#') return;
       const target = document.querySelector(id);
@@ -589,9 +589,14 @@
     if (!modal) return;
     const select = $('#form-subject', modal);
     let lastFocus = null;
+    /* com o modal aberto, o resto da página sai da ordem de foco (focus trap) */
+    const fundo = () => $$('body > header, body > main, body > footer, .wa-flutuante');
+    const isOpen = () => modal.classList.contains('active');
 
     const open = (subject) => {
+      if (isOpen()) return;
       lastFocus = document.activeElement;
+      fundo().forEach((el) => { el.inert = true; });
       modal.classList.add('active');
       document.body.classList.add('modal-aberto');
       const form = $('#contact-form', modal);
@@ -608,10 +613,12 @@
           .find((o) => o.value === subject || o.text.toLowerCase().includes(String(subject).toLowerCase()));
         if (opt) select.value = opt.value;
       }
-      const first = modal.querySelector('input, select, textarea, button');
+      const first = $('#form-name', modal) || modal.querySelector('input, select, textarea, button');
       if (first) setTimeout(() => first.focus(), 60);
     };
     const close = () => {
+      if (!isOpen()) return;
+      fundo().forEach((el) => { el.inert = false; });
       modal.classList.remove('active');
       document.body.classList.remove('modal-aberto');
       modal.setAttribute('aria-hidden', 'true');
@@ -629,6 +636,7 @@
       if (e.key === 'Escape' && modal.classList.contains('active')) close();
     });
     window.EvolveModal = { open, close };
+    if (location.hash === '#contact-modal') open();
 
     /* Envio do formulário de contato.
        Ainda sem canal oficial (e-mail/planilha): o registro fica no
