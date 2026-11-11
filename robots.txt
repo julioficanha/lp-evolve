@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://julioficanha.github.io/lp-evolve/sitemap.xml
+Sitemap: https://evolvecapitalhumano.com.br/sitemap.xml

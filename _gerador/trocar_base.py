@@ -3,12 +3,12 @@
 
 Uso:   python3 _gerador/trocar_base.py https://www.dominio-novo.com.br
 
-Hoje a base é https://julioficanha.github.io/lp-evolve (sem barra no fim).
+Hoje a base é https://evolvecapitalhumano.com.br (sem barra no fim).
 """
 import io, os, sys
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ATUAL = "https://julioficanha.github.io/lp-evolve"
+ATUAL = "https://evolvecapitalhumano.com.br"
 ARQUIVOS = [
     "index.html", "evolve.html", "carta-aberta.html", "servicos.html",
     "servicos-operacional-dp.html", "servicos-recrutamento-selecao.html",
