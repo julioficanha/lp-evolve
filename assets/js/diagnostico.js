@@ -34,9 +34,9 @@
      CONFIGURAÇÃO — ajuste aqui, sem mexer na lógica
      ====================================================================== */
   const CONFIG = {
-    /* URL do Web App do Google Apps Script (termina em /exec). Ver a nota
-       "Tutorial - Planilha Google de leads (Evolve)". Vazio = os leads ficam
-       guardados no navegador (localStorage) e o console avisa. */
+    /* URL do Web App do Google Apps Script (termina em /exec). Vazio = usa a
+       de app.js (window.EVOLVE_LEAD_ENDPOINT); se as duas estiverem vazias,
+       os leads ficam guardados no navegador (localStorage) e o console avisa. */
     LEAD_ENDPOINT: '',
 
     VALORES: { sim: 2, parcial: 1, nao: 0, na: null },
@@ -207,15 +207,16 @@
      ENVIO DO LEAD — Google Apps Script (text/plain evita o preflight de CORS)
      ====================================================================== */
   function enviaLead(payload) {
-    if (!CONFIG.LEAD_ENDPOINT) {
+    const endpoint = CONFIG.LEAD_ENDPOINT || window.EVOLVE_LEAD_ENDPOINT || '';
+    if (!endpoint) {
       const fila = ler(CONFIG.STORAGE.pendentes, []);
       fila.push(payload);
       grava(CONFIG.STORAGE.pendentes, fila);
       console.warn('[Evolve] LEAD_ENDPOINT vazio: lead guardado em localStorage ("' + CONFIG.STORAGE.pendentes + '").', payload);
       return Promise.resolve();
     }
-    return fetch(CONFIG.LEAD_ENDPOINT, {
-      method: 'POST', mode: 'no-cors',
+    return fetch(endpoint, {
+      method: 'POST', mode: 'no-cors', keepalive: true,
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify(payload)
     }).catch((err) => {
@@ -237,6 +238,7 @@
     if (r.pct !== null && r.pct < CONFIG.ALERTA_ABAIXO_DE) alertas.push(`bloco abaixo de ${CONFIG.ALERTA_ABAIXO_DE}%`);
     const ig = indiceGeral(ler(CONFIG.STORAGE.resultados, {}));
     return {
+      tipo: 'diagnostico',
       data: new Date().toISOString(),
       bloco: b.nome,
       pagina: location.pathname.split('/').pop() || 'index.html',

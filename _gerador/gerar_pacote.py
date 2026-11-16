@@ -103,7 +103,7 @@ def rastrear():
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--dominio", help="endereço final, ex.: https://www.evolve.com.br")
-    ap.add_argument("--planilha", help="URL /exec do Apps Script (leads do diagnóstico)")
+    ap.add_argument("--planilha", help="URL /exec do Apps Script (leads do diagnóstico e do contato)")
     a = ap.parse_args()
 
     arquivos = rastrear()
@@ -131,8 +131,8 @@ def main():
                 editar(rel, lambda t: t.replace(BASE_ATUAL, nova))
 
     if a.planilha:
-        editar("assets/js/diagnostico.js",
-               lambda t: re.sub(r"LEAD_ENDPOINT: '[^']*'", f"LEAD_ENDPOINT: '{a.planilha}'", t, count=1))
+        editar("assets/js/app.js",
+               lambda t: re.sub(r"const LEAD_ENDPOINT = '[^']*'", f"const LEAD_ENDPOINT = '{a.planilha}'", t, count=1))
 
     io.open(os.path.join(SAIDA, ".htaccess"), "w", encoding="utf-8", newline="\n").write(HTACCESS)
 

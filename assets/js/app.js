@@ -9,6 +9,12 @@
 (() => {
   'use strict';
 
+  /* URL do Web App do Google Apps Script (termina em /exec) que grava os leads
+     na planilha "Leads Site Evolve": o formulário de contato e o diagnóstico
+     (diagnostico.js lê daqui). Vazio = nada é enviado à planilha. */
+  const LEAD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwNhu9s1TDXl8dp1XhuobRwiAL4wfw0M6bZ8w-YyTlGa_xWPONvAR7TGAkoQ2Fo475i/exec';
+  window.EVOLVE_LEAD_ENDPOINT = LEAD_ENDPOINT;
+
   const mqReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   let REDUCED = mqReduced.matches;
   const TOUCH   = window.matchMedia('(hover: none), (pointer: coarse)').matches;
@@ -811,6 +817,7 @@
         track('form_submit', { servico: dados.servico || '' });
 
         const frente = select ? select.options[select.selectedIndex].text : '';
+        enviaContato(dados, frente);
         const linhas = [
           WHATSAPP.msgFormulario,
           '',
@@ -847,6 +854,27 @@
     msgFormulario: 'Oi, respondi o formulário e gostaria de conhecer as soluções da Evolve para o meu problema.',
     msgBotao: 'Oi, vim pelo site e gostaria de conhecer as soluções da Evolve.'
   };
+  /* lead do formulário de contato para a planilha. Não bloqueia o WhatsApp:
+     text/plain evita o preflight de CORS e keepalive sobrevive à troca de aba */
+  function enviaContato(dados, frente) {
+    if (!LEAD_ENDPOINT) return;
+    const payload = {
+      tipo: 'contato',
+      nome: dados.nome || '',
+      empresa: dados.empresa || '',
+      email: dados.email || '',
+      telefone: dados.whatsapp || '',
+      frente: frente,
+      desafio: (dados.desafio || '').trim(),
+      pagina: location.pathname.split('/').pop() || 'index.html',
+      origem: location.href
+    };
+    fetch(LEAD_ENDPOINT, {
+      method: 'POST', mode: 'no-cors', keepalive: true,
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    }).catch((err) => console.warn('[Evolve] Falha ao enviar o contato para a planilha.', err));
+  }
   function linkWhatsApp(texto) {
     return `https://wa.me/${WHATSAPP.numero}?text=${encodeURIComponent(texto)}`;
   }
