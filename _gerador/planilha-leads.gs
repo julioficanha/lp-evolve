@@ -15,7 +15,7 @@
    Cada aba lista [chave do JSON, cabeçalho]; a ordem é a das colunas. Se a aba
    sumir, é recriada com o cabeçalho.
    ========================================================================== */
-const PLANILHA_ID = '1AglicI3PsdkCwVJVuztwFKluNVslmjpnb7biuDGZk7I';
+const PLANILHA_ID = '1UgY7J6mFr5wIBQotPCeLq6uXcMBfeFaCAd3OlO7G7A4';
 
 const ABAS = {
   diagnostico: {
